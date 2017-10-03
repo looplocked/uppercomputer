@@ -1,7 +1,11 @@
 #pragma once
+#ifndef UPPERCOMPUTER_H
+#define UPPERCOMPUTER_H
 
 #include <QtWidgets/QMainWindow>
+#include <QDebug>
 #include <QTimer>
+#include <QPixmap>
 #include "ui_uppercomputer.h"
 #include "cameradisplay.h"
 #include "OpenNI.h"  
@@ -23,8 +27,13 @@ public:
 
 private:
 	Ui::uppercomputerClass ui;
+	QTimer *timer;
 
 private slots:
-    //void initCam();
-	//void disCam();
+    void initCam();
+	void disCam();
 };
+
+
+
+#endif

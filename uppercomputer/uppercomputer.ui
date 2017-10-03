@@ -6,20 +6,37 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1128</width>
-    <height>640</height>
+    <width>1238</width>
+    <height>704</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>uppercomputer</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLabel" name="LabelCamera">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>110</y>
+      <width>711</width>
+      <height>411</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>camera</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1128</width>
+     <width>1238</width>
      <height>21</height>
     </rect>
    </property>

@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
@@ -25,25 +26,31 @@ QT_BEGIN_NAMESPACE
 class Ui_uppercomputerClass
 {
 public:
+    QWidget *centralWidget;
+    QLabel *LabelCamera;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
-    QWidget *centralWidget;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *uppercomputerClass)
     {
         if (uppercomputerClass->objectName().isEmpty())
             uppercomputerClass->setObjectName(QStringLiteral("uppercomputerClass"));
-        uppercomputerClass->resize(600, 400);
+        uppercomputerClass->resize(1238, 704);
+        centralWidget = new QWidget(uppercomputerClass);
+        centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        LabelCamera = new QLabel(centralWidget);
+        LabelCamera->setObjectName(QStringLiteral("LabelCamera"));
+        LabelCamera->setGeometry(QRect(270, 110, 711, 411));
+        LabelCamera->setAlignment(Qt::AlignCenter);
+        uppercomputerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(uppercomputerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 1238, 21));
         uppercomputerClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(uppercomputerClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        uppercomputerClass->addToolBar(mainToolBar);
-        centralWidget = new QWidget(uppercomputerClass);
-        centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        uppercomputerClass->setCentralWidget(centralWidget);
+        uppercomputerClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(uppercomputerClass);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         uppercomputerClass->setStatusBar(statusBar);
@@ -56,6 +63,7 @@ public:
     void retranslateUi(QMainWindow *uppercomputerClass)
     {
         uppercomputerClass->setWindowTitle(QApplication::translate("uppercomputerClass", "uppercomputer", Q_NULLPTR));
+        LabelCamera->setText(QApplication::translate("uppercomputerClass", "camera", Q_NULLPTR));
     } // retranslateUi
 
 };
