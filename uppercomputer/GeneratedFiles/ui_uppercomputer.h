@@ -17,6 +17,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -28,6 +29,8 @@ class Ui_uppercomputerClass
 public:
     QWidget *centralWidget;
     QLabel *LabelCamera;
+    QPushButton *opencam;
+    QPushButton *closecam;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -41,8 +44,14 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         LabelCamera = new QLabel(centralWidget);
         LabelCamera->setObjectName(QStringLiteral("LabelCamera"));
-        LabelCamera->setGeometry(QRect(270, 110, 711, 411));
+        LabelCamera->setGeometry(QRect(260, 110, 711, 411));
         LabelCamera->setAlignment(Qt::AlignCenter);
+        opencam = new QPushButton(centralWidget);
+        opencam->setObjectName(QStringLiteral("opencam"));
+        opencam->setGeometry(QRect(310, 30, 75, 23));
+        closecam = new QPushButton(centralWidget);
+        closecam->setObjectName(QStringLiteral("closecam"));
+        closecam->setGeometry(QRect(640, 30, 75, 23));
         uppercomputerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(uppercomputerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -64,6 +73,8 @@ public:
     {
         uppercomputerClass->setWindowTitle(QApplication::translate("uppercomputerClass", "uppercomputer", Q_NULLPTR));
         LabelCamera->setText(QApplication::translate("uppercomputerClass", "camera", Q_NULLPTR));
+        opencam->setText(QApplication::translate("uppercomputerClass", "OpenCam", Q_NULLPTR));
+        closecam->setText(QApplication::translate("uppercomputerClass", "closecam", Q_NULLPTR));
     } // retranslateUi
 
 };

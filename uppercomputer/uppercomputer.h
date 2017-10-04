@@ -28,10 +28,15 @@ public:
 private:
 	Ui::uppercomputerClass ui;
 	QTimer *timer;
+	Device deviceparam;
+	VideoStream oniColorStreamparam;
+	CameraDisplay cam;
 
-private slots:
-    void initCam();
-	void disCam();
+
+public slots:
+    void showImage();
+	void startTimer();
+	void closeCam();
 };
 
 
