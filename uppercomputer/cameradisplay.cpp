@@ -42,14 +42,14 @@ Mat CameraDisplay::getImage(VideoStream& oniColorStream)
 	//OpenNI2 image  
 	VideoFrameRef oniColorImg;
 	//OpenCV image  
-	cv::Mat cvBGRImg;
+	//cv::Mat cvBGRImg;
 	if (oniColorStream.readFrame(&oniColorImg) == STATUS_OK)
 	{
 		// convert data into OpenCV type  
 		cv::Mat cvRGBImg(oniColorImg.getHeight(), oniColorImg.getWidth(), CV_8UC3, (void*)oniColorImg.getData());    // 将openni图片转换为opencv图片
-		cv::cvtColor(cvRGBImg, cvBGRImg, CV_RGB2BGR);  // 将RGB转换为BGR
+		//cv::cvtColor(cvRGBImg, cvBGRImg, CV_RGB2BGR);  // 将RGB转换为BGR
 		//imshow("src", cvBGRImg);
-		return cvBGRImg;
+		return cvRGBImg;
 	}
 }
 
