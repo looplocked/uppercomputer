@@ -34,40 +34,40 @@ public:
     QWidget *centralWidget;
     QWidget *formLayoutWidget;
     QFormLayout *formLayout;
-    QLineEdit *lineEditPoseX;
+    QLineEdit *LineEditPoseX;
     QLabel *LabelPoseY;
-    QLineEdit *lineEditPoseY;
+    QLineEdit *LineEditPoseY;
     QLabel *LabelPoseZ;
-    QLineEdit *lineEditPoseZ;
+    QLineEdit *LineEditPoseZ;
     QLabel *LabelPoseRx;
-    QLineEdit *lineEditPoseRx;
+    QLineEdit *LineEditPoseRx;
     QLabel *LabelPoseRy;
-    QLineEdit *lineEditPoseRy;
+    QLineEdit *LineEditPoseRy;
     QLabel *LabelPoseRz;
-    QLineEdit *lineEditPoseRz;
+    QLineEdit *LineEditPoseRz;
     QLabel *LabelPoseX;
     QPushButton *ButtonDisplayPose;
     QPushButton *ButtonDisFeature;
     QWidget *formLayoutWidget_2;
     QFormLayout *formLayout_3;
     QLabel *LabelFeatureX;
-    QLineEdit *lineEditFeatureZ;
+    QLineEdit *LineEditFeatureX;
     QLabel *LabelFeatureY;
-    QLineEdit *lineEditFeatureY;
+    QLineEdit *LineEditFeatureY;
     QLabel *LabelFeatureArea;
-    QLineEdit *lineEditFeatureArea;
+    QLineEdit *LineEditFeatureArea;
     QLabel *LabelFeatureAngle;
-    QLineEdit *lineEditFeatureAngle;
+    QLineEdit *LineEditFeatureAngle;
     QPushButton *ButtonTrack;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
     QLabel *label_3;
-    QWidget *widget1;
+    QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_2;
     QLabel *LabelCamera;
     QLabel *LabelFeature;
-    QWidget *widget2;
+    QWidget *layoutWidget2;
     QVBoxLayout *verticalLayout;
     QPushButton *ButtonOpenCam;
     QPushButton *ButtonCloseCam;
@@ -95,60 +95,60 @@ public:
         formLayout->setHorizontalSpacing(6);
         formLayout->setVerticalSpacing(20);
         formLayout->setContentsMargins(0, 0, 0, 0);
-        lineEditPoseX = new QLineEdit(formLayoutWidget);
-        lineEditPoseX->setObjectName(QStringLiteral("lineEditPoseX"));
+        LineEditPoseX = new QLineEdit(formLayoutWidget);
+        LineEditPoseX->setObjectName(QStringLiteral("LineEditPoseX"));
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, lineEditPoseX);
+        formLayout->setWidget(0, QFormLayout::FieldRole, LineEditPoseX);
 
         LabelPoseY = new QLabel(formLayoutWidget);
         LabelPoseY->setObjectName(QStringLiteral("LabelPoseY"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, LabelPoseY);
 
-        lineEditPoseY = new QLineEdit(formLayoutWidget);
-        lineEditPoseY->setObjectName(QStringLiteral("lineEditPoseY"));
+        LineEditPoseY = new QLineEdit(formLayoutWidget);
+        LineEditPoseY->setObjectName(QStringLiteral("LineEditPoseY"));
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, lineEditPoseY);
+        formLayout->setWidget(1, QFormLayout::FieldRole, LineEditPoseY);
 
         LabelPoseZ = new QLabel(formLayoutWidget);
         LabelPoseZ->setObjectName(QStringLiteral("LabelPoseZ"));
 
         formLayout->setWidget(2, QFormLayout::LabelRole, LabelPoseZ);
 
-        lineEditPoseZ = new QLineEdit(formLayoutWidget);
-        lineEditPoseZ->setObjectName(QStringLiteral("lineEditPoseZ"));
+        LineEditPoseZ = new QLineEdit(formLayoutWidget);
+        LineEditPoseZ->setObjectName(QStringLiteral("LineEditPoseZ"));
 
-        formLayout->setWidget(2, QFormLayout::FieldRole, lineEditPoseZ);
+        formLayout->setWidget(2, QFormLayout::FieldRole, LineEditPoseZ);
 
         LabelPoseRx = new QLabel(formLayoutWidget);
         LabelPoseRx->setObjectName(QStringLiteral("LabelPoseRx"));
 
         formLayout->setWidget(3, QFormLayout::LabelRole, LabelPoseRx);
 
-        lineEditPoseRx = new QLineEdit(formLayoutWidget);
-        lineEditPoseRx->setObjectName(QStringLiteral("lineEditPoseRx"));
+        LineEditPoseRx = new QLineEdit(formLayoutWidget);
+        LineEditPoseRx->setObjectName(QStringLiteral("LineEditPoseRx"));
 
-        formLayout->setWidget(3, QFormLayout::FieldRole, lineEditPoseRx);
+        formLayout->setWidget(3, QFormLayout::FieldRole, LineEditPoseRx);
 
         LabelPoseRy = new QLabel(formLayoutWidget);
         LabelPoseRy->setObjectName(QStringLiteral("LabelPoseRy"));
 
         formLayout->setWidget(4, QFormLayout::LabelRole, LabelPoseRy);
 
-        lineEditPoseRy = new QLineEdit(formLayoutWidget);
-        lineEditPoseRy->setObjectName(QStringLiteral("lineEditPoseRy"));
+        LineEditPoseRy = new QLineEdit(formLayoutWidget);
+        LineEditPoseRy->setObjectName(QStringLiteral("LineEditPoseRy"));
 
-        formLayout->setWidget(4, QFormLayout::FieldRole, lineEditPoseRy);
+        formLayout->setWidget(4, QFormLayout::FieldRole, LineEditPoseRy);
 
         LabelPoseRz = new QLabel(formLayoutWidget);
         LabelPoseRz->setObjectName(QStringLiteral("LabelPoseRz"));
 
         formLayout->setWidget(5, QFormLayout::LabelRole, LabelPoseRz);
 
-        lineEditPoseRz = new QLineEdit(formLayoutWidget);
-        lineEditPoseRz->setObjectName(QStringLiteral("lineEditPoseRz"));
+        LineEditPoseRz = new QLineEdit(formLayoutWidget);
+        LineEditPoseRz->setObjectName(QStringLiteral("LineEditPoseRz"));
 
-        formLayout->setWidget(5, QFormLayout::FieldRole, lineEditPoseRz);
+        formLayout->setWidget(5, QFormLayout::FieldRole, LineEditPoseRz);
 
         LabelPoseX = new QLabel(formLayoutWidget);
         LabelPoseX->setObjectName(QStringLiteral("LabelPoseX"));
@@ -177,40 +177,40 @@ public:
 
         formLayout_3->setWidget(0, QFormLayout::LabelRole, LabelFeatureX);
 
-        lineEditFeatureZ = new QLineEdit(formLayoutWidget_2);
-        lineEditFeatureZ->setObjectName(QStringLiteral("lineEditFeatureZ"));
+        LineEditFeatureX = new QLineEdit(formLayoutWidget_2);
+        LineEditFeatureX->setObjectName(QStringLiteral("LineEditFeatureX"));
 
-        formLayout_3->setWidget(0, QFormLayout::FieldRole, lineEditFeatureZ);
+        formLayout_3->setWidget(0, QFormLayout::FieldRole, LineEditFeatureX);
 
         LabelFeatureY = new QLabel(formLayoutWidget_2);
         LabelFeatureY->setObjectName(QStringLiteral("LabelFeatureY"));
 
         formLayout_3->setWidget(1, QFormLayout::LabelRole, LabelFeatureY);
 
-        lineEditFeatureY = new QLineEdit(formLayoutWidget_2);
-        lineEditFeatureY->setObjectName(QStringLiteral("lineEditFeatureY"));
+        LineEditFeatureY = new QLineEdit(formLayoutWidget_2);
+        LineEditFeatureY->setObjectName(QStringLiteral("LineEditFeatureY"));
 
-        formLayout_3->setWidget(1, QFormLayout::FieldRole, lineEditFeatureY);
+        formLayout_3->setWidget(1, QFormLayout::FieldRole, LineEditFeatureY);
 
         LabelFeatureArea = new QLabel(formLayoutWidget_2);
         LabelFeatureArea->setObjectName(QStringLiteral("LabelFeatureArea"));
 
         formLayout_3->setWidget(2, QFormLayout::LabelRole, LabelFeatureArea);
 
-        lineEditFeatureArea = new QLineEdit(formLayoutWidget_2);
-        lineEditFeatureArea->setObjectName(QStringLiteral("lineEditFeatureArea"));
+        LineEditFeatureArea = new QLineEdit(formLayoutWidget_2);
+        LineEditFeatureArea->setObjectName(QStringLiteral("LineEditFeatureArea"));
 
-        formLayout_3->setWidget(2, QFormLayout::FieldRole, lineEditFeatureArea);
+        formLayout_3->setWidget(2, QFormLayout::FieldRole, LineEditFeatureArea);
 
         LabelFeatureAngle = new QLabel(formLayoutWidget_2);
         LabelFeatureAngle->setObjectName(QStringLiteral("LabelFeatureAngle"));
 
         formLayout_3->setWidget(3, QFormLayout::LabelRole, LabelFeatureAngle);
 
-        lineEditFeatureAngle = new QLineEdit(formLayoutWidget_2);
-        lineEditFeatureAngle->setObjectName(QStringLiteral("lineEditFeatureAngle"));
+        LineEditFeatureAngle = new QLineEdit(formLayoutWidget_2);
+        LineEditFeatureAngle->setObjectName(QStringLiteral("LineEditFeatureAngle"));
 
-        formLayout_3->setWidget(3, QFormLayout::FieldRole, lineEditFeatureAngle);
+        formLayout_3->setWidget(3, QFormLayout::FieldRole, LineEditFeatureAngle);
 
         ButtonTrack = new QPushButton(centralWidget);
         ButtonTrack->setObjectName(QStringLiteral("ButtonTrack"));
@@ -218,16 +218,16 @@ public:
         QFont font;
         font.setPointSize(20);
         ButtonTrack->setFont(font);
-        widget = new QWidget(centralWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(430, 10, 721, 20));
-        horizontalLayout = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(centralWidget);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(430, 10, 721, 20));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QStringLiteral("label"));
         QFont font1;
         font1.setPointSize(11);
@@ -236,47 +236,47 @@ public:
 
         horizontalLayout->addWidget(label);
 
-        label_3 = new QLabel(widget);
+        label_3 = new QLabel(layoutWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setFont(font1);
         label_3->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(label_3);
 
-        widget1 = new QWidget(centralWidget);
-        widget1->setObjectName(QStringLiteral("widget1"));
-        widget1->setGeometry(QRect(430, 50, 721, 231));
-        horizontalLayout_2 = new QHBoxLayout(widget1);
+        layoutWidget1 = new QWidget(centralWidget);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(430, 50, 721, 231));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        LabelCamera = new QLabel(widget1);
+        LabelCamera = new QLabel(layoutWidget1);
         LabelCamera->setObjectName(QStringLiteral("LabelCamera"));
         LabelCamera->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(LabelCamera);
 
-        LabelFeature = new QLabel(widget1);
+        LabelFeature = new QLabel(layoutWidget1);
         LabelFeature->setObjectName(QStringLiteral("LabelFeature"));
         LabelFeature->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(LabelFeature);
 
-        widget2 = new QWidget(centralWidget);
-        widget2->setObjectName(QStringLiteral("widget2"));
-        widget2->setGeometry(QRect(140, 80, 77, 148));
-        verticalLayout = new QVBoxLayout(widget2);
+        layoutWidget2 = new QWidget(centralWidget);
+        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(140, 80, 77, 148));
+        verticalLayout = new QVBoxLayout(layoutWidget2);
         verticalLayout->setSpacing(100);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        ButtonOpenCam = new QPushButton(widget2);
+        ButtonOpenCam = new QPushButton(layoutWidget2);
         ButtonOpenCam->setObjectName(QStringLiteral("ButtonOpenCam"));
 
         verticalLayout->addWidget(ButtonOpenCam);
 
-        ButtonCloseCam = new QPushButton(widget2);
+        ButtonCloseCam = new QPushButton(layoutWidget2);
         ButtonCloseCam->setObjectName(QStringLiteral("ButtonCloseCam"));
 
         verticalLayout->addWidget(ButtonCloseCam);

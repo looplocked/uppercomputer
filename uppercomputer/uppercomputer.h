@@ -37,6 +37,7 @@ public slots:
     void showImage();
 	void startTimer();
 	void closeCam();
+	void disFeature();
 };
 
 
