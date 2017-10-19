@@ -28,15 +28,15 @@ using namespace std;
 using namespace cv;
 using namespace openni;
 
-extern Mat g_originimg, g_featureimg;
-extern Device g_deviceparam;
-extern VideoStream g_oniColorStreamparam;
-extern double g_posex, g_posey, g_posez, g_poserx, g_posery, g_poserz;
-extern double g_featurex, g_featurey, g_featurearea, g_featureang;
-extern CameraDisplay g_cam;
-extern QReadWriteLock g_imagelock;
-extern QReadWriteLock g_poselock;
-extern QReadWriteLock g_featurelock;
+//extern Mat g_originimg, g_featureimg;
+//extern Device g_deviceparam;
+//extern VideoStream g_oniColorStreamparam;
+//extern double g_posex, g_posey, g_posez, g_poserx, g_posery, g_poserz;
+//extern double g_featurex, g_featurey, g_featurearea, g_featureang;
+//extern CameraDisplay g_cam;
+//extern QReadWriteLock g_imagelock;
+//extern QReadWriteLock g_poselock;
+//extern QReadWriteLock g_featurelock;
 
 class FeatureThread;
 class CameraThread;

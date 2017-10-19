@@ -1,16 +1,16 @@
 #include "uppercomputer.h"
 
 
-Mat g_originimg;
-Mat g_featureimg;
-Device g_deviceparam;
-VideoStream g_oniColorStreamparam;
-double g_posex=0, g_posey=0, g_posez=0, g_poserx=0, g_posery=0, g_poserz=0;
-double g_featurex=0, g_featurey=0, g_featurearea=0, g_featureang=0;
-CameraDisplay g_cam;
-QReadWriteLock g_imagelock;
-QReadWriteLock g_poselock;
-QReadWriteLock g_featurelock;
+//Mat g_originimg;
+//Mat g_featureimg;
+//Device g_deviceparam;
+//VideoStream g_oniColorStreamparam;
+//double g_posex=0, g_posey=0, g_posez=0, g_poserx=0, g_posery=0, g_poserz=0;
+//double g_featurex=0, g_featurey=0, g_featurearea=0, g_featureang=0;
+//CameraDisplay g_cam;
+//QReadWriteLock g_imagelock;
+//QReadWriteLock g_poselock;
+//QReadWriteLock g_featurelock;
 
 uppercomputer::uppercomputer(QWidget *parent)
 	: QMainWindow(parent)

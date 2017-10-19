@@ -6,10 +6,10 @@
 #include "uppercomputer.h"
 
 
-extern double g_featurex, g_featurey, g_featurearea, g_featureang;
-extern Mat g_featureimg;
-extern QReadWriteLock g_imagelock;
-extern QReadWriteLock g_featurelock;
+//extern double g_featurex, g_featurey, g_featurearea, g_featureang;
+//extern Mat g_featureimg;
+//extern QReadWriteLock g_imagelock;
+//extern QReadWriteLock g_featurelock;
 
 
 class FeatureThread : public QThread

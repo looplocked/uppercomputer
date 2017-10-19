@@ -4,27 +4,49 @@
 CameraThread::CameraThread(QObject * parent) : 
 	QThread(parent)
 {
-	stopped = false;
+	restart = false;
+	abort = false;
+}
+
+CameraThread::~CameraThread()
+{
+	imagelock.lockForWrite();
+	abort = true;
+	imagelock.unlock();
+
+	wait();
 }
 
 void CameraThread::run()
 {
-	g_imagelock.lockForWrite();
+	forever{
 
-	Mat temp;
+	Mat originimg, temp, featureimg;
 	//QImage originimage, featureimage;
 
-	g_originimg = g_cam.getImage(g_oniColorStreamparam);
-	cv::cvtColor(g_originimg, temp, COLOR_RGB2GRAY);
+	if (restart)
+		break;
+	if (abort)
+		return;
+
+	originimg = cam.getImage(stream);
+	cv::cvtColor(originimg, temp, COLOR_RGB2GRAY);
 	threshold(temp, temp, 130, 255, 3);
-	medianBlur(temp, g_featureimg, 7);
-
-	g_imagelock.unlock();
-
-	stopped = false;
+	medianBlur(temp, featureimg, 7);
+	
+	if (restart)
+		emit gotAImage(originimg, featureimg);
+	
+	imagelock.lockForRead();
+	if (!restart)
+		condition.wait(&imagelock);
+	restart = false;
+	imagelock.unlock();
+	}
 }
 
-void CameraThread::stop()
+void CameraThread::transParams(CameraDisplay &camparam, VideoStream &streamparam)
 {
-	stopped = true;
+	cam = camparam;
+	stream = streamparam;
 }

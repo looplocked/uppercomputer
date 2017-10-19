@@ -3,27 +3,46 @@
 #define CAMERATHREAD_H
 
 #include <QThread>
-#include "cameradisplay.h"
-#include "uppercomputer.h"
+#include <QtCore>
+#include <QReadWriteLock>
+#include <QWaitCondition>
 
-extern Mat g_originimg, g_featureimg;
-extern CameraDisplay g_cam;
+
+#include "cameradisplay.h"
+
+
+//extern Mat g_originimg, g_featureimg;
+//extern CameraDisplay g_cam;
 //extern Device g_deviceparam;
-extern VideoStream g_oniColorStreamparam;
-extern QReadWriteLock g_imagelock;
+//extern VideoStream g_oniColorStreamparam;
+//extern QReadWriteLock g_imagelock;
 
 class CameraThread : public QThread
 {
 	Q_OBJECT
 public:
-	explicit CameraThread(QObject * parent = 0);
-	void stop();
+	CameraThread(QObject * parent = 0);
+	~CameraThread();
+
+	void transParams(CameraDisplay &camparam, VideoStream &streamparam);
+
+signals:
+	void gotAImage(Mat originimg, Mat featureimg);
 
 protected:
 	void run();
 
 private:
-	volatile bool stopped;
+	bool restart;
+	bool abort;
+	QReadWriteLock imagelock;
+	QWaitCondition condition;
+	CameraDisplay cam;
+	Device device;
+	VideoStream stream;
+
+private slots:
+	void getImage();
 };
 
 
