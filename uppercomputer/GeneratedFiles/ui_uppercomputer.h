@@ -71,6 +71,7 @@ public:
     QVBoxLayout *verticalLayout;
     QPushButton *ButtonOpenCam;
     QPushButton *ButtonCloseCam;
+    QPushButton *ButtonCloseFeature;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -282,6 +283,9 @@ public:
 
         verticalLayout->addWidget(ButtonCloseCam);
 
+        ButtonCloseFeature = new QPushButton(centralWidget);
+        ButtonCloseFeature->setObjectName(QStringLiteral("ButtonCloseFeature"));
+        ButtonCloseFeature->setGeometry(QRect(440, 380, 75, 23));
         uppercomputerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(uppercomputerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -321,6 +325,7 @@ public:
         LabelFeature->setText(QApplication::translate("uppercomputerClass", "binary", Q_NULLPTR));
         ButtonOpenCam->setText(QApplication::translate("uppercomputerClass", "OpenCam", Q_NULLPTR));
         ButtonCloseCam->setText(QApplication::translate("uppercomputerClass", "closecam", Q_NULLPTR));
+        ButtonCloseFeature->setText(QApplication::translate("uppercomputerClass", "CloseFeature", Q_NULLPTR));
     } // retranslateUi
 
 };

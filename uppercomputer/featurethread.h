@@ -3,28 +3,40 @@
 #define FEATURETHREAD_H
 
 #include <QThread>
-#include "uppercomputer.h"
+#include <QtCore>
+#include <QReadWriteLock>
+#include <QWaitCondition>
 
+#include "cameradisplay.h"
 
-//extern double g_featurex, g_featurey, g_featurearea, g_featureang;
-//extern Mat g_featureimg;
-//extern QReadWriteLock g_imagelock;
-//extern QReadWriteLock g_featurelock;
 
 
 class FeatureThread : public QThread
 {
 	Q_OBJECT
-
 public:
-	explicit FeatureThread(QObject * parent = 0);
-	void stop();
+	FeatureThread(QObject * parent = 0);
+	~FeatureThread();
+
+	void transParams();
+
+signals:
+	void gotAFeature(double featureX, double featureY, double featurearea, double featureang);
 
 protected:
 	void run();
 
 private:
-	volatile bool stopped;
+	bool restart;
+	bool abort;
+	QReadWriteLock featurelock;
+	QWaitCondition condition;
+	CameraDisplay cam;
+	Device device;
+	VideoStream stream;
+
+private slots:
+	void getFeature();
 };
 
 #endif // !FEATURETHREAD_H

@@ -1,80 +1,76 @@
 #include "uppercomputer.h"
 
 
-//Mat g_originimg;
-//Mat g_featureimg;
-//Device g_deviceparam;
-//VideoStream g_oniColorStreamparam;
-//double g_posex=0, g_posey=0, g_posez=0, g_poserx=0, g_posery=0, g_poserz=0;
-//double g_featurex=0, g_featurey=0, g_featurearea=0, g_featureang=0;
-//CameraDisplay g_cam;
-//QReadWriteLock g_imagelock;
-//QReadWriteLock g_poselock;
-//QReadWriteLock g_featurelock;
 
 uppercomputer::uppercomputer(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
 
-	timer = new QTimer(this);
-	server = new QTcpServer(this);
+	imagetimer = new QTimer(this);
+	featuretimer = new QTimer(this);
+	//server = new QTcpServer(this);
 	camera = new CameraThread();
 	feature = new FeatureThread();
 
+	//qRegisterMetaType<Mat>("Mat");
 
-	connect(timer, SIGNAL(timeout()), camera, SLOT(camera->start()));
-	connect(camera, SIGNAL(camera->isFinished()), this, SLOT(&uppercomputer::showImage()));
-	connect(ui.ButtonOpenCam, SIGNAL(clicked()), this, SLOT(startTimer()));
+
+	connect(imagetimer, SIGNAL(timeout()), camera, SLOT(getImage()));
+	connect(camera, SIGNAL(gotAImage(Mat, Mat)), this, SLOT(showImage(Mat, Mat)), Qt::BlockingQueuedConnection);
+	connect(ui.ButtonOpenCam, SIGNAL(clicked()), this, SLOT(startImageTimer()));
 	connect(ui.ButtonCloseCam, SIGNAL(clicked()), this, SLOT(closeCam()));
-	connect(ui.ButtonCloseCam, SIGNAL(clicked()), camera, SLOT(camera->stop()));
+	//connect(ui.ButtonCloseCam, SIGNAL(clicked()), camera, SLOT(camera->stop()));
 
-	//connect(timer, SIGNAL(timeout()), feature, SLOT(feature->start()));
-	//connect(timer, SIGNAL(timeout()), this, SLOT(disFeature()));
+	connect(featuretimer, SIGNAL(timeout()), feature, SLOT(getFeature()));
+	connect(feature, SIGNAL(gotAFeature(double, double, double, double)), this, SLOT(disFeature(double, double, double, double)), Qt::QueuedConnection);
+	connect(ui.ButtonDisFeature, SIGNAL(clicked()), this, SLOT(startFeatureTimer()));
+	connect(ui.ButtonCloseFeature, SIGNAL(clicked()), this, SLOT(closeFeature()));
 	
-	connect(server, &QTcpServer::newConnection, this, &uppercomputer::serverNewConnect);
-	connect(ui.ButtonDisplayPose, SIGNAL(clicked()), this, SLOT(disPose()));
+	//connect(server, &QTcpServer::newConnection, this, &uppercomputer::serverNewConnect);
+	//connect(ui.ButtonDisplayPose, SIGNAL(clicked()), this, SLOT(disPose()));
 }
 
- void uppercomputer::showImage()
+ void uppercomputer::showImage(Mat originimg, Mat featureimg)
 {
-	QImage originimg, featureimg;
+	QImage qoriginimg, qfeatureimg;
 
 
-	g_imagelock.lockForRead();
-	originimg = QImage((const uchar*)(g_originimg.data), g_originimg.cols, g_originimg.rows, g_originimg.cols*g_originimg.channels(), QImage::Format_RGB888);
-	featureimg = QImage((const uchar*)(g_featureimg.data), g_featureimg.cols, g_featureimg.rows, g_featureimg.cols*g_featureimg.channels(), QImage::Format_Indexed8);
-	g_imagelock.unlock();
+	qoriginimg = QImage((const uchar*)(originimg.data), originimg.cols, originimg.rows, originimg.cols*originimg.channels(), QImage::Format_RGB888);
+	qfeatureimg = QImage((const uchar*)(featureimg.data), featureimg.cols, featureimg.rows, featureimg.cols*featureimg.channels(), QImage::Format_Indexed8);
 
 	ui.LabelCamera->clear();
 	ui.LabelFeature->clear();
-	ui.LabelCamera->setPixmap(QPixmap::fromImage(originimg));
-	ui.LabelFeature->setPixmap(QPixmap::fromImage(featureimg));
-	//ui.LabelCamera->resize(ui.LabelCamera->pixmap()->size());
-	//ui.LabelFeature->resize(ui.LabelFeature->pixmap()->size());
+	ui.LabelCamera->setPixmap(QPixmap::fromImage(qoriginimg));
+	ui.LabelFeature->setPixmap(QPixmap::fromImage(qfeatureimg));
 	ui.LabelCamera->show();
 	ui.LabelFeature->show();
 }
 
- void uppercomputer::startTimer()
+ void uppercomputer::startImageTimer()
  {
-	 g_cam.initialize(g_deviceparam, g_oniColorStreamparam);
-	 timer->start(33);
+	 imagetimer->start(50);
+ }
+
+ void uppercomputer::startFeatureTimer()
+ {
+	 featuretimer->start(50);
  }
 
  void uppercomputer::closeCam()
  {
-	 timer->stop();
+	 imagetimer->stop();
 	 ui.LabelCamera->clear();
+	 ui.LabelFeature->clear();
  }
 
- void uppercomputer::disFeature()
+ void uppercomputer::disFeature(double featurex, double featurey, double featurearea, double featureang)
  {
 
-	 QString x = QString("%1").arg(g_featurex);
-	 QString y = QString("%1").arg(g_featurey);
-	 QString area = QString("%1").arg(g_featurearea);
-	 QString ang = QString("%1").arg(g_featureang);
+	 QString x = QString("%1").arg(featurex);
+	 QString y = QString("%1").arg(featurey);
+	 QString area = QString("%1").arg(featurearea);
+	 QString ang = QString("%1").arg(featureang);
 
 	 //ÏÔÊ¾ÌØÕ÷Öµ
 	 ui.LineEditFeatureX->clear();
@@ -87,61 +83,70 @@ uppercomputer::uppercomputer(QWidget *parent)
 	 ui.LineEditFeatureAngle->setText(ang);
  }
 
- void uppercomputer::disPose()
+ void uppercomputer::closeFeature()
  {
-	 if (ui.ButtonDisplayPose->text() == tr("DisplayPose"))
-	 {
-		 int port = 8000;
-		 if (!server->listen(QHostAddress::Any, port))
-		 {
-			 qDebug() << server->errorString();
-			 return;
-		 }
-		 ui.ButtonDisplayPose->setText("CancelDisplay");
-		 qDebug() << "Listen successfully!";
-	 }
-	 else
-	 {
-		 if (socket->state() == QAbstractSocket::ConnectedState)
-		 {
-			 socket->disconnectFromHost();
-		 }
-		 server->close();
-	 }
+	 featuretimer->stop();
+	 ui.LineEditFeatureX->clear();
+	 ui.LineEditFeatureY->clear();
+	 ui.LineEditFeatureArea->clear();
+	 ui.LineEditFeatureAngle->clear();
  }
 
- void uppercomputer::serverNewConnect()
- {
-	 socket = server->nextPendingConnection();
-	 connect(socket, &QTcpSocket::readyRead, this, &uppercomputer::socketReadData);
-	 connect(socket, &QTcpSocket::disconnected, this, &uppercomputer::socketDisconnected);
-	 qDebug() << "A Client connect!";
- }
+ //void uppercomputer::disPose()
+ //{
+//	 if (ui.ButtonDisplayPose->text() == tr("DisplayPose"))
+//	 {
+//		 int port = 8000;
+//		 if (!server->listen(QHostAddress::Any, port))
+//		 {
+//			 qDebug() << server->errorString();
+//			 return;
+//		 }
+//		 ui.ButtonDisplayPose->setText("CancelDisplay");
+//		 qDebug() << "Listen successfully!";
+//	 }
+//	 else
+//	 {
+//		 if (socket->state() == QAbstractSocket::ConnectedState)
+//		 {
+//			 socket->disconnectFromHost();
+//		 }
+//		 server->close();
+//	 }
+// }
 
- void uppercomputer::socketReadData()
- {
-	 QByteArray buffer;
-	 buffer = socket->readAll();
-	 if (!buffer.isEmpty())
-	 {
-		 QString pose;
-		 pose = tr(buffer);
-		 ui.LineEditPoseX->clear();
-		 ui.LineEditPoseX->setText(pose);
-		 ui.LineEditPoseY->clear();
-		 ui.LineEditPoseY->setText(pose);
-		 ui.LineEditPoseZ->clear();
-		 ui.LineEditPoseZ->setText(pose);
-		 ui.LineEditPoseRx->clear();
-		 ui.LineEditPoseRx->setText(pose);
-		 ui.LineEditPoseRy->clear();
-		 ui.LineEditPoseRy->setText(pose);
-		 ui.LineEditPoseRz->clear();
-		 ui.LineEditPoseRz->setText(pose);
-	 }
- }
+ //void uppercomputer::serverNewConnect()
+//{
+//	 socket = server->nextPendingConnection();
+//	 connect(socket, &QTcpSocket::readyRead, this, &uppercomputer::socketReadData);
+//	 connect(socket, &QTcpSocket::disconnected, this, &uppercomputer::socketDisconnected);
+//	 qDebug() << "A Client connect!";
+ //}
 
- void uppercomputer::socketDisconnected()
- {
-	 qDebug() << "Disconnected!";
- }
+ //void uppercomputer::socketReadData()
+ //{
+//	 QByteArray buffer;
+//	 buffer = socket->readAll();
+//	 if (!buffer.isEmpty())
+//	 {
+//		 QString pose;
+//		 pose = tr(buffer);
+//		 ui.LineEditPoseX->clear();
+//		 ui.LineEditPoseX->setText(pose);
+//		 ui.LineEditPoseY->clear();
+//		 ui.LineEditPoseY->setText(pose);
+//		 ui.LineEditPoseZ->clear();
+//		 ui.LineEditPoseZ->setText(pose);
+//		 ui.LineEditPoseRx->clear();
+//		 ui.LineEditPoseRx->setText(pose);
+//		 ui.LineEditPoseRy->clear();
+//		 ui.LineEditPoseRy->setText(pose);
+//		 ui.LineEditPoseRz->clear();
+//		 ui.LineEditPoseRz->setText(pose);
+//	 }
+ //}
+
+ //void uppercomputer::socketDisconnected()
+// {
+//	 qDebug() << "Disconnected!";
+ //}

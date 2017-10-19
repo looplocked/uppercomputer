@@ -11,12 +11,6 @@
 #include "cameradisplay.h"
 
 
-//extern Mat g_originimg, g_featureimg;
-//extern CameraDisplay g_cam;
-//extern Device g_deviceparam;
-//extern VideoStream g_oniColorStreamparam;
-//extern QReadWriteLock g_imagelock;
-
 class CameraThread : public QThread
 {
 	Q_OBJECT
@@ -24,7 +18,7 @@ public:
 	CameraThread(QObject * parent = 0);
 	~CameraThread();
 
-	void transParams(CameraDisplay &camparam, VideoStream &streamparam);
+	void transParams();
 
 signals:
 	void gotAImage(Mat originimg, Mat featureimg);
