@@ -50,7 +50,7 @@ private:
 	QTimer *movetimer;
 
 	QTcpSocket *socket;
-	//QTcpServer *server;
+	QTcpServer *server;
 	QTcpSocket *movesocket;
 	
 	vector<double> posevector;
@@ -65,9 +65,11 @@ public slots:
 	void startPoseTimer();
 	void readyToRead();
 	void socketReadData();
-
+	
+	void serverNewConnect();
 	void startMoveTimer();
 	void jointMove();
+	void moveSocketDisconnected();
 };
 
 

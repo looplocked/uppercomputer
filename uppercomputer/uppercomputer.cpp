@@ -21,8 +21,8 @@ uppercomputer::uppercomputer(QWidget *parent)
 	feature = { 0, 0, 0, 0 };
 
 	socket = new QTcpSocket(this);
-	//server = new QTcpServer(this);
-	movesocket = new QTcpSocket(this);
+	server = new QTcpServer(this);
+	//movesocket = new QTcpSocket(this);
 
 	camera->initialize(*device, *onistream);
 
@@ -33,6 +33,7 @@ uppercomputer::uppercomputer(QWidget *parent)
 	connect(ui.ButtonDisplayPose, SIGNAL(clicked()), this, SLOT(startPoseTimer()));
 	connect(posetimer, SIGNAL(timeout()), this, SLOT(readyToRead()));
 
+	connect(server, SIGNAL(newConnection()), this, SLOT(serverNewConnect()));
 	connect(ui.ButtonMove, SIGNAL(clicked()), this, SLOT(startMoveTimer()));
 	connect(movetimer, SIGNAL(timeout()), this, SLOT(jointMove()));
 }
@@ -213,30 +214,39 @@ void uppercomputer::startCameraTimer()
 	 ui.LineEditPoseR5->setText(QString("%1").arg(posevector[5]));
  }
 
+
  void uppercomputer::startMoveTimer()
  {
 	 if (ui.ButtonMove->text() == tr("Move"))
-	 {
-		 QString IP = "88.88.88.89";
-		 int port = 30003;
-		 movesocket->abort();
-		 movesocket->connectToHost(IP, port);
-		 movetimer->start(64);
-		 if (!socket->waitForConnected(30000))
-		 {
-			 qDebug() << "Connection failed!";
+	 { 
+		 int port = 8000;
+		 if (!server->listen(QHostAddress::Any, port))
+		 { 
+			 ui.TextEditDebug->appendPlainText(server->errorString());
 			 return;
 		 }
-		 qDebug() << "Connect successfully!";
-
-		 ui.ButtonDisplayPose->setText("Stop");
+		 ui.ButtonMove->setText("Stop");
 	 }
 	 else
 	 {
-		 socket->disconnectFromHost();
+		 if (socket->state() == QAbstractSocket::ConnectedState)
+		 {
+			 socket->disconnectFromHost();
+		 }
+		 server->close();
 		 movetimer->stop();
-		 ui.ButtonDisplayPose->setText("Move");
+		 ui.ButtonMove->setText("Move");
+		 ui.TextEditDebug->clear();
 	 }
+ }
+
+ void uppercomputer::serverNewConnect()
+ {
+	 //获取客户端连接  
+	 QObject::connect(movesocket, SIGNAL(disconnected()), this, SLOT(moveSocketDisconnected()));
+	 movesocket = server->nextPendingConnection();
+	 movetimer->start(1000);
+	 ui.TextEditDebug->appendPlainText("A client connected!");
  }
 
  void uppercomputer::jointMove()
@@ -244,19 +254,24 @@ void uppercomputer::startCameraTimer()
 	 if (forward)
 	 {
 		 QString point1 = "(0.34589434, -1.3986734, -1.6721929, -1.6171411, 1.6021913, -0.9644435)\n";
-		 ui.TextEditDebug->clear();
-		 ui.TextEditDebug->setPlainText("move to " + point1);
+		 //ui.TextEditDebug->clear();
+		 ui.TextEditDebug->appendPlainText("move to " + point1);
 		 movesocket->write(point1.toLatin1());
 		 forward = false;
 	 }
 	 else
 	 {
 		 QString point2 = "(-0.0030091444, -1.460965, -1.6166013, -1.6240424, 1.6082605, -1.3136138)\n";
-		 ui.TextEditDebug->clear();
-		 ui.TextEditDebug->setPlainText("move to " + point2);
+		 //ui.TextEditDebug->clear();
+		 ui.TextEditDebug->appendPlainText("move to " + point2);
 		 movesocket->write(point2.toLatin1());
 		 forward = true;
 	 }
+ }
+
+ void uppercomputer::moveSocketDisconnected()
+ {
+	 movetimer->stop();
  }
 
  uppercomputer::~uppercomputer()
@@ -270,5 +285,5 @@ void uppercomputer::startCameraTimer()
 	 delete onistream;
 	 delete movetimer;
 	 delete movesocket;
-	 //delete server;
+	 delete server;
  }
