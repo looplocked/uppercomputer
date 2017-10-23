@@ -50,10 +50,15 @@ private:
 
 	QTimer *cameratimer;
 	QTimer *posetimer;
+	QTimer *movetimer;
+
 	QTcpSocket *socket;
+	QTcpSocket *movesocket;
 	
 	vector<double> posevector;
 	vector<double> feature;
+
+	bool forward;
 	
 public slots:
     void startCameraTimer();
@@ -62,6 +67,9 @@ public slots:
 	void startPoseTimer();
 	void readyToRead();
 	void socketReadData();
+
+	void startMoveTimer();
+	void jointMove();
 };
 
 

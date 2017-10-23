@@ -7,8 +7,11 @@ uppercomputer::uppercomputer(QWidget *parent)
 {
 	ui.setupUi(this);
 
+	forward = true;
+
 	cameratimer = new QTimer(this);
 	posetimer = new QTimer(this);
+	movetimer = new QTimer(this);
 
 	camera = new CameraDisplay();
 	device = new Device();
@@ -18,6 +21,7 @@ uppercomputer::uppercomputer(QWidget *parent)
 	feature = { 0, 0, 0, 0 };
 
 	socket = new QTcpSocket(this);
+	movesocket = new QTcpSocket(this);
 
 	camera->initialize(*device, *onistream);
 
@@ -28,6 +32,8 @@ uppercomputer::uppercomputer(QWidget *parent)
 	connect(ui.ButtonDisplayPose, SIGNAL(clicked()), this, SLOT(startPoseTimer()));
 	connect(posetimer, SIGNAL(timeout()), this, SLOT(readyToRead()));
 
+	connect(ui.ButtonMove, SIGNAL(clicked()), this, SLOT(startMoveTimer()));
+	connect(movetimer, SIGNAL(timeout()), this, SLOT(jointMove()));
 }
 
 void uppercomputer::startCameraTimer()
@@ -150,6 +156,7 @@ void uppercomputer::startCameraTimer()
 	 else
 	 {
 		 socket->disconnectFromHost();
+		 posetimer->stop();
 		 ui.ButtonDisplayPose->setText("DisplayPose");
 		 ui.LineEditPoseR0->clear();
 		 ui.LineEditPoseR1->clear();
@@ -203,6 +210,46 @@ void uppercomputer::startCameraTimer()
 	 ui.LineEditPoseR5->setText(QString("%1").arg(posevector[5]));
  }
 
+ void uppercomputer::startMoveTimer()
+ {
+	 if (ui.ButtonMove->text() == tr("Move"))
+	 {
+		 QString IP = "88.88.88.89";
+		 int port = 30002;
+		 movesocket->abort();
+		 movesocket->connectToHost(IP, port);
+		 movetimer->start(100);
+		 if (!socket->waitForConnected(30000))
+		 {
+			 qDebug() << "Connection failed!";
+			 return;
+		 }
+		 qDebug() << "Connect successfully!";
+
+		 ui.ButtonDisplayPose->setText("Stop");
+	 }
+	 else
+	 {
+		 socket->disconnectFromHost();
+		 movetimer->stop();
+		 ui.ButtonDisplayPose->setText("Move");
+	 }
+ }
+
+ void uppercomputer::jointMove()
+ {
+	 if (forward)
+	 {
+		 QString point1 = "()\n";
+		 movesocket->write(point1.toLatin1());
+	 }
+	 else
+	 {
+		 QString point2 = "()\n";
+		 movesocket->write(point2.toLatin1());
+	 }
+ }
+
  uppercomputer::~uppercomputer()
  {
 	 //delete &ui;
@@ -212,4 +259,6 @@ void uppercomputer::startCameraTimer()
 	 delete camera;
 	 delete device;
 	 delete onistream;
+	 delete movetimer;
+	 delete movesocket;
  }

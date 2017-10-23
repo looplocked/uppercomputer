@@ -21,7 +21,6 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
@@ -70,8 +69,7 @@ public:
     QVBoxLayout *verticalLayout;
     QPushButton *ButtonOpenCam;
     QPushButton *ButtonDisplayPose;
-    QSlider *ThresholdSlider;
-    QLabel *LabelThreshold;
+    QPushButton *ButtonMove;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -277,19 +275,13 @@ public:
 
         verticalLayout->addWidget(ButtonDisplayPose);
 
-        ThresholdSlider = new QSlider(centralWidget);
-        ThresholdSlider->setObjectName(QStringLiteral("ThresholdSlider"));
-        ThresholdSlider->setGeometry(QRect(120, 260, 160, 22));
-        ThresholdSlider->setMaximum(255);
-        ThresholdSlider->setValue(246);
-        ThresholdSlider->setOrientation(Qt::Horizontal);
-        LabelThreshold = new QLabel(centralWidget);
-        LabelThreshold->setObjectName(QStringLiteral("LabelThreshold"));
-        LabelThreshold->setGeometry(QRect(30, 260, 72, 15));
+        ButtonMove = new QPushButton(centralWidget);
+        ButtonMove->setObjectName(QStringLiteral("ButtonMove"));
+        ButtonMove->setGeometry(QRect(140, 280, 75, 23));
         uppercomputerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(uppercomputerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1238, 26));
+        menuBar->setGeometry(QRect(0, 0, 1238, 21));
         uppercomputerClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(uppercomputerClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -323,7 +315,7 @@ public:
         LabelFeature->setText(QApplication::translate("uppercomputerClass", "binary", Q_NULLPTR));
         ButtonOpenCam->setText(QApplication::translate("uppercomputerClass", "OpenCam", Q_NULLPTR));
         ButtonDisplayPose->setText(QApplication::translate("uppercomputerClass", "DisplayPose", Q_NULLPTR));
-        LabelThreshold->setText(QApplication::translate("uppercomputerClass", "Threshold", Q_NULLPTR));
+        ButtonMove->setText(QApplication::translate("uppercomputerClass", "Move", Q_NULLPTR));
     } // retranslateUi
 
 };
