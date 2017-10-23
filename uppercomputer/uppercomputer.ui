@@ -40,62 +40,62 @@
       <number>20</number>
      </property>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="LineEditPoseX"/>
+      <widget class="QLineEdit" name="LineEditPoseR0"/>
      </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="LabelPoseY">
+      <widget class="QLabel" name="LabelPoseR1">
        <property name="text">
-        <string>Y:</string>
+        <string>R1:</string>
        </property>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="LineEditPoseY"/>
+      <widget class="QLineEdit" name="LineEditPoseR1"/>
      </item>
      <item row="2" column="0">
-      <widget class="QLabel" name="LabelPoseZ">
+      <widget class="QLabel" name="LabelPoseR2">
        <property name="text">
-        <string>Z:</string>
+        <string>R2:</string>
        </property>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="LineEditPoseZ"/>
+      <widget class="QLineEdit" name="LineEditPoseR2"/>
      </item>
      <item row="3" column="0">
-      <widget class="QLabel" name="LabelPoseRx">
+      <widget class="QLabel" name="LabelPoseR3">
        <property name="text">
-        <string>RX:</string>
+        <string>R3:</string>
        </property>
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QLineEdit" name="LineEditPoseRx"/>
+      <widget class="QLineEdit" name="LineEditPoseR3"/>
      </item>
      <item row="4" column="0">
-      <widget class="QLabel" name="LabelPoseRy">
+      <widget class="QLabel" name="LabelPoseR4">
        <property name="text">
-        <string>RY:</string>
+        <string>R4:</string>
        </property>
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QLineEdit" name="LineEditPoseRy"/>
+      <widget class="QLineEdit" name="LineEditPoseR4"/>
      </item>
      <item row="5" column="0">
-      <widget class="QLabel" name="LabelPoseRz">
+      <widget class="QLabel" name="LabelPoseR5">
        <property name="text">
-        <string>RZ:</string>
+        <string>R5:</string>
        </property>
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="QLineEdit" name="LineEditPoseRz"/>
+      <widget class="QLineEdit" name="LineEditPoseR5"/>
      </item>
      <item row="0" column="0">
-      <widget class="QLabel" name="LabelPoseX">
+      <widget class="QLabel" name="LabelPoseR0">
        <property name="text">
-        <string>X:</string>
+        <string>R0:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

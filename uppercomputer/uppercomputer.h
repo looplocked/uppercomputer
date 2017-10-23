@@ -8,11 +8,13 @@
 #include <QTimer>
 #include <QPixmap>
 #include <QTcpSocket>
-#include <QTcpServer>
+#include <QtNetwork>
 #include <QHostAddress>
 #include <QAbstractSocket>
 #include <QtCore/QReadWriteLock>
 #include <QMetaType>
+#include <vector>
+#include <QByteArray>
 
 #include "OpenNI.h"  
 #include "opencv2/core/core.hpp"  
@@ -42,7 +44,8 @@ private:
 	Ui::uppercomputerClass ui;
 	QTimer *imagetimer;
 	QTimer *featuretimer;
-	QTcpServer *server;
+	QTimer *posetimer;
+	//QTcpServer *server;
 	QTcpSocket *socket;
 	FeatureThread *feature;
 	CameraThread *camera;
@@ -58,10 +61,9 @@ public slots:
 	void disFeature(double featurex, double featurey, double featurearea, double featureang);
 	void closeFeature();
 
-	//void disPose();
-	//void serverNewConnect();
-	//void socketReadData();
-	//void socketDisconnected();
+	void startPoseTimer();
+	void readyToRead();
+	void socketReadData();
 };
 
 

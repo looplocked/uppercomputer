@@ -34,18 +34,18 @@ public:
     QWidget *centralWidget;
     QWidget *formLayoutWidget;
     QFormLayout *formLayout;
-    QLineEdit *LineEditPoseX;
-    QLabel *LabelPoseY;
-    QLineEdit *LineEditPoseY;
-    QLabel *LabelPoseZ;
-    QLineEdit *LineEditPoseZ;
-    QLabel *LabelPoseRx;
-    QLineEdit *LineEditPoseRx;
-    QLabel *LabelPoseRy;
-    QLineEdit *LineEditPoseRy;
-    QLabel *LabelPoseRz;
-    QLineEdit *LineEditPoseRz;
-    QLabel *LabelPoseX;
+    QLineEdit *LineEditPoseR0;
+    QLabel *LabelPoseR1;
+    QLineEdit *LineEditPoseR1;
+    QLabel *LabelPoseR2;
+    QLineEdit *LineEditPoseR2;
+    QLabel *LabelPoseR3;
+    QLineEdit *LineEditPoseR3;
+    QLabel *LabelPoseR4;
+    QLineEdit *LineEditPoseR4;
+    QLabel *LabelPoseR5;
+    QLineEdit *LineEditPoseR5;
+    QLabel *LabelPoseR0;
     QPushButton *ButtonDisplayPose;
     QPushButton *ButtonDisFeature;
     QWidget *formLayoutWidget_2;
@@ -96,66 +96,66 @@ public:
         formLayout->setHorizontalSpacing(6);
         formLayout->setVerticalSpacing(20);
         formLayout->setContentsMargins(0, 0, 0, 0);
-        LineEditPoseX = new QLineEdit(formLayoutWidget);
-        LineEditPoseX->setObjectName(QStringLiteral("LineEditPoseX"));
+        LineEditPoseR0 = new QLineEdit(formLayoutWidget);
+        LineEditPoseR0->setObjectName(QStringLiteral("LineEditPoseR0"));
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, LineEditPoseX);
+        formLayout->setWidget(0, QFormLayout::FieldRole, LineEditPoseR0);
 
-        LabelPoseY = new QLabel(formLayoutWidget);
-        LabelPoseY->setObjectName(QStringLiteral("LabelPoseY"));
+        LabelPoseR1 = new QLabel(formLayoutWidget);
+        LabelPoseR1->setObjectName(QStringLiteral("LabelPoseR1"));
 
-        formLayout->setWidget(1, QFormLayout::LabelRole, LabelPoseY);
+        formLayout->setWidget(1, QFormLayout::LabelRole, LabelPoseR1);
 
-        LineEditPoseY = new QLineEdit(formLayoutWidget);
-        LineEditPoseY->setObjectName(QStringLiteral("LineEditPoseY"));
+        LineEditPoseR1 = new QLineEdit(formLayoutWidget);
+        LineEditPoseR1->setObjectName(QStringLiteral("LineEditPoseR1"));
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, LineEditPoseY);
+        formLayout->setWidget(1, QFormLayout::FieldRole, LineEditPoseR1);
 
-        LabelPoseZ = new QLabel(formLayoutWidget);
-        LabelPoseZ->setObjectName(QStringLiteral("LabelPoseZ"));
+        LabelPoseR2 = new QLabel(formLayoutWidget);
+        LabelPoseR2->setObjectName(QStringLiteral("LabelPoseR2"));
 
-        formLayout->setWidget(2, QFormLayout::LabelRole, LabelPoseZ);
+        formLayout->setWidget(2, QFormLayout::LabelRole, LabelPoseR2);
 
-        LineEditPoseZ = new QLineEdit(formLayoutWidget);
-        LineEditPoseZ->setObjectName(QStringLiteral("LineEditPoseZ"));
+        LineEditPoseR2 = new QLineEdit(formLayoutWidget);
+        LineEditPoseR2->setObjectName(QStringLiteral("LineEditPoseR2"));
 
-        formLayout->setWidget(2, QFormLayout::FieldRole, LineEditPoseZ);
+        formLayout->setWidget(2, QFormLayout::FieldRole, LineEditPoseR2);
 
-        LabelPoseRx = new QLabel(formLayoutWidget);
-        LabelPoseRx->setObjectName(QStringLiteral("LabelPoseRx"));
+        LabelPoseR3 = new QLabel(formLayoutWidget);
+        LabelPoseR3->setObjectName(QStringLiteral("LabelPoseR3"));
 
-        formLayout->setWidget(3, QFormLayout::LabelRole, LabelPoseRx);
+        formLayout->setWidget(3, QFormLayout::LabelRole, LabelPoseR3);
 
-        LineEditPoseRx = new QLineEdit(formLayoutWidget);
-        LineEditPoseRx->setObjectName(QStringLiteral("LineEditPoseRx"));
+        LineEditPoseR3 = new QLineEdit(formLayoutWidget);
+        LineEditPoseR3->setObjectName(QStringLiteral("LineEditPoseR3"));
 
-        formLayout->setWidget(3, QFormLayout::FieldRole, LineEditPoseRx);
+        formLayout->setWidget(3, QFormLayout::FieldRole, LineEditPoseR3);
 
-        LabelPoseRy = new QLabel(formLayoutWidget);
-        LabelPoseRy->setObjectName(QStringLiteral("LabelPoseRy"));
+        LabelPoseR4 = new QLabel(formLayoutWidget);
+        LabelPoseR4->setObjectName(QStringLiteral("LabelPoseR4"));
 
-        formLayout->setWidget(4, QFormLayout::LabelRole, LabelPoseRy);
+        formLayout->setWidget(4, QFormLayout::LabelRole, LabelPoseR4);
 
-        LineEditPoseRy = new QLineEdit(formLayoutWidget);
-        LineEditPoseRy->setObjectName(QStringLiteral("LineEditPoseRy"));
+        LineEditPoseR4 = new QLineEdit(formLayoutWidget);
+        LineEditPoseR4->setObjectName(QStringLiteral("LineEditPoseR4"));
 
-        formLayout->setWidget(4, QFormLayout::FieldRole, LineEditPoseRy);
+        formLayout->setWidget(4, QFormLayout::FieldRole, LineEditPoseR4);
 
-        LabelPoseRz = new QLabel(formLayoutWidget);
-        LabelPoseRz->setObjectName(QStringLiteral("LabelPoseRz"));
+        LabelPoseR5 = new QLabel(formLayoutWidget);
+        LabelPoseR5->setObjectName(QStringLiteral("LabelPoseR5"));
 
-        formLayout->setWidget(5, QFormLayout::LabelRole, LabelPoseRz);
+        formLayout->setWidget(5, QFormLayout::LabelRole, LabelPoseR5);
 
-        LineEditPoseRz = new QLineEdit(formLayoutWidget);
-        LineEditPoseRz->setObjectName(QStringLiteral("LineEditPoseRz"));
+        LineEditPoseR5 = new QLineEdit(formLayoutWidget);
+        LineEditPoseR5->setObjectName(QStringLiteral("LineEditPoseR5"));
 
-        formLayout->setWidget(5, QFormLayout::FieldRole, LineEditPoseRz);
+        formLayout->setWidget(5, QFormLayout::FieldRole, LineEditPoseR5);
 
-        LabelPoseX = new QLabel(formLayoutWidget);
-        LabelPoseX->setObjectName(QStringLiteral("LabelPoseX"));
-        LabelPoseX->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        LabelPoseR0 = new QLabel(formLayoutWidget);
+        LabelPoseR0->setObjectName(QStringLiteral("LabelPoseR0"));
+        LabelPoseR0->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        formLayout->setWidget(0, QFormLayout::LabelRole, LabelPoseX);
+        formLayout->setWidget(0, QFormLayout::LabelRole, LabelPoseR0);
 
         ButtonDisplayPose = new QPushButton(centralWidget);
         ButtonDisplayPose->setObjectName(QStringLiteral("ButtonDisplayPose"));
@@ -306,12 +306,12 @@ public:
     void retranslateUi(QMainWindow *uppercomputerClass)
     {
         uppercomputerClass->setWindowTitle(QApplication::translate("uppercomputerClass", "uppercomputer", Q_NULLPTR));
-        LabelPoseY->setText(QApplication::translate("uppercomputerClass", "Y:", Q_NULLPTR));
-        LabelPoseZ->setText(QApplication::translate("uppercomputerClass", "Z:", Q_NULLPTR));
-        LabelPoseRx->setText(QApplication::translate("uppercomputerClass", "RX:", Q_NULLPTR));
-        LabelPoseRy->setText(QApplication::translate("uppercomputerClass", "RY:", Q_NULLPTR));
-        LabelPoseRz->setText(QApplication::translate("uppercomputerClass", "RZ:", Q_NULLPTR));
-        LabelPoseX->setText(QApplication::translate("uppercomputerClass", "X:", Q_NULLPTR));
+        LabelPoseR1->setText(QApplication::translate("uppercomputerClass", "R1:", Q_NULLPTR));
+        LabelPoseR2->setText(QApplication::translate("uppercomputerClass", "R2:", Q_NULLPTR));
+        LabelPoseR3->setText(QApplication::translate("uppercomputerClass", "R3:", Q_NULLPTR));
+        LabelPoseR4->setText(QApplication::translate("uppercomputerClass", "R4:", Q_NULLPTR));
+        LabelPoseR5->setText(QApplication::translate("uppercomputerClass", "R5:", Q_NULLPTR));
+        LabelPoseR0->setText(QApplication::translate("uppercomputerClass", "R0:", Q_NULLPTR));
         ButtonDisplayPose->setText(QApplication::translate("uppercomputerClass", "DisplayPose", Q_NULLPTR));
         ButtonDisFeature->setText(QApplication::translate("uppercomputerClass", "DisFeature", Q_NULLPTR));
         LabelFeatureX->setText(QApplication::translate("uppercomputerClass", "X:", Q_NULLPTR));

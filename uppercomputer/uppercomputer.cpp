@@ -9,7 +9,10 @@ uppercomputer::uppercomputer(QWidget *parent)
 
 	imagetimer = new QTimer(this);
 	featuretimer = new QTimer(this);
-	//server = new QTcpServer(this);
+	posetimer = new QTimer(this);
+
+	socket = new QTcpSocket(this);
+
 	camera = new CameraThread();
 	feature = new FeatureThread();
 
@@ -17,7 +20,7 @@ uppercomputer::uppercomputer(QWidget *parent)
 
 
 	connect(imagetimer, SIGNAL(timeout()), camera, SLOT(getImage()));
-	connect(camera, SIGNAL(gotAImage(Mat, Mat)), this, SLOT(showImage(Mat, Mat)), Qt::BlockingQueuedConnection);
+	connect(camera, SIGNAL(gotAImage(Mat, Mat)), this, SLOT(showImage(Mat, Mat)), Qt::BlockingQueuedConnection);  //第五个参数很重要，需要进一步研究
 	connect(ui.ButtonOpenCam, SIGNAL(clicked()), this, SLOT(startImageTimer()));
 	connect(ui.ButtonCloseCam, SIGNAL(clicked()), this, SLOT(closeCam()));
 	//connect(ui.ButtonCloseCam, SIGNAL(clicked()), camera, SLOT(camera->stop()));
@@ -27,8 +30,9 @@ uppercomputer::uppercomputer(QWidget *parent)
 	connect(ui.ButtonDisFeature, SIGNAL(clicked()), this, SLOT(startFeatureTimer()));
 	connect(ui.ButtonCloseFeature, SIGNAL(clicked()), this, SLOT(closeFeature()));
 	
-	//connect(server, &QTcpServer::newConnection, this, &uppercomputer::serverNewConnect);
-	//connect(ui.ButtonDisplayPose, SIGNAL(clicked()), this, SLOT(disPose()));
+	connect(ui.ButtonDisplayPose, SIGNAL(clicked()), this, SLOT(startPoseTimer()));
+	connect(posetimer, SIGNAL(timeout()), this, SLOT(readyToRead()));
+
 }
 
  void uppercomputer::showImage(Mat originimg, Mat featureimg)
@@ -49,12 +53,12 @@ uppercomputer::uppercomputer(QWidget *parent)
 
  void uppercomputer::startImageTimer()
  {
-	 imagetimer->start(50);
+	 imagetimer->start(200);
  }
 
  void uppercomputer::startFeatureTimer()
  {
-	 featuretimer->start(50);
+	 featuretimer->start(200);
  }
 
  void uppercomputer::closeCam()
@@ -92,59 +96,74 @@ uppercomputer::uppercomputer(QWidget *parent)
 	 ui.LineEditFeatureAngle->clear();
  }
 
- //void uppercomputer::disPose()
- //{
-//	 if (ui.ButtonDisplayPose->text() == tr("DisplayPose"))
-//	 {
-//		 int port = 8000;
-//		 if (!server->listen(QHostAddress::Any, port))
-//		 {
-//			 qDebug() << server->errorString();
-//			 return;
-//		 }
-//		 ui.ButtonDisplayPose->setText("CancelDisplay");
-//		 qDebug() << "Listen successfully!";
-//	 }
-//	 else
-//	 {
-//		 if (socket->state() == QAbstractSocket::ConnectedState)
-//		 {
-//			 socket->disconnectFromHost();
-//		 }
-//		 server->close();
-//	 }
-// }
+ void uppercomputer::startPoseTimer()
+ {
+	 if (ui.ButtonDisplayPose->text() == tr("DisplayPose"))
+	 {
+		 QString IP = "88.88.88.89";
+		 int port = 30003;
+		 socket->abort();
+		 socket->connectToHost(IP, port);
+		 posetimer->start(200);
+		 if (!socket->waitForConnected(30000))
+		 {
+			 qDebug() << "Connection failed!";
+			 return;
+		 }
+		 qDebug() << "Connect successfully!";
 
- //void uppercomputer::serverNewConnect()
-//{
-//	 socket = server->nextPendingConnection();
-//	 connect(socket, &QTcpSocket::readyRead, this, &uppercomputer::socketReadData);
-//	 connect(socket, &QTcpSocket::disconnected, this, &uppercomputer::socketDisconnected);
-//	 qDebug() << "A Client connect!";
- //}
+		 ui.ButtonCloseCam->setText("cancel");
+	 }
+	 else
+	 {
+		 socket->disconnectFromHost();
+		 ui.ButtonDisplayPose->setText("DisplayPose");
+	 }
+ }
 
- //void uppercomputer::socketReadData()
- //{
-//	 QByteArray buffer;
-//	 buffer = socket->readAll();
-//	 if (!buffer.isEmpty())
-//	 {
-//		 QString pose;
-//		 pose = tr(buffer);
-//		 ui.LineEditPoseX->clear();
-//		 ui.LineEditPoseX->setText(pose);
-//		 ui.LineEditPoseY->clear();
-//		 ui.LineEditPoseY->setText(pose);
-//		 ui.LineEditPoseZ->clear();
-//		 ui.LineEditPoseZ->setText(pose);
-//		 ui.LineEditPoseRx->clear();
-//		 ui.LineEditPoseRx->setText(pose);
-//		 ui.LineEditPoseRy->clear();
-//		 ui.LineEditPoseRy->setText(pose);
-//		 ui.LineEditPoseRz->clear();
-//		 ui.LineEditPoseRz->setText(pose);
-//	 }
- //}
+ void uppercomputer::readyToRead()
+ {
+	 connect(socket, SIGNAL(readyRead()), this, SLOT(socketReadData()));
+ }
+
+ void uppercomputer::socketReadData()
+ {
+	 QByteArray buffer;
+	 int jointposeaddress = 252;
+	 vector<QString> posevector;
+	 buffer = socket->readAll();
+	 char *buff = buffer.data();
+
+	 if (!buffer.isEmpty())
+	 {
+		 for (int i = 0; i<6; i++)
+		 {
+			 char temp[8];
+			 double temppose;
+			 for (int j = 0; j<8; j++)
+			 {
+				 temp[j] = buff[jointposeaddress + 8 * i + 7 - j];
+			 }
+			 memcpy(&temppose, temp, sizeof(temppose));
+			 posevector.push_back(QString("%1").arg(temppose));
+		 }
+	 }
+
+	 disconnect(socket, SIGNAL(readyRead()), this, SLOT(socketReadData()));
+
+	 ui.LineEditPoseR0->clear();
+	 ui.LineEditPoseR0->setText(posevector[0]);
+	 ui.LineEditPoseR1->clear();
+	 ui.LineEditPoseR1->setText(posevector[1]);
+	 ui.LineEditPoseR2->clear();
+	 ui.LineEditPoseR2->setText(posevector[2]);
+	 ui.LineEditPoseR3->clear();
+	 ui.LineEditPoseR3->setText(posevector[3]);
+	 ui.LineEditPoseR4->clear();
+	 ui.LineEditPoseR4->setText(posevector[4]);
+	 ui.LineEditPoseR5->clear();
+	 ui.LineEditPoseR5->setText(posevector[5]);
+ }
 
  //void uppercomputer::socketDisconnected()
 // {
