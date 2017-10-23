@@ -21,6 +21,7 @@ uppercomputer::uppercomputer(QWidget *parent)
 	feature = { 0, 0, 0, 0 };
 
 	socket = new QTcpSocket(this);
+	//server = new QTcpServer(this);
 	movesocket = new QTcpSocket(this);
 
 	camera->initialize(*device, *onistream);
@@ -181,6 +182,8 @@ void uppercomputer::startCameraTimer()
 
 	 if (!buffer.isEmpty())
 	 {
+		 //ui.TextEditDebug->clear();
+		 //ui.TextEditDebug->appendPlainText("reading pose!");
 		 for (int i = 0; i<6; i++)
 		 {
 			 char temp[8];
@@ -190,7 +193,7 @@ void uppercomputer::startCameraTimer()
 				 temp[j] = buff[jointposeaddress + 8 * i + 7 - j];
 			 }
 			 memcpy(&temppose, temp, sizeof(temppose));
-			 posevector.push_back(temppose);
+			 posevector[i]=temppose;
 		 }
 	 }
 
@@ -215,10 +218,10 @@ void uppercomputer::startCameraTimer()
 	 if (ui.ButtonMove->text() == tr("Move"))
 	 {
 		 QString IP = "88.88.88.89";
-		 int port = 30002;
+		 int port = 30003;
 		 movesocket->abort();
 		 movesocket->connectToHost(IP, port);
-		 movetimer->start(100);
+		 movetimer->start(64);
 		 if (!socket->waitForConnected(30000))
 		 {
 			 qDebug() << "Connection failed!";
@@ -240,13 +243,19 @@ void uppercomputer::startCameraTimer()
  {
 	 if (forward)
 	 {
-		 QString point1 = "()\n";
+		 QString point1 = "(0.34589434, -1.3986734, -1.6721929, -1.6171411, 1.6021913, -0.9644435)\n";
+		 ui.TextEditDebug->clear();
+		 ui.TextEditDebug->setPlainText("move to " + point1);
 		 movesocket->write(point1.toLatin1());
+		 forward = false;
 	 }
 	 else
 	 {
-		 QString point2 = "()\n";
+		 QString point2 = "(-0.0030091444, -1.460965, -1.6166013, -1.6240424, 1.6082605, -1.3136138)\n";
+		 ui.TextEditDebug->clear();
+		 ui.TextEditDebug->setPlainText("move to " + point2);
 		 movesocket->write(point2.toLatin1());
+		 forward = true;
 	 }
  }
 
@@ -261,4 +270,5 @@ void uppercomputer::startCameraTimer()
 	 delete onistream;
 	 delete movetimer;
 	 delete movesocket;
+	 //delete server;
  }

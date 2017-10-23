@@ -12,7 +12,6 @@
 #include <QHostAddress>
 #include <QAbstractSocket>
 #include <QtCore/QReadWriteLock>
-#include <QMetaType>
 #include <vector>
 #include <QByteArray>
 
@@ -23,8 +22,6 @@
 
 #include "ui_uppercomputer.h"
 #include "cameradisplay.h"
-//#include "camerathread.h"
-//#include "featurethread.h"
  
 
 using namespace std;
@@ -53,6 +50,7 @@ private:
 	QTimer *movetimer;
 
 	QTcpSocket *socket;
+	//QTcpServer *server;
 	QTcpSocket *movesocket;
 	
 	vector<double> posevector;

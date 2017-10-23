@@ -169,8 +169,8 @@
    <widget class="QPushButton" name="ButtonTrack">
     <property name="geometry">
      <rect>
-      <x>780</x>
-      <y>400</y>
+      <x>770</x>
+      <y>290</y>
       <width>311</width>
       <height>141</height>
      </rect>
@@ -303,6 +303,16 @@
      <string>Move</string>
     </property>
    </widget>
+   <widget class="QPlainTextEdit" name="TextEditDebug">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>460</y>
+      <width>301</width>
+      <height>161</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -310,7 +320,7 @@
      <x>0</x>
      <y>0</y>
      <width>1238</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

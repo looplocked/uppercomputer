@@ -20,6 +20,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
@@ -70,6 +71,7 @@ public:
     QPushButton *ButtonOpenCam;
     QPushButton *ButtonDisplayPose;
     QPushButton *ButtonMove;
+    QPlainTextEdit *TextEditDebug;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -208,7 +210,7 @@ public:
 
         ButtonTrack = new QPushButton(centralWidget);
         ButtonTrack->setObjectName(QStringLiteral("ButtonTrack"));
-        ButtonTrack->setGeometry(QRect(780, 400, 311, 141));
+        ButtonTrack->setGeometry(QRect(770, 290, 311, 141));
         QFont font;
         font.setPointSize(20);
         ButtonTrack->setFont(font);
@@ -278,10 +280,13 @@ public:
         ButtonMove = new QPushButton(centralWidget);
         ButtonMove->setObjectName(QStringLiteral("ButtonMove"));
         ButtonMove->setGeometry(QRect(140, 280, 75, 23));
+        TextEditDebug = new QPlainTextEdit(centralWidget);
+        TextEditDebug->setObjectName(QStringLiteral("TextEditDebug"));
+        TextEditDebug->setGeometry(QRect(770, 460, 301, 161));
         uppercomputerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(uppercomputerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1238, 21));
+        menuBar->setGeometry(QRect(0, 0, 1238, 26));
         uppercomputerClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(uppercomputerClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
