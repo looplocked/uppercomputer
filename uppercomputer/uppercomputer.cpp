@@ -7,7 +7,7 @@ uppercomputer::uppercomputer(QWidget *parent)
 {
 	ui.setupUi(this);
 
-	forward = true;
+	counter = 0;
 
 	cameratimer = new QTimer(this);
 	posetimer = new QTimer(this);
@@ -245,28 +245,23 @@ void uppercomputer::startCameraTimer()
 	 //获取客户端连接  
 	 QObject::connect(movesocket, SIGNAL(disconnected()), this, SLOT(moveSocketDisconnected()));
 	 movesocket = server->nextPendingConnection();
-	 movetimer->start(1000);
+	 movetimer->start(33);
+	 counter = 0;
 	 ui.TextEditDebug->appendPlainText("A client connected!");
  }
 
  void uppercomputer::jointMove()
  {
-	 if (forward)
-	 {
-		 QString point1 = "(0.34589434, -1.3986734, -1.6721929, -1.6171411, 1.6021913, -0.9644435)\n";
-		 //ui.TextEditDebug->clear();
-		 ui.TextEditDebug->appendPlainText("move to " + point1);
-		 movesocket->write(point1.toLatin1());
-		 forward = false;
-	 }
-	 else
-	 {
-		 QString point2 = "(-0.0030091444, -1.460965, -1.6166013, -1.6240424, 1.6082605, -1.3136138)\n";
-		 //ui.TextEditDebug->clear();
-		 ui.TextEditDebug->appendPlainText("move to " + point2);
-		 movesocket->write(point2.toLatin1());
-		 forward = true;
-	 }
+	 if (counter > 30)
+		 movetimer->stop();
+	 QString pointstr = "(0.30, -1.36, -1.84, -1.51, 1.57, -3.40)\n";
+	 int pointcounter = 30 + 5 * counter;
+	 QString substr = QString("%1").arg(pointcounter);
+	 QString point = pointstr.replace(3, 2, substr);
+	 //ui.TextEditDebug->clear();
+	 ui.TextEditDebug->appendPlainText("move to " + point);
+	 movesocket->write(point.toLatin1());
+	 counter++;
  }
 
  void uppercomputer::moveSocketDisconnected()
@@ -281,7 +276,6 @@ void uppercomputer::startCameraTimer()
 	 delete posetimer;
 	 delete socket;
 	 delete camera;
-	 delete device;
 	 delete onistream;
 	 delete movetimer;
 	 delete movesocket;

@@ -56,7 +56,7 @@ private:
 	vector<double> posevector;
 	vector<double> feature;
 
-	bool forward;
+	int counter;
 	
 public slots:
     void startCameraTimer();
