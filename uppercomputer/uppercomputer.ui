@@ -123,7 +123,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="LabelFeatureX">
        <property name="text">
-        <string>X:</string>
+        <string>Point0:</string>
        </property>
       </widget>
      </item>
@@ -137,7 +137,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="LabelFeatureY">
        <property name="text">
-        <string>Y:</string>
+        <string>Point1:</string>
        </property>
       </widget>
      </item>
@@ -147,7 +147,7 @@
      <item row="2" column="0">
       <widget class="QLabel" name="LabelFeatureArea">
        <property name="text">
-        <string>Area:</string>
+        <string>Point2:</string>
        </property>
       </widget>
      </item>
@@ -157,7 +157,7 @@
      <item row="3" column="0">
       <widget class="QLabel" name="LabelFeatureAngle">
        <property name="text">
-        <string>Angle:</string>
+        <string>Point3:</string>
        </property>
       </widget>
      </item>
@@ -313,6 +313,32 @@
      </rect>
     </property>
    </widget>
+   <widget class="QLineEdit" name="FPSLineEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>330</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="LabelFPS">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>330</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>FPS</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -320,7 +346,7 @@
      <x>0</x>
      <y>0</y>
      <width>1238</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

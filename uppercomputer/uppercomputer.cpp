@@ -70,8 +70,6 @@ void uppercomputer::startCameraTimer()
  void uppercomputer::displayCamera()
 {
 	double fps;
-	string text;
-	char buffer[50];
 
 	Mat srcimg, gray, featureimg;
 	Mat originimg, map_x, map_y;
@@ -123,7 +121,6 @@ void uppercomputer::startCameraTimer()
 		{
 			continue;
 		}
-		std::cout << r1.area() << " ";
 
 		rects.push_back(r1);
 	}
@@ -166,7 +163,7 @@ void uppercomputer::startCameraTimer()
 	//感兴趣区域扩展
 	if (r.area() == 0)
 	{
-		//r = cv::Rect(0, 0, 639, 479);
+		r = cv::Rect(0, 0, 639, 479);
 	}
 	else
 	{
@@ -208,15 +205,19 @@ void uppercomputer::startCameraTimer()
 	for (int i = 0; i < Points.size(); i++)
 	{
 		circle(drawImg2, Points[i], 5, Scalar(0, 0, 255), 2, 18);
+		int j = i == Points.size() - 1 ? 0 : i + 1;
+		line(drawImg2, Points[i], Points[j], Scalar(255, 0, 0), 2, 8);
 	}
 
 	fpstimer->stop();
 	fps = 1.0 / fpstimer->value;
 	fpstimer->reset();
 
-	sprintf(buffer, "speed: %.0f fps", fps);
-	text = buffer;
-	putText(drawImg2, text, Point(20, 20), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
+	QString fpsstr = QString("%1").arg(fps);
+
+	ui.FPSLineEdit->clear();
+	ui.FPSLineEdit->setText(fpsstr);
+
 
 	qoriginimg = QImage((const uchar*)(originimg.data), originimg.cols, originimg.rows, originimg.cols*originimg.channels(), QImage::Format_RGB888);
 	qfeatureimg = QImage((const uchar*)(drawImg2.data), drawImg2.cols, drawImg2.rows, drawImg2.cols*drawImg2.channels(), QImage::Format_RGB888);
@@ -231,10 +232,10 @@ void uppercomputer::startCameraTimer()
 
 
 
-	QString point1 = QString("%1, %2").arg(Points[0].x).arg(Points[0].y);
-	QString point2 = QString("%1, %2").arg(Points[1].x).arg(Points[1].y);
-	QString point3 = QString("%1, %2").arg(Points[0].x).arg(Points[0].y);
-	QString point4 = QString("%1, %2").arg(Points[0].x).arg(Points[0].y);
+	QString point1 = Points.size()  < 1 ? "" : QString("%1, %2").arg(Points[0].x).arg(Points[0].y);
+	QString point2 = Points.size()  < 2 ? "" : QString("%1, %2").arg(Points[1].x).arg(Points[1].y);
+	QString point3 = Points.size()  < 3 ? "" : QString("%1, %2").arg(Points[2].x).arg(Points[2].y);
+	QString point4 = Points.size()  < 4 ? "" : QString("%1, %2").arg(Points[3].x).arg(Points[3].y);
 
 	//显示特征值
 	ui.LineEditFeatureX->clear();
@@ -385,6 +386,7 @@ void uppercomputer::startCameraTimer()
 	 //delete &ui;
 	 delete cameratimer;
 	 delete posetimer;
+	 delete fpstimer;
 	 delete socket;
 	 delete camera;
 	 delete onistream;

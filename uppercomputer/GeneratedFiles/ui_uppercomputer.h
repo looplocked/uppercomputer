@@ -72,6 +72,8 @@ public:
     QPushButton *ButtonDisplayPose;
     QPushButton *ButtonMove;
     QPlainTextEdit *TextEditDebug;
+    QLineEdit *FPSLineEdit;
+    QLabel *LabelFPS;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -283,10 +285,17 @@ public:
         TextEditDebug = new QPlainTextEdit(centralWidget);
         TextEditDebug->setObjectName(QStringLiteral("TextEditDebug"));
         TextEditDebug->setGeometry(QRect(770, 460, 301, 161));
+        FPSLineEdit = new QLineEdit(centralWidget);
+        FPSLineEdit->setObjectName(QStringLiteral("FPSLineEdit"));
+        FPSLineEdit->setEnabled(false);
+        FPSLineEdit->setGeometry(QRect(440, 330, 113, 20));
+        LabelFPS = new QLabel(centralWidget);
+        LabelFPS->setObjectName(QStringLiteral("LabelFPS"));
+        LabelFPS->setGeometry(QRect(400, 330, 47, 13));
         uppercomputerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(uppercomputerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1238, 26));
+        menuBar->setGeometry(QRect(0, 0, 1238, 21));
         uppercomputerClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(uppercomputerClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -309,10 +318,10 @@ public:
         LabelPoseR4->setText(QApplication::translate("uppercomputerClass", "R4:", Q_NULLPTR));
         LabelPoseR5->setText(QApplication::translate("uppercomputerClass", "R5:", Q_NULLPTR));
         LabelPoseR0->setText(QApplication::translate("uppercomputerClass", "R0:", Q_NULLPTR));
-        LabelFeatureX->setText(QApplication::translate("uppercomputerClass", "X:", Q_NULLPTR));
-        LabelFeatureY->setText(QApplication::translate("uppercomputerClass", "Y:", Q_NULLPTR));
-        LabelFeatureArea->setText(QApplication::translate("uppercomputerClass", "Area:", Q_NULLPTR));
-        LabelFeatureAngle->setText(QApplication::translate("uppercomputerClass", "Angle:", Q_NULLPTR));
+        LabelFeatureX->setText(QApplication::translate("uppercomputerClass", "Point0:", Q_NULLPTR));
+        LabelFeatureY->setText(QApplication::translate("uppercomputerClass", "Point1:", Q_NULLPTR));
+        LabelFeatureArea->setText(QApplication::translate("uppercomputerClass", "Point2:", Q_NULLPTR));
+        LabelFeatureAngle->setText(QApplication::translate("uppercomputerClass", "Point3:", Q_NULLPTR));
         ButtonTrack->setText(QApplication::translate("uppercomputerClass", "Track", Q_NULLPTR));
         label->setText(QApplication::translate("uppercomputerClass", "original image", Q_NULLPTR));
         label_3->setText(QApplication::translate("uppercomputerClass", "feature image", Q_NULLPTR));
@@ -321,6 +330,7 @@ public:
         ButtonOpenCam->setText(QApplication::translate("uppercomputerClass", "OpenCam", Q_NULLPTR));
         ButtonDisplayPose->setText(QApplication::translate("uppercomputerClass", "DisplayPose", Q_NULLPTR));
         ButtonMove->setText(QApplication::translate("uppercomputerClass", "Move", Q_NULLPTR));
+        LabelFPS->setText(QApplication::translate("uppercomputerClass", "FPS", Q_NULLPTR));
     } // retranslateUi
 
 };
