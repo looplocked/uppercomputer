@@ -19,9 +19,17 @@
 #include "opencv2/core/core.hpp"  
 #include "opencv2/highgui/highgui.hpp"  
 #include "opencv2/imgproc/imgproc.hpp" 
+#include "opencv2/flann.hpp"
 
 #include "ui_uppercomputer.h"
 #include "cameradisplay.h"
+#include "LineSegmentDetector.h"
+
+#define HAVE_OPENCV
+
+#ifdef HAVE_OPENCV
+#include <opencv2/flann.hpp>
+#endif
  
 
 using namespace std;
@@ -48,6 +56,7 @@ private:
 	QTimer *cameratimer;
 	QTimer *posetimer;
 	QTimer *movetimer;
+	cvflann::StartStopTimer *fpstimer;
 
 	QTcpSocket *socket;
 	QTcpServer *server;
@@ -55,6 +64,7 @@ private:
 	
 	vector<double> posevector;
 	vector<double> feature;
+	cv::Ptr<cv_::LineSegmentDetector> ls;
 
 	int counter;
 	

@@ -1,6 +1,5 @@
 #include "uppercomputer.h"
-
-
+#include "helper.h"
 
 uppercomputer::uppercomputer(QWidget *parent)
 	: QMainWindow(parent)
@@ -16,9 +15,16 @@ uppercomputer::uppercomputer(QWidget *parent)
 	camera = new CameraDisplay();
 	device = new Device();
 	onistream = new VideoStream();
+	fpstimer = new cvflann::StartStopTimer;
 
 	posevector = { 0, 0, 0, 0, 0, 0 };
 	feature = { 0, 0, 0, 0 };
+
+#if 0
+	ls = cv::createLineSegmentDetector(cv::LSD_REFINE_STD);//或者两种LSD算法，这边用的是standard的
+#else
+	ls = cv_::createLineSegmentDetector(cv_::LSD_REFINE_NONE);
+#endif
 
 	socket = new QTcpSocket(this);
 	server = new QTcpServer(this);
@@ -40,6 +46,8 @@ uppercomputer::uppercomputer(QWidget *parent)
 
 void uppercomputer::startCameraTimer()
 {
+
+
 	if (ui.ButtonOpenCam->text() == tr("OpenCam"))
 	{
 		cameratimer->start(50);
@@ -61,11 +69,19 @@ void uppercomputer::startCameraTimer()
 
  void uppercomputer::displayCamera()
 {
-	Mat srcimg, temp, featureimg;
+	double fps;
+	string text;
+	char buffer[50];
+
+	Mat srcimg, gray, featureimg;
 	Mat originimg, map_x, map_y;
 	QImage qoriginimg, qfeatureimg;
 
+	fpstimer->start();
+
 	srcimg = camera->getImage(*onistream);
+
+
 	originimg.create(srcimg.size(), srcimg.type());
 	map_x.create(srcimg.size(), CV_32FC1);
 	map_y.create(srcimg.size(), CV_32FC1);
@@ -78,16 +94,132 @@ void uppercomputer::startCameraTimer()
 			map_y.at<float>(j, i) = static_cast<float>(j);
 		}
 	}
-	//int thresholdvalue = ui.ThresholdSlider->value();
-	//ui.LabelThreshold->setText(QString("%1").arg(thresholdvalue));
-	remap(srcimg, originimg, map_x, map_y, INTER_LINEAR, BORDER_CONSTANT, Scalar(0, 0, 0));
-	cv::cvtColor(originimg, temp, COLOR_RGB2GRAY);
-	threshold(temp, temp, 246, 255, 0);
-	medianBlur(temp, featureimg, 7);
 
+	remap(srcimg, originimg, map_x, map_y, INTER_LINEAR, BORDER_CONSTANT, Scalar(0, 0, 0));
+	cv::cvtColor(originimg, gray, COLOR_RGB2GRAY);
+	cv::Mat img_binary = gray.clone();
+	threshold(img_binary, img_binary, 240, 255, CV_THRESH_BINARY);
+	cv::Mat element = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(16, 16));
+	morphologyEx(img_binary, img_binary, cv::MORPH_OPEN, element);
+
+	cv::Mat showbinary = img_binary.clone();
+
+	std::vector<std::vector<cv::Point>> contours;
+	cv::findContours(img_binary, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
+
+	int maxArea = 0;
+	cv::Rect r1;
+	CvBox2D r2;
+
+	std::vector<cv::Rect> rects;
+	std::vector<cv::Rect> rects_all;
+	for (int i = 0; i < contours.size(); i++)
+	{
+		maxArea = contours[i].size();
+		r2 = cv::minAreaRect(contours[i]);
+		r1 = cv::boundingRect(contours[i]);
+		rects_all.push_back(r1);
+		if (r1.area() < 10000 || r1.area() > 50000)
+		{
+			continue;
+		}
+		std::cout << r1.area() << " ";
+
+		rects.push_back(r1);
+	}
+
+	int max_dis = 999;
+	cv::Rect r(0, 0, 0, 0);
+	cv::Point P1, P2;
+	P1.x = originimg.cols*0.5;
+	P1.y = originimg.rows*0.5;
+
+	for (int i = 0; i < rects.size(); i++)
+	{
+		P2.x = rects[i].x + 0.5*rects[i].width;
+		P2.y = rects[i].y + 0.5*rects[i].height;
+
+		double distance;
+		distance = powf((P1.x - P2.x), 2) + powf((P1.y - P2.y), 2);
+		distance = sqrtf(distance);
+
+		if (distance < max_dis)
+		{
+			max_dis = distance;
+			r = rects[i];
+		}
+	}
+
+	int max_all = 0;
+	if (r.area() == 0)
+	{
+		for (int i = 0; i < rects_all.size(); i++)
+		{
+			if (rects_all[i].area() > max_all)
+			{
+				max_all = rects_all[i].area();
+				r = rects_all[i];
+			}
+		}
+	}
+
+	//感兴趣区域扩展
+	if (r.area() == 0)
+	{
+		//r = cv::Rect(0, 0, 639, 479);
+	}
+	else
+	{
+		/*r.x -= 10;
+		r.y -= 10;
+		r.width += 20;
+		r.height += 20;*/
+	}
+
+	std::vector<cv::Vec4f> lines_std;
+	lines_std.reserve(1000);
+	ls->detect(gray(r), lines_std);//这里把检测到的直线线段都存入了lines_std中，4个float的值，分别为起止点的坐标
+
+								   //去除干扰线段
+	findPrimaryAngle(lines_std);
+	//*****************************
+
+	cv::Mat drawImg = originimg.clone();
+	cv::Mat drawImg2 = originimg.clone();
+	//ls->drawSegments(drawImg, lines_std);
+	//imshow("2", drawImg);
+
+	std::vector<cv::Point> Points;
+	for (int i = 0; i < lines_std.size(); i++)
+	{
+		cv::Point p1, p2;
+		p1 = cv::Point(lines_std[i][0] + r.x, lines_std[i][1] + r.y);
+		p2 = cv::Point(lines_std[i][2] + r.x, lines_std[i][3] + r.y);
+
+		Points.push_back(p1);
+		Points.push_back(p2);
+	}
+
+	//条件滤波 暂时关闭
+	//selectPoints(Points);
+	//******************************
+
+	//画图
+	for (int i = 0; i < Points.size(); i++)
+	{
+		circle(drawImg2, Points[i], 5, Scalar(0, 0, 255), 2, 18);
+	}
+
+	fpstimer->stop();
+	fps = 1.0 / fpstimer->value;
+	fpstimer->reset();
+
+	sprintf(buffer, "speed: %.0f fps", fps);
+	text = buffer;
+	putText(drawImg2, text, Point(20, 20), FONT_HERSHEY_PLAIN, 1, Scalar(255, 255, 255));
 
 	qoriginimg = QImage((const uchar*)(originimg.data), originimg.cols, originimg.rows, originimg.cols*originimg.channels(), QImage::Format_RGB888);
-	qfeatureimg = QImage((const uchar*)(featureimg.data), featureimg.cols, featureimg.rows, featureimg.cols*featureimg.channels(), QImage::Format_Indexed8);
+	qfeatureimg = QImage((const uchar*)(drawImg2.data), drawImg2.cols, drawImg2.rows, drawImg2.cols*drawImg2.channels(), QImage::Format_RGB888);
 
 	ui.LabelCamera->clear();
 	ui.LabelFeature->clear();
@@ -97,43 +229,22 @@ void uppercomputer::startCameraTimer()
 	ui.LabelFeature->show();
 
 
-	vector<vector<Point>> contours;
-	vector<Vec4i> hierarchy;
-	findContours(featureimg, contours, hierarchy, RETR_CCOMP, CHAIN_APPROX_SIMPLE);
-	vector<Point> contour = contours[0];
-	if (contours.size() > 1)
-	{
-		for (auto iter = contours.begin(); iter != contours.end(); iter++)
-		{
-			if ((*iter).size() > contour.size())
-				contour = *iter;
-		}
-	}
-	//寻找轮廓
-	Moments mu = moments(contour, false);
-	Point2f mc;
-	mc = Point2f(static_cast<float>(mu.m10 / mu.m00), static_cast<float>(mu.m01 / mu.m00));
 
-	feature[0] = mc.x;
-	feature[1] = mc.y;
-	feature[2] = contourArea(contour);
-	RotatedRect rect = minAreaRect(contour);
-	feature[3] = -rect.angle;
 
-	QString x = QString("%1").arg(feature[0]);
-	QString y = QString("%1").arg(feature[1]);
-	QString area = QString("%1").arg(feature[2]);
-	QString ang = QString("%1").arg(feature[3]);
+	QString point1 = QString("%1, %2").arg(Points[0].x).arg(Points[0].y);
+	QString point2 = QString("%1, %2").arg(Points[1].x).arg(Points[1].y);
+	QString point3 = QString("%1, %2").arg(Points[0].x).arg(Points[0].y);
+	QString point4 = QString("%1, %2").arg(Points[0].x).arg(Points[0].y);
 
 	//显示特征值
 	ui.LineEditFeatureX->clear();
-	ui.LineEditFeatureX->setText(x);
+	ui.LineEditFeatureX->setText(point1);
 	ui.LineEditFeatureY->clear();
-	ui.LineEditFeatureY->setText(y);
+	ui.LineEditFeatureY->setText(point2);
 	ui.LineEditFeatureArea->clear();
-	ui.LineEditFeatureArea->setText(area);
+	ui.LineEditFeatureArea->setText(point3);
 	ui.LineEditFeatureAngle->clear();
-	ui.LineEditFeatureAngle->setText(ang);
+	ui.LineEditFeatureAngle->setText(point4);
 }
 
 

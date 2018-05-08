@@ -84,6 +84,8 @@
     <ClCompile Include="GeneratedFiles\Release\moc_uppercomputer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="helper.cpp" />
+    <ClCompile Include="LineSegmentDetector.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="uppercomputer.cpp" />
   </ItemGroup>
@@ -114,6 +116,8 @@
   <ItemGroup>
     <ClInclude Include="cameradisplay.h" />
     <ClInclude Include="GeneratedFiles\ui_uppercomputer.h" />
+    <ClInclude Include="helper.h" />
+    <ClInclude Include="LineSegmentDetector.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="uppercomputer.qrc">
