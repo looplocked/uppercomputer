@@ -1,4 +1,7 @@
 #pragma once
+#ifndef HELPER_H
+#define HELPER_H
+
 #include <vector>
 #include <iostream>
 #include "opencv2/core/core.hpp"  
@@ -17,3 +20,5 @@ bool findPrimaryAngle(std::vector<cv::Vec4f>& lines);
 bool selectPoints(std::vector<cv::Point>& Points);
 bool SortFaster(sortType& dists, int Top_num);
 void CheckOpenNIError(Status result, string status);
+
+#endif

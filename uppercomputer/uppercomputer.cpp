@@ -1,12 +1,10 @@
 #include "uppercomputer.h"
-#include "helper.h"
+
 
 uppercomputer::uppercomputer(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
-
-	counter = 0;
 
 	cameratimer = new QTimer(this);
 	posetimer = new QTimer(this);
@@ -29,8 +27,13 @@ uppercomputer::uppercomputer(QWidget *parent)
 	socket = new QTcpSocket(this);
 	server = new QTcpServer(this);
 	//movesocket = new QTcpSocket(this);
-
-	camera->initialize(*device, *onistream);
+	try {
+		camera->initialize(*device, *onistream);
+	}
+	catch (CameraException& camexc)
+	{
+		//QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(camexc.what()));
+	}
 
 	connect(ui.ButtonOpenCam, SIGNAL(clicked()), this, SLOT(startCameraTimer()));
 	connect(cameratimer, SIGNAL(timeout()), this, SLOT(displayCamera()));
@@ -76,8 +79,15 @@ void uppercomputer::startCameraTimer()
 	QImage qoriginimg, qfeatureimg;
 
 	fpstimer->start();
-
-	srcimg = camera->getImage(*onistream);
+	try
+	{
+		srcimg = camera->getImage(*onistream);
+	}
+	catch (CameraException& camexc)
+	{
+		QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(camexc.what()));
+		exit(-1);
+	}
 
 
 	originimg.create(srcimg.size(), srcimg.type());
@@ -258,9 +268,10 @@ void uppercomputer::startCameraTimer()
 		 socket->abort();
 		 socket->connectToHost(IP, port);
 		 posetimer->start(50);
-		 if (!socket->waitForConnected(30000))
+		 if (!socket->waitForConnected(3))
 		 {
 			 qDebug() << "Connection failed!";
+			 QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit("Robot not connected!"));
 			 return;
 		 }
 		 qDebug() << "Connect successfully!";

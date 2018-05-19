@@ -19,6 +19,9 @@ void CameraDisplay::initialize(Device& device, VideoStream& oniColorStream)
   
 	//Device device;
 	result = device.open(openni::ANY_DEVICE);
+	
+	if (result != STATUS_OK)
+		throw CameraException();
  
 	//VideoStream oniColorStream;
 	result = oniColorStream.create(device, openni::SENSOR_COLOR);
@@ -51,6 +54,8 @@ Mat CameraDisplay::getImage(VideoStream& oniColorStream)
 		//imshow("src", cvBGRImg);
 		return cvRGBImg;
 	}
+	else
+		throw CameraException();
 }
 
 void CameraDisplay::close(Device& device, VideoStream& oniColorStream)

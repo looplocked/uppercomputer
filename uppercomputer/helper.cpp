@@ -1,6 +1,7 @@
 #include "helper.h"
 
 
+
 void CheckOpenNIError(Status result, string status)
 {
 	if (result != STATUS_OK)

@@ -14,6 +14,7 @@
 #include <QtCore/QReadWriteLock>
 #include <vector>
 #include <QByteArray>
+#include <QMessageBox>
 
 #include "OpenNI.h"  
 #include "opencv2/core/core.hpp"  
@@ -24,6 +25,8 @@
 #include "ui_uppercomputer.h"
 #include "cameradisplay.h"
 #include "LineSegmentDetector.h"
+#include "helper.h"
+#include "error.h"
 
 #define HAVE_OPENCV
 
@@ -35,7 +38,6 @@
 using namespace std;
 using namespace cv;
 using namespace openni;
-
 
 
 class uppercomputer : public QMainWindow
@@ -67,6 +69,9 @@ private:
 	cv::Ptr<cv_::LineSegmentDetector> ls;
 
 	int counter;
+
+signals:
+	void sendData(vector<float> pose, vector<float> feature);
 	
 public slots:
     void startCameraTimer();
