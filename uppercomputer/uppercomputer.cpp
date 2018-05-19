@@ -18,12 +18,6 @@ uppercomputer::uppercomputer(QWidget *parent)
 	posevector = { 0, 0, 0, 0, 0, 0 };
 	feature = { 0, 0, 0, 0 };
 
-#if 0
-	ls = cv::createLineSegmentDetector(cv::LSD_REFINE_STD);//或者两种LSD算法，这边用的是standard的
-#else
-	ls = cv_::createLineSegmentDetector(cv_::LSD_REFINE_NONE);
-#endif
-
 	socket = new QTcpSocket(this);
 	server = new QTcpServer(this);
 	//movesocket = new QTcpSocket(this);
@@ -49,8 +43,6 @@ uppercomputer::uppercomputer(QWidget *parent)
 
 void uppercomputer::startCameraTimer()
 {
-
-
 	if (ui.ButtonOpenCam->text() == tr("OpenCam"))
 	{
 		cameratimer->start(50);
@@ -74,8 +66,7 @@ void uppercomputer::startCameraTimer()
 {
 	double fps;
 
-	Mat srcimg, gray, featureimg;
-	Mat originimg, map_x, map_y;
+	Mat srcimg, originimg;
 	QImage qoriginimg, qfeatureimg;
 
 	fpstimer->start();
@@ -89,135 +80,11 @@ void uppercomputer::startCameraTimer()
 		exit(-1);
 	}
 
+	originimg = mirrorMap(srcimg);
 
-	originimg.create(srcimg.size(), srcimg.type());
-	map_x.create(srcimg.size(), CV_32FC1);
-	map_y.create(srcimg.size(), CV_32FC1);
 
-	for (int j = 0; j < srcimg.rows; j++)
-	{
-		for (int i = 0; i < srcimg.cols; i++)
-		{
-			map_x.at<float>(j, i) = static_cast<float>(srcimg.cols - i);
-			map_y.at<float>(j, i) = static_cast<float>(j);
-		}
-	}
-
-	remap(srcimg, originimg, map_x, map_y, INTER_LINEAR, BORDER_CONSTANT, Scalar(0, 0, 0));
-	cv::cvtColor(originimg, gray, COLOR_RGB2GRAY);
-	cv::Mat img_binary = gray.clone();
-	threshold(img_binary, img_binary, 240, 255, CV_THRESH_BINARY);
-	cv::Mat element = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(16, 16));
-	morphologyEx(img_binary, img_binary, cv::MORPH_OPEN, element);
-
-	cv::Mat showbinary = img_binary.clone();
-
-	std::vector<std::vector<cv::Point>> contours;
-	cv::findContours(img_binary, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
-
-	int maxArea = 0;
-	cv::Rect r1;
-	CvBox2D r2;
-
-	std::vector<cv::Rect> rects;
-	std::vector<cv::Rect> rects_all;
-	for (int i = 0; i < contours.size(); i++)
-	{
-		maxArea = contours[i].size();
-		r2 = cv::minAreaRect(contours[i]);
-		r1 = cv::boundingRect(contours[i]);
-		rects_all.push_back(r1);
-		if (r1.area() < 10000 || r1.area() > 50000)
-		{
-			continue;
-		}
-
-		rects.push_back(r1);
-	}
-
-	int max_dis = 999;
-	cv::Rect r(0, 0, 0, 0);
-	cv::Point P1, P2;
-	P1.x = originimg.cols*0.5;
-	P1.y = originimg.rows*0.5;
-
-	for (int i = 0; i < rects.size(); i++)
-	{
-		P2.x = rects[i].x + 0.5*rects[i].width;
-		P2.y = rects[i].y + 0.5*rects[i].height;
-
-		double distance;
-		distance = powf((P1.x - P2.x), 2) + powf((P1.y - P2.y), 2);
-		distance = sqrtf(distance);
-
-		if (distance < max_dis)
-		{
-			max_dis = distance;
-			r = rects[i];
-		}
-	}
-
-	int max_all = 0;
-	if (r.area() == 0)
-	{
-		for (int i = 0; i < rects_all.size(); i++)
-		{
-			if (rects_all[i].area() > max_all)
-			{
-				max_all = rects_all[i].area();
-				r = rects_all[i];
-			}
-		}
-	}
-
-	//感兴趣区域扩展
-	if (r.area() == 0)
-	{
-		r = cv::Rect(0, 0, 639, 479);
-	}
-	else
-	{
-		/*r.x -= 10;
-		r.y -= 10;
-		r.width += 20;
-		r.height += 20;*/
-	}
-
-	std::vector<cv::Vec4f> lines_std;
-	lines_std.reserve(1000);
-	ls->detect(gray(r), lines_std);//这里把检测到的直线线段都存入了lines_std中，4个float的值，分别为起止点的坐标
-
-								   //去除干扰线段
-	findPrimaryAngle(lines_std);
-	//*****************************
-
-	cv::Mat drawImg = originimg.clone();
-	cv::Mat drawImg2 = originimg.clone();
-	//ls->drawSegments(drawImg, lines_std);
-	//imshow("2", drawImg);
-
-	std::vector<cv::Point> Points;
-	for (int i = 0; i < lines_std.size(); i++)
-	{
-		cv::Point p1, p2;
-		p1 = cv::Point(lines_std[i][0] + r.x, lines_std[i][1] + r.y);
-		p2 = cv::Point(lines_std[i][2] + r.x, lines_std[i][3] + r.y);
-
-		Points.push_back(p1);
-		Points.push_back(p2);
-	}
-
-	//条件滤波 暂时关闭
-	//selectPoints(Points);
-	//******************************
-
-	//画图
-	for (int i = 0; i < Points.size(); i++)
-	{
-		circle(drawImg2, Points[i], 5, Scalar(0, 0, 255), 2, 18);
-		int j = i == Points.size() - 1 ? 0 : i + 1;
-		line(drawImg2, Points[i], Points[j], Scalar(255, 0, 0), 2, 8);
-	}
+	vector<Point> Points;
+	Mat drawImg2 = processAndGetFeature(srcimg, Points);
 
 	fpstimer->stop();
 	fps = 1.0 / fpstimer->value;

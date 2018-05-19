@@ -24,15 +24,9 @@
 
 #include "ui_uppercomputer.h"
 #include "cameradisplay.h"
-#include "LineSegmentDetector.h"
 #include "helper.h"
 #include "error.h"
 
-#define HAVE_OPENCV
-
-#ifdef HAVE_OPENCV
-#include <opencv2/flann.hpp>
-#endif
  
 
 using namespace std;
