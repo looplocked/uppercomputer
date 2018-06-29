@@ -245,14 +245,14 @@ void uppercomputer::startCameraTimer()
 	 //获取客户端连接  
 	 QObject::connect(movesocket, SIGNAL(disconnected()), this, SLOT(moveSocketDisconnected()));
 	 movesocket = server->nextPendingConnection();
-	 movetimer->start(33);
+	 movetimer->start(100);
 	 counter = 0;
 	 ui.TextEditDebug->appendPlainText("A client connected!");
  }
 
  void uppercomputer::jointMove()
  {
-	 if (counter > 30)
+	 if (counter > 10)
 		 movetimer->stop();
 	 QString pointstr = "(0.30, -1.36, -1.84, -1.51, 1.57, -3.40)\n";
 	 int pointcounter = 30 + 5 * counter;
