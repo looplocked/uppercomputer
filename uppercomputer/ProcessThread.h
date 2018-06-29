@@ -28,7 +28,7 @@ public:
 	void transParams();
 
 signals:
-	void sendPose(vector<float> pose);
+	void sendPose(vector<double> pose);
 
 
 protected:
@@ -49,9 +49,9 @@ private:
 	Mat prerls;
 	Mat target;
 
-private slots:
+public slots:
 	void startThread();
-	void receiveData(vector<float> newpose, vector<float> newfeature);
+	void receiveData(vector<double> newpose, vector<Point> newfeature);
 };
 
 

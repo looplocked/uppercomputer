@@ -26,6 +26,8 @@
 #include "cameradisplay.h"
 #include "helper.h"
 #include "error.h"
+#include "RobotControl.h"
+#include "ProcessThread.h"
 
  
 
@@ -45,40 +47,21 @@ public:
 private:
 	Ui::uppercomputerClass ui;
 
-	Device *device;
-	VideoStream *onistream;
 	CameraDisplay *camera;
+	RobotControl *robot;
+	ProcessThread *processThread;
 
-	QTimer *cameratimer;
-	QTimer *posetimer;
-	QTimer *movetimer;
+	QTimer *timer;
 	cvflann::StartStopTimer *fpstimer;
 
-	QTcpSocket *socket;
-	QTcpServer *server;
-	QTcpSocket *movesocket;
-	
-	vector<double> posevector;
-	vector<double> feature;
-	cv::Ptr<cv_::LineSegmentDetector> ls;
-
-	int counter;
-
 signals:
-	void sendData(vector<float> pose, vector<float> feature);
+	void sendData(vector<double> pose, vector<Point> feature);
 	
 public slots:
-    void startCameraTimer();
+	void startTimer(int ms);
 	void displayCamera();
-
-	void startPoseTimer();
-	void readyToRead();
-	void socketReadData();
-	
-	void serverNewConnect();
-	void startMoveTimer();
-	void jointMove();
-	void moveSocketDisconnected();
+	void displayPose();
+	void receiveData(vector<double> pose);
 };
 
 

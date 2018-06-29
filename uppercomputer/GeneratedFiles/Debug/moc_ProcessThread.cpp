@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_ProcessThread_t {
-    QByteArrayData data[9];
-    char stringdata0[86];
+    QByteArrayData data[10];
+    char stringdata0[101];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,17 +32,18 @@ static const qt_meta_stringdata_ProcessThread_t qt_meta_stringdata_ProcessThread
 QT_MOC_LITERAL(0, 0, 13), // "ProcessThread"
 QT_MOC_LITERAL(1, 14, 8), // "sendPose"
 QT_MOC_LITERAL(2, 23, 0), // ""
-QT_MOC_LITERAL(3, 24, 13), // "vector<float>"
-QT_MOC_LITERAL(4, 38, 4), // "pose"
-QT_MOC_LITERAL(5, 43, 11), // "startThread"
-QT_MOC_LITERAL(6, 55, 11), // "receiveData"
-QT_MOC_LITERAL(7, 67, 7), // "newpose"
-QT_MOC_LITERAL(8, 75, 10) // "newfeature"
+QT_MOC_LITERAL(3, 24, 14), // "vector<double>"
+QT_MOC_LITERAL(4, 39, 4), // "pose"
+QT_MOC_LITERAL(5, 44, 11), // "startThread"
+QT_MOC_LITERAL(6, 56, 11), // "receiveData"
+QT_MOC_LITERAL(7, 68, 7), // "newpose"
+QT_MOC_LITERAL(8, 76, 13), // "vector<Point>"
+QT_MOC_LITERAL(9, 90, 10) // "newfeature"
 
     },
-    "ProcessThread\0sendPose\0\0vector<float>\0"
+    "ProcessThread\0sendPose\0\0vector<double>\0"
     "pose\0startThread\0receiveData\0newpose\0"
-    "newfeature"
+    "vector<Point>\0newfeature"
 };
 #undef QT_MOC_LITERAL
 
@@ -63,15 +64,15 @@ static const uint qt_meta_data_ProcessThread[] = {
        1,    1,   29,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    0,   32,    2, 0x08 /* Private */,
-       6,    2,   33,    2, 0x08 /* Private */,
+       5,    0,   32,    2, 0x0a /* Public */,
+       6,    2,   33,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3,    7,    8,
+    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 8,    7,    9,
 
        0        // eod
 };
@@ -82,16 +83,16 @@ void ProcessThread::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         ProcessThread *_t = static_cast<ProcessThread *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->sendPose((*reinterpret_cast< vector<float>(*)>(_a[1]))); break;
+        case 0: _t->sendPose((*reinterpret_cast< vector<double>(*)>(_a[1]))); break;
         case 1: _t->startThread(); break;
-        case 2: _t->receiveData((*reinterpret_cast< vector<float>(*)>(_a[1])),(*reinterpret_cast< vector<float>(*)>(_a[2]))); break;
+        case 2: _t->receiveData((*reinterpret_cast< vector<double>(*)>(_a[1])),(*reinterpret_cast< vector<Point>(*)>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         void **func = reinterpret_cast<void **>(_a[1]);
         {
-            typedef void (ProcessThread::*_t)(vector<float> );
+            typedef void (ProcessThread::*_t)(vector<double> );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ProcessThread::sendPose)) {
                 *result = 0;
                 return;
@@ -137,7 +138,7 @@ int ProcessThread::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void ProcessThread::sendPose(vector<float> _t1)
+void ProcessThread::sendPose(vector<double> _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

@@ -5,6 +5,7 @@ ProcessThread::ProcessThread(QObject * parent) :
 {
 	restart = false;
 	abort = false;
+	
 }
 
 ProcessThread::~ProcessThread()
@@ -30,8 +31,8 @@ void ProcessThread::run()
 		pose = pose + LAMBDA * v.t();
 
 		if (!restart)
-			emit sendPose(vector<float>{pose.at<float>(0), pose.at<float>(1), pose.at<float>(1), \
-				pose.at<float>(3), pose.at<float>(4), pose.at<float>(5) });
+			emit sendPose(vector<double>{pose.at<double>(0), pose.at<double>(1), pose.at<double>(1), \
+				pose.at<double>(3), pose.at<double>(4), pose.at<double>(5) });
 	}
 }
 
@@ -57,7 +58,7 @@ void ProcessThread::startThread()
 	}
 }
 
-void ProcessThread::receiveData(vector<float> newpose, vector<float> newfeature)
+void ProcessThread::receiveData(vector<double> newpose, vector<Point> newfeature)
 {
 	pose = Mat(newpose);
 	feature = Mat(newfeature);

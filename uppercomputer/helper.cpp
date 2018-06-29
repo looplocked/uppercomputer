@@ -246,6 +246,7 @@ Mat processAndGetFeature(Mat originimg, vector<Point>& Points)
 	morphologyEx(img_binary, img_binary, cv::MORPH_OPEN, element);
 
 	cv::Mat showbinary = img_binary.clone();
+	//cv::resize(showbinary, showbinary, cv::Size(800, 800));
 
 	std::vector<std::vector<cv::Point>> contours;
 	cv::findContours(img_binary, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);

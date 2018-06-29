@@ -79,6 +79,15 @@
     <ClCompile Include="RobotInitialization.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RobotControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_RobotControl.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_RobotControl.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="uppercomputer.h">
@@ -91,6 +100,9 @@
       <Filter>Resource Files</Filter>
     </CustomBuild>
     <CustomBuild Include="ProcessThread.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="RobotControl.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

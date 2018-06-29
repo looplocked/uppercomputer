@@ -29,12 +29,12 @@ class CameraDisplay
 public:
 	CameraDisplay();
 	~CameraDisplay();
-	void initialize(Device& device, VideoStream& oniColorStream);
-	Mat getImage(VideoStream& oniColorStream);
-	void close(Device& device, VideoStream& oniColorStream);
-//private:
-//	static Device deviceparam;
-//	static VideoStream oniColorStreamparam;
+	void initialize();
+	Mat getImage();
+
+private:
+	Device* device;
+	VideoStream* oniColorStream;
 };
 
 #endif
