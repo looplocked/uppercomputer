@@ -58,7 +58,7 @@ signals:
 	void sendData(vector<double> pose, vector<Point> feature);
 	
 public slots:
-	void startTimer(int ms);
+	void startTimer();
 	void displayCamera();
 	void displayPose();
 	void receiveData(vector<double> pose);

@@ -17,31 +17,43 @@ uppercomputer::uppercomputer(QWidget *parent)
 
 	try {
 		camera->initialize();
-		robot->poseReadInitialize();
-		robot->PoseSendInitialize();
 	}
 	catch (CameraException& camexc)
 	{
 		//QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(camexc.what()));
 	}
+
+	try {
+		robot->poseReadInitialize();
+	}
 	catch (RobotException& robotexc)
 	{
-		//QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(camexc.what()));
+		QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(robotexc.what()));
+	}
+
+	try {
+		robot->PoseSendInitialize();
+	}
+	catch (RobotException& robotexc)
+	{
+		QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(robotexc.what()));
 	}
 
 	connect(ui.ButtonOpenCam, SIGNAL(clicked()), this, SLOT(startTimer()));
 	connect(timer, SIGNAL(timeout()), this, SLOT(displayCamera()));
 	connect(timer, SIGNAL(timeout()), this, SLOT(displayPose()));
 
+	//connect(ui.ButtonDisplayPose, SIGNAL(clicked()), this, SLOT())
+
 	connect(this, SIGNAL(sendData(vector<double> pose, vector<Point> feature)), processThread, SLOT(receiveData(vector<double> newpose, vector<Point> newfeature)));
 	connect(processThread, SIGNAL(sendPose(vector<double> pose)), this, SLOT(vector<double> pose));
 }
 
-void uppercomputer::startTimer(int ms)
+void uppercomputer::startTimer()
 {
 	if (ui.ButtonOpenCam->text() == tr("start"))
 	{
-		timer->start(ms);
+		timer->start(33);
 
 		ui.ButtonOpenCam->setText("stop");
 	}
@@ -72,8 +84,9 @@ void uppercomputer::startTimer(int ms)
 	}
 	catch (CameraException& camexc)
 	{
-		QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(camexc.what()));
-		exit(-1);
+		//QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(camexc.what()));
+		//exit(-1);
+		return;
 	}
 
 	originimg = mirrorMap(srcimg);

@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_uppercomputer_t {
-    QByteArrayData data[12];
-    char stringdata0[118];
+    QByteArrayData data[11];
+    char stringdata0[115];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,15 +37,14 @@ QT_MOC_LITERAL(4, 39, 4), // "pose"
 QT_MOC_LITERAL(5, 44, 13), // "vector<Point>"
 QT_MOC_LITERAL(6, 58, 7), // "feature"
 QT_MOC_LITERAL(7, 66, 10), // "startTimer"
-QT_MOC_LITERAL(8, 77, 2), // "ms"
-QT_MOC_LITERAL(9, 80, 13), // "displayCamera"
-QT_MOC_LITERAL(10, 94, 11), // "displayPose"
-QT_MOC_LITERAL(11, 106, 11) // "receiveData"
+QT_MOC_LITERAL(8, 77, 13), // "displayCamera"
+QT_MOC_LITERAL(9, 91, 11), // "displayPose"
+QT_MOC_LITERAL(10, 103, 11) // "receiveData"
 
     },
     "uppercomputer\0sendData\0\0vector<double>\0"
     "pose\0vector<Point>\0feature\0startTimer\0"
-    "ms\0displayCamera\0displayPose\0receiveData"
+    "displayCamera\0displayPose\0receiveData"
 };
 #undef QT_MOC_LITERAL
 
@@ -66,16 +65,16 @@ static const uint qt_meta_data_uppercomputer[] = {
        1,    2,   39,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       7,    1,   44,    2, 0x0a /* Public */,
-       9,    0,   47,    2, 0x0a /* Public */,
-      10,    0,   48,    2, 0x0a /* Public */,
-      11,    1,   49,    2, 0x0a /* Public */,
+       7,    0,   44,    2, 0x0a /* Public */,
+       8,    0,   45,    2, 0x0a /* Public */,
+       9,    0,   46,    2, 0x0a /* Public */,
+      10,    1,   47,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3, 0x80000000 | 5,    4,    6,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::Int,    8,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -90,7 +89,7 @@ void uppercomputer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->sendData((*reinterpret_cast< vector<double>(*)>(_a[1])),(*reinterpret_cast< vector<Point>(*)>(_a[2]))); break;
-        case 1: _t->startTimer((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: _t->startTimer(); break;
         case 2: _t->displayCamera(); break;
         case 3: _t->displayPose(); break;
         case 4: _t->receiveData((*reinterpret_cast< vector<double>(*)>(_a[1]))); break;

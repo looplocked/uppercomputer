@@ -295,7 +295,7 @@ public:
         uppercomputerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(uppercomputerClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1238, 21));
+        menuBar->setGeometry(QRect(0, 0, 1238, 26));
         uppercomputerClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(uppercomputerClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -327,7 +327,7 @@ public:
         label_3->setText(QApplication::translate("uppercomputerClass", "feature image", Q_NULLPTR));
         LabelCamera->setText(QApplication::translate("uppercomputerClass", "camera", Q_NULLPTR));
         LabelFeature->setText(QApplication::translate("uppercomputerClass", "binary", Q_NULLPTR));
-        ButtonOpenCam->setText(QApplication::translate("uppercomputerClass", "OpenCam", Q_NULLPTR));
+        ButtonOpenCam->setText(QApplication::translate("uppercomputerClass", "start", Q_NULLPTR));
         ButtonDisplayPose->setText(QApplication::translate("uppercomputerClass", "DisplayPose", Q_NULLPTR));
         ButtonMove->setText(QApplication::translate("uppercomputerClass", "Move", Q_NULLPTR));
         LabelFPS->setText(QApplication::translate("uppercomputerClass", "FPS", Q_NULLPTR));
