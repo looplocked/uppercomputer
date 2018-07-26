@@ -251,12 +251,14 @@ public:
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
         LabelCamera = new QLabel(layoutWidget1);
         LabelCamera->setObjectName(QStringLiteral("LabelCamera"));
+        LabelCamera->setScaledContents(true);
         LabelCamera->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(LabelCamera);
 
         LabelFeature = new QLabel(layoutWidget1);
         LabelFeature->setObjectName(QStringLiteral("LabelFeature"));
+        LabelFeature->setScaledContents(true);
         LabelFeature->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(LabelFeature);

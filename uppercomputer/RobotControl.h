@@ -29,12 +29,8 @@ public:
 	vector<double> readPose();
 	void jointMove(vector<double> pose);
 
-signals:
-	void poseReady();
 
 private slots:
-	void readyToRead();
-	void socketReadData();
 	void serverNewConnect();
 
 private:

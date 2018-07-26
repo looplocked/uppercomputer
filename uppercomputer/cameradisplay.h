@@ -10,6 +10,7 @@
 #include "opencv2/highgui/highgui.hpp"  
 #include "opencv2/imgproc/imgproc.hpp"  
 #include "error.h"
+#include "helper.h"
 
 using namespace std;
 using namespace cv;
@@ -30,7 +31,7 @@ public:
 	CameraDisplay();
 	~CameraDisplay();
 	void initialize();
-	Mat getImage();
+	vector<Mat> getImageAndFeature(vector<Point>& points);
 
 private:
 	Device* device;

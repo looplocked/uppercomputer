@@ -19,26 +19,63 @@ ProcessThread::~ProcessThread()
 void ProcessThread::run()
 {
 	forever{
-		Mat deltafeature = feature - prefeature;
-		Mat deltapose = pose - prepose;
-		jacobian = prejacobian + (deltafeature - prejacobian * deltapose.t()) * deltapose * prerls \
+		if (restart)
+			break;
+		if (abort)
+			break;
+		
+		if (updatePose) {
+			Mat e = feature - target;
+			Mat v = -prejacobian.inv() * e;
+
+			pose = prepose + LAMBDA * v.t();
+
+			if (!restart)
+				emit sendPose(pose);
+			
+			updatePose = false;
+		}
+
+		if (updateJacob) {
+			Mat deltafeature = feature - prefeature;
+			Mat deltapose = pose - prepose;
+			jacobian = prejacobian + (deltafeature - prejacobian * deltapose.t()) * deltapose * prerls \
 				/ (COMPENSATION * deltapose * prerls * deltapose.t());
-		rls = 1 / COMPENSATION * (prerls - prerls * (deltapose.t() * deltapose) * prerls)\
-			/ (COMPENSATION + deltapose * prerls * deltapose.t());
-		prepose = pose;
-		Mat e = feature - target;
-		Mat v = -jacobian.inv() * e;
-		pose = pose + LAMBDA * v.t();
+			rls = 1 / COMPENSATION * (prerls - prerls * (deltapose.t() * deltapose) * prerls)\
+				/ (COMPENSATION + deltapose * prerls * deltapose.t());
 
-		if (!restart)
-			emit sendPose(vector<double>{pose.at<double>(0), pose.at<double>(1), pose.at<double>(1), \
-				pose.at<double>(3), pose.at<double>(4), pose.at<double>(5) });
+			prepose = pose;
+			prefeature = feature;
+			prerls = rls;
+			prejacobian = jacobian;
+
+			updateJacob = false;
+		}
 	}
 }
 
-void ProcessThread::transParams()
+void ProcessThread::initThread(Mat initjacob, Mat initpose, Mat initfeature, Mat giventarget)
 {
 	if (!isRunning()) {
+		prejacobian = jacobian = initjacob;
+		prepose = pose = initpose;
+		prefeature = feature = initfeature;
+		start(LowPriority);
+		target = giventarget;
+
+		prerls = rls = Mat::eye(6, 6, CV_64FC1);
+	}
+	else {
+		restart = true;
+		condition.wakeOne();
+	}
+}
+
+void ProcessThread::receivePose(Mat newpose)
+{
+	if (!isRunning()) {
+		pose = newpose;
+		updatePose = true;
 		start(LowPriority);
 	}
 	else {
@@ -47,19 +84,15 @@ void ProcessThread::transParams()
 	}
 }
 
-void ProcessThread::startThread()
+void ProcessThread::receiveFeature(Mat newfeature)
 {
 	if (!isRunning()) {
+		updateJacob = true;
+		feature = newfeature;
 		start(LowPriority);
 	}
 	else {
 		restart = true;
 		condition.wakeOne();
 	}
-}
-
-void ProcessThread::receiveData(vector<double> newpose, vector<Point> newfeature)
-{
-	pose = Mat(newpose);
-	feature = Mat(newfeature);
 }

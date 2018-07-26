@@ -28,7 +28,7 @@
 #include "error.h"
 #include "RobotControl.h"
 #include "ProcessThread.h"
-
+#include "RobotInitialization.h"
  
 
 using namespace std;
@@ -49,19 +49,21 @@ private:
 
 	CameraDisplay *camera;
 	RobotControl *robot;
+	RobotInitialization *init;
 	ProcessThread *processThread;
 
 	QTimer *timer;
 	cvflann::StartStopTimer *fpstimer;
 
 signals:
-	void sendData(vector<double> pose, vector<Point> feature);
+	void sendPose(Mat pose);
+	void sendFeature(Mat feature);
 	
 public slots:
 	void startTimer();
 	void displayCamera();
 	void displayPose();
-	void receiveData(vector<double> pose);
+	void receivePose(Mat pose);
 };
 
 

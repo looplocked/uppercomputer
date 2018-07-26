@@ -4,6 +4,7 @@ RobotControl::RobotControl(QObject * parent) : QObject(parent) {
 	posesocket = new QTcpSocket(this);
 	server = new QTcpServer(this);
 	movesocket = new QTcpSocket(this);
+	pose = { 0,0,0,0,0,0 };
 }
 
 RobotControl::~RobotControl () {
@@ -14,7 +15,6 @@ RobotControl::~RobotControl () {
 
 void RobotControl::poseReadInitialize()
 {
-	connect(this, SIGNAL(poseReady()), this, SLOT(readyToRead()));
 	QString IP = "88.88.88.89";
 	int port = 30003;
 	posesocket->abort();
@@ -37,19 +37,7 @@ void RobotControl::PoseSendInitialize()
 
 vector<double> RobotControl::readPose()
 {
-	emit poseReady();
-	return pose;
-}
-
-
-void RobotControl::readyToRead()
-{
-	connect(posesocket, SIGNAL(readyRead()), this, SLOT(socketReadData()));
-}
-
-
-void RobotControl::socketReadData()
-{
+	//emit poseReady();
 	QByteArray buffer;
 	int jointposeaddress = 252;
 	buffer = posesocket->readAll();
@@ -69,9 +57,9 @@ void RobotControl::socketReadData()
 			pose[i] = temppose;
 		}
 	}
-
-	disconnect(posesocket, SIGNAL(readyRead()), this, SLOT(socketReadData()));
+	return pose;
 }
+
 
 void RobotControl::serverNewConnect()
 {

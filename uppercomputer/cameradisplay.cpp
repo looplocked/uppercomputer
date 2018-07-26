@@ -43,7 +43,7 @@ void CameraDisplay::initialize()
 
 }
 
-Mat CameraDisplay::getImage()
+vector<Mat> CameraDisplay::getImageAndFeature(vector<Point>& points)
 {
 	//OpenNI2 image  
 	VideoFrameRef oniColorImg;
@@ -55,7 +55,15 @@ Mat CameraDisplay::getImage()
 		cv::Mat cvRGBImg(oniColorImg.getHeight(), oniColorImg.getWidth(), CV_8UC3, (void*)oniColorImg.getData());    // 将openni图片转换为opencv图片
 		//cv::cvtColor(cvRGBImg, cvBGRImg, CV_RGB2BGR);  // 将RGB转换为BGR
 		//imshow("src", cvBGRImg);
-		return cvRGBImg;
+
+		vector<Mat> res;
+		Mat originimg = mirrorMap(cvRGBImg);
+		res.push_back(originimg);
+
+		Mat drawImg2 = processAndGetFeature(originimg, points);
+
+		res.push_back(drawImg2);
+		return res;
 	}
 	else
 		throw CameraException();

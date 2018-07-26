@@ -8,6 +8,23 @@ void CheckOpenNIError(Status result, string status)
 		cerr << status << " Error: " << OpenNI::getExtendedError() << endl;
 }
 
+bool  needReverse(cv::Vec4f line1, cv::Vec4f line2)
+{
+	Point2f ptr1(line1[2] - line1[0], line1[3] - line1[1]);
+	Point2f ptr2(line2[2] - line2[0], line2[3] - line2[1]);
+	double con = ptr1.x * ptr2.x + ptr1.y * ptr2.y;
+	return con > 0;
+}
+
+Mat flatPoints(vector<Point>& points) {
+	Mat feature = Mat(8, 1, CV_64FC1);;
+	for (int i = 0; i < points.size(); i += 2) {
+		feature.at<double>(i) = static_cast<double>(points[i].x);
+		feature.at<double>(i+1) = static_cast<double>(points[i].y);
+	}
+	return feature;
+}
+
 bool SortFaster(sortType& dists, int Top_num)
 {
 	if (dists.size() < Top_num || Top_num == 0)
@@ -44,6 +61,8 @@ bool findPrimaryAngle(std::vector<cv::Vec4f>& lines)
 		return false;
 	}
 
+	int linenum = lines.size();
+
 	std::vector<cv::Vec4f> linsNew;
 
 	int count = 0;
@@ -71,7 +90,7 @@ bool findPrimaryAngle(std::vector<cv::Vec4f>& lines)
 
 	std::cout << "m:  " << mean_lenth << std::endl;
 
-	for (int i = 0; i < length; i++)
+	for (int i = 0; i < linenum; i++)
 	{
 		if (distlist[i].first>0.8*mean_lenth)
 		{
@@ -79,8 +98,17 @@ bool findPrimaryAngle(std::vector<cv::Vec4f>& lines)
 		}
 	}
 
-	if (linsNew.size() <= 4)
+	if (linsNew.size() <= 1)
 	{
+		lines.clear();
+		lines = linsNew;
+		return true;
+	}
+	else if (linsNew.size() == 2) {
+		if (needReverse(linsNew[0], linsNew[1])) {
+			cv::Vec4f temp(linsNew[1][2], linsNew[1][3], linsNew[1][0], linsNew[1][1]);
+			linsNew[1] = temp;
+		}
 		lines.clear();
 		lines = linsNew;
 		return true;
@@ -88,27 +116,37 @@ bool findPrimaryAngle(std::vector<cv::Vec4f>& lines)
 
 	double min_angle = 1000000;
 
-	int pos1, pos2;
+	int pos1 = 0, pos2 = 2;
 
 	for (int i = 0; i < linsNew.size() - 1; i++)
 	{
 		double angle = double(linsNew[i][1] - linsNew[i][3]) / double(linsNew[i][0] - linsNew[i][2]);
+		angle = abs(angle);
 
 		for (int j = i + 1; j < linsNew.size(); j++)
 		{
 			double angle2 = double(linsNew[j][1] - linsNew[j][3]) / double(linsNew[j][0] - linsNew[j][2]);
+			angle2 = abs(angle2);
 
 			double dist = abs(angle2 - angle);
-			double lenth = norm(cv::Point(linsNew[i][2] - linsNew[i][3]) - cv::Point(linsNew[j][2] - linsNew[j][3]));
+			double x1 = (linsNew[i][0] + linsNew[i][2]) / 2;
+			double y1 = (linsNew[i][1] + linsNew[i][3]) / 2;
+			double x2 = (linsNew[j][0] + linsNew[j][2]) / 2;
+			double y2 = (linsNew[j][1] + linsNew[j][3]) / 2;
+			double linesDis = norm(cv::Point(x1, y1) - cv::Point(x2, y2));
 
-			//std::cout << lenth << "ddfa" << std::endl;
-			if (dist < min_angle&&length>180)
+			if (dist < min_angle && linesDis > 0.1*mean_lenth) //平行且不重合的两条线
 			{
 				min_angle = dist;
 				pos1 = i;
 				pos2 = j;
 			}
 		}
+	}
+
+	if (needReverse(linsNew[pos1], linsNew[pos2])) {
+		cv::Vec4f temp(linsNew[pos2][2], linsNew[pos2][3], linsNew[pos2][0], linsNew[pos2][1]);
+		linsNew[pos2] = temp;
 	}
 
 
@@ -241,7 +279,7 @@ Mat processAndGetFeature(Mat originimg, vector<Point>& Points)
 	Mat gray;
 	cv::cvtColor(originimg, gray, COLOR_RGB2GRAY);
 	cv::Mat img_binary = gray.clone();
-	threshold(img_binary, img_binary, 240, 255, CV_THRESH_BINARY);
+	threshold(img_binary, img_binary, 200, 255, CV_THRESH_BINARY);
 	cv::Mat element = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(16, 16));
 	morphologyEx(img_binary, img_binary, cv::MORPH_OPEN, element);
 
@@ -313,10 +351,10 @@ Mat processAndGetFeature(Mat originimg, vector<Point>& Points)
 	}
 	else
 	{
-		/*r.x -= 10;
-		r.y -= 10;
-		r.width += 20;
-		r.height += 20;*/
+		r.x = r.x >= 10 ? r.x - 10 : 0;
+		r.y = r.y >= 10 ? r.y - 10 : 0;
+		r.width = r.x + r.width <= 620 ? r.width + 20 : 640 - r.x;
+		r.height = r.y + r.height <= 460 ? r.height + 20 : 460 - r.y;
 	}
 
 	std::vector<cv::Vec4f> lines_std;
@@ -347,12 +385,22 @@ Mat processAndGetFeature(Mat originimg, vector<Point>& Points)
 	//******************************
 
 	//画图
+	int font_face = cv::FONT_HERSHEY_COMPLEX;
+	double font_scale = 0.5;
+	int thickness = 0.2;
 	for (int i = 0; i < Points.size(); i++)
 	{
 		circle(drawImg2, Points[i], 5, Scalar(0, 0, 255), 2, 18);
+		string text = "point" + to_string(i);
+		putText(drawImg2, text, Points[i], font_face, font_scale, cv::Scalar(0, 255, 255), thickness, 8, 0);
 		int j = i == Points.size() - 1 ? 0 : i + 1;
 		line(drawImg2, Points[i], Points[j], Scalar(255, 0, 0), 2, 8);
 	}
+
+	line(drawImg2, cv::Point(r.x, r.y), cv::Point(r.x + r.width, r.y), Scalar(0, 166, 0), 2, 8);
+	line(drawImg2, cv::Point(r.x + r.width, r.y), cv::Point(r.x + r.width, r.y + r.height), Scalar(0, 166, 0), 2, 8);
+	line(drawImg2, cv::Point(r.x + r.width, r.y + r.height), cv::Point(r.x, r.y + r.height), Scalar(0, 166, 0), 2, 8);
+	line(drawImg2, cv::Point(r.x, r.y + r.height), cv::Point(r.x, r.y), Scalar(0, 166, 0), 2, 8);
 
 	return drawImg2;
 }

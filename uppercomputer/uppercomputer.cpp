@@ -11,6 +11,7 @@ uppercomputer::uppercomputer(QWidget *parent)
 	camera = new CameraDisplay();
 	robot = new RobotControl();
 	processThread = new ProcessThread();
+	init = new RobotInitialization();
 
 	fpstimer = new cvflann::StartStopTimer;
 
@@ -40,20 +41,25 @@ uppercomputer::uppercomputer(QWidget *parent)
 	}
 
 	connect(ui.ButtonOpenCam, SIGNAL(clicked()), this, SLOT(startTimer()));
+	connect(ui.ButtonTrack, SIGNAL(clicked()), init, SLOT(startInitialize()));
+
 	connect(timer, SIGNAL(timeout()), this, SLOT(displayCamera()));
 	connect(timer, SIGNAL(timeout()), this, SLOT(displayPose()));
+	connect(init, SIGNAL(initReady(Mat, Mat, Mat, Mat)),\
+		processThread, SLOT(initThread(Mat, Mat, Mat, Mat)), Qt::QueuedConnection);
 
 	//connect(ui.ButtonDisplayPose, SIGNAL(clicked()), this, SLOT())
 
-	connect(this, SIGNAL(sendData(vector<double> pose, vector<Point> feature)), processThread, SLOT(receiveData(vector<double> newpose, vector<Point> newfeature)));
-	connect(processThread, SIGNAL(sendPose(vector<double> pose)), this, SLOT(vector<double> pose));
+	connect(this, SIGNAL(sendPose(Mat)), processThread, SLOT(receivePose(Mat)), Qt::QueuedConnection);
+	connect(this, SIGNAL(sendFeature(Mat)), processThread, SLOT(receiveFeature(Mat)), Qt::QueuedConnection);
+	connect(processThread, SIGNAL(sendPose(Mat)), this, SLOT(receivePose(Mat)), Qt::QueuedConnection);
 }
 
 void uppercomputer::startTimer()
 {
 	if (ui.ButtonOpenCam->text() == tr("start"))
 	{
-		timer->start(33);
+		timer->start(50);
 
 		ui.ButtonOpenCam->setText("stop");
 	}
@@ -74,13 +80,14 @@ void uppercomputer::startTimer()
 {
 	double fps;
 
-	Mat srcimg, originimg;
+	vector<Mat> images;
 	QImage qoriginimg, qfeatureimg;
+	vector<Point> Points;
 
 	fpstimer->start();
 	try
 	{
-		srcimg = camera->getImage();
+		images = camera->getImageAndFeature(Points);
 	}
 	catch (CameraException& camexc)
 	{
@@ -89,15 +96,10 @@ void uppercomputer::startTimer()
 		return;
 	}
 
-	originimg = mirrorMap(srcimg);
-
-
-	vector<Point> Points;
-	Mat drawImg2 = processAndGetFeature(originimg, Points);
 
 	vector<double> posevector = robot->readPose();
 
-	emit sendData(posevector, Points);
+	emit sendPose(Mat(posevector).t());
 
 
 	fpstimer->stop();
@@ -110,8 +112,8 @@ void uppercomputer::startTimer()
 	ui.FPSLineEdit->setText(fpsstr);
 
 
-	qoriginimg = QImage((const uchar*)(originimg.data), originimg.cols, originimg.rows, originimg.cols*originimg.channels(), QImage::Format_RGB888);
-	qfeatureimg = QImage((const uchar*)(drawImg2.data), drawImg2.cols, drawImg2.rows, drawImg2.cols*drawImg2.channels(), QImage::Format_RGB888);
+	qoriginimg = QImage((const uchar*)(images[0].data), images[0].cols, images[0].rows, images[0].cols*images[0].channels(), QImage::Format_RGB888);
+	qfeatureimg = QImage((const uchar*)(images[1].data), images[1].cols, images[1].rows, images[1].cols*images[1].channels(), QImage::Format_RGB888);
 
 	ui.LabelCamera->clear();
 	ui.LabelFeature->clear();
@@ -140,7 +142,6 @@ void uppercomputer::startTimer()
 }
 
 
-
  void uppercomputer::displayPose()
  {
 	 vector<double> posevector = robot->readPose();
@@ -159,11 +160,15 @@ void uppercomputer::startTimer()
 	 ui.LineEditPoseR5->setText(QString("%1").arg(posevector[5]));
  }
 
- void uppercomputer::receiveData(vector<double> pose)
+ void uppercomputer::receivePose(Mat pose)
  {
-	 robot->jointMove(pose);
- }
+	 robot->jointMove(vector<double>{pose.at<double>(0), pose.at<double>(1),
+	 pose.at<double>(2), pose.at<double>(3), pose.at<double>(4), pose.at<double>(5)});
 
+	 vector<Point> Points;
+	 camera->getImageAndFeature(Points);
+	 emit sendFeature(flatPoints(Points));
+ }
 
  uppercomputer::~uppercomputer()
  {

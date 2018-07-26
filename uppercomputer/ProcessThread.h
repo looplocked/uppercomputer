@@ -25,10 +25,8 @@ public:
 	ProcessThread(QObject * parent = 0);
 	~ProcessThread();
 
-	void transParams();
-
 signals:
-	void sendPose(vector<double> pose);
+	void sendPose(Mat pose);
 
 
 protected:
@@ -37,6 +35,8 @@ protected:
 private:
 	bool restart;
 	bool abort;
+	bool updatePose;
+	bool updateJacob;
 	QReadWriteLock poselock;
 	QWaitCondition condition;
 	Mat prefeature;
@@ -50,8 +50,9 @@ private:
 	Mat target;
 
 public slots:
-	void startThread();
-	void receiveData(vector<double> newpose, vector<Point> newfeature);
+	void initThread(Mat initjacob, Mat initpose, Mat initfeature, Mat giventarget);
+	void receivePose(Mat newpose);
+	void receiveFeature(Mat newfeature);
 };
 
 
