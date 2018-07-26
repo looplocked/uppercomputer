@@ -40,11 +40,22 @@ void RobotInitialization::startInitialize()
 	vector<Point> points0;
 	camera->getImageAndFeature(points0);
 	Matx<double, 8, 1> preFeature = flatPoints(points0);
-	timer->start(50);
+
+	target.at<double>(0) = 120;
+	target.at<double>(1) = 40;
+	target.at<double>(2) = 520;
+	target.at<double>(3) = 40;
+	target.at<double>(4) = 120;
+	target.at<double>(5) = 40;
+	target.at<double>(6) = 520;
+	target.at<double>(7) = 440;
+	timer->start(100);
+	printLog("initial timer start");
 }
 
 void RobotInitialization::moveAndRecord() {
 	if (count < 7) {
+		printLog("startMove!");
 		Mat targetPose(prePose);
 		targetPose.at<double>(count) += 0.01;
 		robot->jointMove(vector<double>{ targetPose.at<double>(0),
@@ -53,7 +64,12 @@ void RobotInitialization::moveAndRecord() {
 			targetPose.at<double>(5) });
 
 		Mat curPose;
-		vector<double> temp = robot->readPose();
+		vector<double> temp;
+		while (norm(curPose - targetPose) > 0.01 * 0.01) { //如果还未移动到位，则等待一会后再读取关节角
+			printLog("the robot is not ready");
+			_sleep(30);
+			temp = robot->readPose();
+		}
 		for (int i = 0; i < 6; i++) curPose.at<double>(i) = temp[i];
 		vector<Point> curPoints;
 		camera->getImageAndFeature(curPoints);
@@ -67,8 +83,9 @@ void RobotInitialization::moveAndRecord() {
 	}
 	else {
 		jacobian = DF * theta.inv();
+		printLog(MatToStr(jacobian));
 		timer->stop();
-		emit initReady(jacobian, prePose, preFeature);
+		emit initReady(jacobian, prePose, preFeature, target);
 	}
 }
 

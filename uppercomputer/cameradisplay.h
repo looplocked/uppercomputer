@@ -36,6 +36,7 @@ public:
 private:
 	Device* device;
 	VideoStream* oniColorStream;
+	Point init_point;
 };
 
 #endif

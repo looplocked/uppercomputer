@@ -4,6 +4,7 @@ CameraDisplay::CameraDisplay()
 {
 	device = new Device();
 	oniColorStream = new VideoStream();
+	init_point = Point(220, 140);
 }
 
 CameraDisplay::~CameraDisplay()
@@ -60,7 +61,7 @@ vector<Mat> CameraDisplay::getImageAndFeature(vector<Point>& points)
 		Mat originimg = mirrorMap(cvRGBImg);
 		res.push_back(originimg);
 
-		Mat drawImg2 = processAndGetFeature(originimg, points);
+		Mat drawImg2 = processAndGetFeature(originimg, points, init_point);
 
 		res.push_back(drawImg2);
 		return res;

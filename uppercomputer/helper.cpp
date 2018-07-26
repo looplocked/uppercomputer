@@ -1,6 +1,25 @@
 #include "helper.h"
 
+void printLog(string log) {
+	ofstream fout;
+	SYSTEMTIME sys;
+	::GetLocalTime(&sys);
 
+	fout.open("log.txt", ios_base::in | ios_base::app);
+	fout << "[" << sys.wHour << ":" << sys.wMinute << ":" << sys.wSecond << "." << sys.wMilliseconds << "]\t" << log << endl;
+	fout.close();
+}
+
+string MatToStr(Mat m) {
+	string res = "";
+	for (int i = 0; i < m.rows; i++) {
+		for (int j = 0; j < m.cols; j++) {
+			res += to_string(m.at<double>(i, j)) + " ";
+		}
+		res += "\n";
+	}
+	return res;
+}
 
 void CheckOpenNIError(Status result, string status)
 {
@@ -266,8 +285,28 @@ Mat mirrorMap(Mat srcimg)
 	return originimg;
 }
 
+void enableClockWise(std::vector<cv::Point>& Points)
+{
+	if (Points.size() < 3) return;
+	Point vec1(Points[1].x - Points[0].x, Points[1].y - Points[0].y);
+	Point vec2(Points[2].x - Points[1].x, Points[2].y - Points[1].y);
+	if (vec1.x * vec2.y - vec1.y * vec2.x < 0) {
+		Point temp(Points[1].x, Points[1].y);
+		Points[1] = Points[3];
+		Points[3] = temp;
+	}
+}
 
-Mat processAndGetFeature(Mat originimg, vector<Point>& Points)
+void transPoints(std::vector<cv::Point>& Points, int k)
+{
+	k = k % Points.size();
+	reverse(begin(Points), begin(Points) + Points.size() - k);
+	reverse(begin(Points) + Points.size() - k, Points.end());
+	reverse(begin(Points), end(Points));
+}
+
+
+Mat processAndGetFeature(Mat originimg, vector<Point>& Points, Point& prePoint)
 {
 	//LSR直线检测算法初始化
 	cv::Ptr<cv_::LineSegmentDetector> ls;
@@ -378,6 +417,24 @@ Mat processAndGetFeature(Mat originimg, vector<Point>& Points)
 
 		Points.push_back(p1);
 		Points.push_back(p2);
+	}
+
+	enableClockWise(Points);
+
+	if (Points.size() == 4) {
+		int index = 0;
+		double mindist = 1000;
+		for (int i = 0; i < 4; i++) {
+			double d = norm(prePoint - Points[i]);
+			if (d < mindist) {
+				index = i;
+				mindist = d;
+			}
+		}
+
+		transPoints(Points, 4 - index);
+
+		prePoint = Points[0];
 	}
 
 	//条件滤波 暂时关闭

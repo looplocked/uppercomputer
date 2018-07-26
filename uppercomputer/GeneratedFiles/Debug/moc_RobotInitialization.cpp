@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_RobotInitialization_t {
-    QByteArrayData data[9];
-    char stringdata0[92];
+    QByteArrayData data[10];
+    char stringdata0[104];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,13 +36,14 @@ QT_MOC_LITERAL(3, 31, 3), // "Mat"
 QT_MOC_LITERAL(4, 35, 9), // "initjacob"
 QT_MOC_LITERAL(5, 45, 8), // "initpose"
 QT_MOC_LITERAL(6, 54, 7), // "feature"
-QT_MOC_LITERAL(7, 62, 15), // "startInitialize"
-QT_MOC_LITERAL(8, 78, 13) // "moveAndRecord"
+QT_MOC_LITERAL(7, 62, 11), // "giventarget"
+QT_MOC_LITERAL(8, 74, 15), // "startInitialize"
+QT_MOC_LITERAL(9, 90, 13) // "moveAndRecord"
 
     },
     "RobotInitialization\0initReady\0\0Mat\0"
-    "initjacob\0initpose\0feature\0startInitialize\0"
-    "moveAndRecord"
+    "initjacob\0initpose\0feature\0giventarget\0"
+    "startInitialize\0moveAndRecord"
 };
 #undef QT_MOC_LITERAL
 
@@ -60,14 +61,14 @@ static const uint qt_meta_data_RobotInitialization[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    3,   29,    2, 0x06 /* Public */,
+       1,    4,   29,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       7,    0,   36,    2, 0x0a /* Public */,
-       8,    0,   37,    2, 0x0a /* Public */,
+       8,    0,   38,    2, 0x0a /* Public */,
+       9,    0,   39,    2, 0x0a /* Public */,
 
  // signals: parameters
-    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3, 0x80000000 | 3,    4,    5,    6,
+    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3, 0x80000000 | 3, 0x80000000 | 3,    4,    5,    6,    7,
 
  // slots: parameters
     QMetaType::Void,
@@ -82,7 +83,7 @@ void RobotInitialization::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         RobotInitialization *_t = static_cast<RobotInitialization *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->initReady((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< Mat(*)>(_a[3]))); break;
+        case 0: _t->initReady((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< Mat(*)>(_a[3])),(*reinterpret_cast< Mat(*)>(_a[4]))); break;
         case 1: _t->startInitialize(); break;
         case 2: _t->moveAndRecord(); break;
         default: ;
@@ -91,7 +92,7 @@ void RobotInitialization::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         int *result = reinterpret_cast<int *>(_a[0]);
         void **func = reinterpret_cast<void **>(_a[1]);
         {
-            typedef void (RobotInitialization::*_t)(Mat , Mat , Mat );
+            typedef void (RobotInitialization::*_t)(Mat , Mat , Mat , Mat );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&RobotInitialization::initReady)) {
                 *result = 0;
                 return;
@@ -137,9 +138,9 @@ int RobotInitialization::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void RobotInitialization::initReady(Mat _t1, Mat _t2, Mat _t3)
+void RobotInitialization::initReady(Mat _t1, Mat _t2, Mat _t3, Mat _t4)
 {
-    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)) };
+    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)), const_cast<void*>(reinterpret_cast<const void*>(&_t4)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_END_MOC_NAMESPACE

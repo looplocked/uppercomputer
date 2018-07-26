@@ -8,6 +8,7 @@
 #include "opencv2/core/core.hpp" 
 #include "RobotControl.h"
 #include "cameradisplay.h"
+#include "helper.h"
 
 using namespace std;
 using namespace cv;
@@ -24,7 +25,7 @@ public slots:
 	void moveAndRecord();
 
 signals:
-	void initReady(Mat initjacob, Mat initpose, Mat feature);
+	void initReady(Mat initjacob, Mat initpose, Mat feature, Mat giventarget);
 
 private:
 	RobotControl* robot;
@@ -36,6 +37,7 @@ private:
 	Mat jacobian = Mat(8, 6, CV_64FC1);
 	Mat DF = Mat(8, 6, CV_64FC1);
 	Mat theta = Mat(6, 6, CV_64FC1);
+	Mat target = Mat(8, 1, CV_64FC1);
 };
 
 
