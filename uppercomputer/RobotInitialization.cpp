@@ -49,6 +49,7 @@ void RobotInitialization::startInitialize()
 	target.at<double>(5) = 40;
 	target.at<double>(6) = 520;
 	target.at<double>(7) = 440;
+
 	timer->start(100);
 	printLog("initial timer start");
 }
@@ -64,13 +65,18 @@ void RobotInitialization::moveAndRecord() {
 			targetPose.at<double>(5) });
 
 		Mat curPose;
-		vector<double> temp;
+		vector<double> temp = robot->readPose();
+		printLog(MatToStr(Mat(temp)));
+		// for (int i = 0; i < 6; i++) curPose.at<double>(i) = temp[i];
+		curPose = Mat(temp);
 		while (norm(curPose - targetPose) > 0.01 * 0.01) { //如果还未移动到位，则等待一会后再读取关节角
 			printLog("the robot is not ready");
+			// printLog("the pose error is " + MatToStr(curPose - targetPose));
 			_sleep(30);
 			temp = robot->readPose();
+			//for (int i = 0; i < 6; i++) curPose.at<double>(i) = temp[i];
+			curPose = Mat(temp);
 		}
-		for (int i = 0; i < 6; i++) curPose.at<double>(i) = temp[i];
 		vector<Point> curPoints;
 		camera->getImageAndFeature(curPoints);
 		Mat curFeature = flatPoints(curPoints);

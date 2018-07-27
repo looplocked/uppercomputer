@@ -12,6 +12,7 @@
 #include <vector>
 #include <QByteArray>
 #include <QObject>
+#include "helper.h"
 
 #include <sstream>
 

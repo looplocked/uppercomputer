@@ -1,0 +1,2528 @@
+[8:52:56.997]	initial timer start
+[8:52:57.109]	startMove!
+[8:55:23.631]	initial timer start
+[8:55:23.785]	startMove!
+[9:42:31.850]	initial timer start
+[9:42:31.953]	startMove!
+[9:46:28.792]	initial timer start
+[9:46:28.911]	startMove!
+[9:49:0.546]	initial timer start
+[9:49:0.709]	startMove!
+[9:49:0.710]	-2.979100 
+-2.172540 
+-1.314915 
+-1.257421 
+-4.708239 
+-2.326139 
+
+[9:53:26.643]	initial timer start
+[9:53:26.801]	startMove!
+[9:53:26.802]	-2.979076 
+-2.172552 
+-1.314904 
+-1.257385 
+-4.708251 
+-2.326163 
+
+[9:53:26.805]	the robot is not ready
+[9:53:26.836]	the robot is not ready
+[9:53:26.867]	the robot is not ready
+[9:53:26.898]	the robot is not ready
+[9:53:26.929]	the robot is not ready
+[9:53:26.960]	the robot is not ready
+[9:53:26.991]	the robot is not ready
+[9:53:27.22]	the robot is not ready
+[9:53:27.53]	the robot is not ready
+[9:53:27.84]	the robot is not ready
+[9:53:27.115]	the robot is not ready
+[9:53:27.145]	the robot is not ready
+[9:53:27.176]	the robot is not ready
+[9:53:27.207]	the robot is not ready
+[9:53:27.238]	the robot is not ready
+[9:53:27.269]	the robot is not ready
+[9:53:27.300]	the robot is not ready
+[9:53:27.331]	the robot is not ready
+[9:53:27.362]	the robot is not ready
+[9:53:27.393]	the robot is not ready
+[9:53:27.425]	the robot is not ready
+[9:53:27.457]	the robot is not ready
+[9:53:27.490]	the robot is not ready
+[9:53:27.521]	the robot is not ready
+[9:53:27.553]	the robot is not ready
+[9:53:27.584]	the robot is not ready
+[9:53:27.615]	the robot is not ready
+[9:53:27.647]	the robot is not ready
+[9:53:27.678]	the robot is not ready
+[9:53:27.710]	the robot is not ready
+[9:53:27.741]	the robot is not ready
+[9:53:27.772]	the robot is not ready
+[9:53:27.803]	the robot is not ready
+[9:53:27.834]	the robot is not ready
+[9:53:27.865]	the robot is not ready
+[9:53:27.896]	the robot is not ready
+[9:53:27.927]	the robot is not ready
+[9:53:27.958]	the robot is not ready
+[9:53:27.989]	the robot is not ready
+[9:53:28.19]	the robot is not ready
+[9:53:28.50]	the robot is not ready
+[9:53:28.81]	the robot is not ready
+[9:53:28.112]	the robot is not ready
+[9:53:28.143]	the robot is not ready
+[9:53:28.174]	the robot is not ready
+[9:53:28.205]	the robot is not ready
+[9:53:28.236]	the robot is not ready
+[9:53:28.267]	the robot is not ready
+[9:53:28.298]	the robot is not ready
+[9:53:28.329]	the robot is not ready
+[9:53:28.360]	the robot is not ready
+[9:53:28.390]	the robot is not ready
+[9:53:28.421]	the robot is not ready
+[9:53:28.452]	the robot is not ready
+[9:53:28.483]	the robot is not ready
+[9:53:28.514]	the robot is not ready
+[9:53:28.545]	the robot is not ready
+[9:53:28.576]	the robot is not ready
+[9:53:28.607]	the robot is not ready
+[9:53:28.638]	the robot is not ready
+[9:53:28.669]	the robot is not ready
+[9:53:28.700]	the robot is not ready
+[9:53:28.731]	the robot is not ready
+[9:53:28.761]	the robot is not ready
+[9:53:28.792]	the robot is not ready
+[9:53:28.823]	the robot is not ready
+[9:53:28.854]	the robot is not ready
+[9:53:28.885]	the robot is not ready
+[9:53:28.916]	the robot is not ready
+[9:53:28.947]	the robot is not ready
+[9:53:28.978]	the robot is not ready
+[9:53:29.9]	the robot is not ready
+[9:53:29.40]	the robot is not ready
+[9:53:29.71]	the robot is not ready
+[9:53:29.102]	the robot is not ready
+[9:53:29.132]	the robot is not ready
+[9:53:29.163]	the robot is not ready
+[9:53:29.194]	the robot is not ready
+[9:53:29.225]	the robot is not ready
+[9:53:29.256]	the robot is not ready
+[9:53:29.287]	the robot is not ready
+[9:53:29.318]	the robot is not ready
+[9:53:29.349]	the robot is not ready
+[9:53:29.380]	the robot is not ready
+[9:53:29.411]	the robot is not ready
+[9:53:29.442]	the robot is not ready
+[9:53:29.473]	the robot is not ready
+[9:53:29.503]	the robot is not ready
+[9:53:29.534]	the robot is not ready
+[9:53:29.565]	the robot is not ready
+[9:53:29.596]	the robot is not ready
+[9:53:29.627]	the robot is not ready
+[9:53:29.658]	the robot is not ready
+[9:53:29.689]	the robot is not ready
+[9:53:29.720]	the robot is not ready
+[9:53:29.751]	the robot is not ready
+[9:53:29.782]	the robot is not ready
+[9:53:29.813]	the robot is not ready
+[9:53:29.844]	the robot is not ready
+[9:53:29.874]	the robot is not ready
+[9:53:29.905]	the robot is not ready
+[9:53:29.936]	the robot is not ready
+[9:53:29.967]	the robot is not ready
+[9:53:29.998]	the robot is not ready
+[9:53:30.29]	the robot is not ready
+[9:53:30.60]	the robot is not ready
+[9:53:30.91]	the robot is not ready
+[9:53:30.122]	the robot is not ready
+[9:53:30.153]	the robot is not ready
+[9:53:30.184]	the robot is not ready
+[9:53:30.215]	the robot is not ready
+[9:53:30.245]	the robot is not ready
+[9:53:30.276]	the robot is not ready
+[9:53:30.307]	the robot is not ready
+[9:53:30.338]	the robot is not ready
+[9:53:30.369]	the robot is not ready
+[9:53:30.400]	the robot is not ready
+[9:53:30.432]	the robot is not ready
+[9:53:30.463]	the robot is not ready
+[9:53:30.495]	the robot is not ready
+[9:53:30.526]	the robot is not ready
+[9:53:30.558]	the robot is not ready
+[9:53:30.590]	the robot is not ready
+[9:53:30.621]	the robot is not ready
+[9:53:30.653]	the robot is not ready
+[9:53:30.686]	the robot is not ready
+[9:53:30.717]	the robot is not ready
+[9:53:30.748]	the robot is not ready
+[9:53:30.779]	the robot is not ready
+[9:53:30.811]	the robot is not ready
+[9:53:30.843]	the robot is not ready
+[9:53:30.875]	the robot is not ready
+[9:53:30.906]	the robot is not ready
+[9:53:30.937]	the robot is not ready
+[9:53:30.968]	the robot is not ready
+[9:53:30.999]	the robot is not ready
+[9:53:31.30]	the robot is not ready
+[9:53:31.61]	the robot is not ready
+[9:53:31.92]	the robot is not ready
+[9:53:31.123]	the robot is not ready
+[9:53:31.154]	the robot is not ready
+[9:53:31.184]	the robot is not ready
+[9:53:31.215]	the robot is not ready
+[9:53:31.246]	the robot is not ready
+[9:53:31.277]	the robot is not ready
+[9:53:31.308]	the robot is not ready
+[9:53:31.339]	the robot is not ready
+[9:53:31.370]	the robot is not ready
+[9:53:31.401]	the robot is not ready
+[9:53:31.432]	the robot is not ready
+[9:53:31.463]	the robot is not ready
+[9:53:31.494]	the robot is not ready
+[9:53:31.525]	the robot is not ready
+[9:53:31.555]	the robot is not ready
+[9:53:31.586]	the robot is not ready
+[9:53:31.617]	the robot is not ready
+[9:53:31.648]	the robot is not ready
+[9:53:31.679]	the robot is not ready
+[9:53:31.710]	the robot is not ready
+[9:53:31.741]	the robot is not ready
+[9:53:31.772]	the robot is not ready
+[9:53:31.803]	the robot is not ready
+[9:53:31.834]	the robot is not ready
+[9:53:31.865]	the robot is not ready
+[9:53:31.896]	the robot is not ready
+[9:53:31.926]	the robot is not ready
+[9:53:31.957]	the robot is not ready
+[9:53:31.988]	the robot is not ready
+[9:53:32.19]	the robot is not ready
+[9:53:32.50]	the robot is not ready
+[9:53:32.81]	the robot is not ready
+[9:53:32.112]	the robot is not ready
+[9:53:32.143]	the robot is not ready
+[9:53:32.174]	the robot is not ready
+[9:53:32.205]	the robot is not ready
+[9:53:32.236]	the robot is not ready
+[9:53:32.267]	the robot is not ready
+[9:53:32.297]	the robot is not ready
+[9:53:32.328]	the robot is not ready
+[9:53:32.359]	the robot is not ready
+[9:53:32.390]	the robot is not ready
+[9:53:32.421]	the robot is not ready
+[9:53:32.452]	the robot is not ready
+[9:53:32.483]	the robot is not ready
+[9:53:32.514]	the robot is not ready
+[9:53:32.545]	the robot is not ready
+[9:53:32.576]	the robot is not ready
+[9:53:32.607]	the robot is not ready
+[9:53:32.638]	the robot is not ready
+[9:53:32.668]	the robot is not ready
+[9:53:32.699]	the robot is not ready
+[9:53:32.730]	the robot is not ready
+[9:53:32.761]	the robot is not ready
+[9:53:32.792]	the robot is not ready
+[9:53:32.823]	the robot is not ready
+[9:53:32.854]	the robot is not ready
+[9:53:32.885]	the robot is not ready
+[9:53:32.916]	the robot is not ready
+[9:53:32.947]	the robot is not ready
+[9:53:32.978]	the robot is not ready
+[9:53:33.9]	the robot is not ready
+[9:53:33.39]	the robot is not ready
+[9:53:33.70]	the robot is not ready
+[9:53:33.101]	the robot is not ready
+[9:53:33.132]	the robot is not ready
+[9:53:33.163]	the robot is not ready
+[9:53:33.194]	the robot is not ready
+[9:53:33.225]	the robot is not ready
+[9:53:33.256]	the robot is not ready
+[9:53:33.287]	the robot is not ready
+[9:53:33.318]	the robot is not ready
+[9:53:33.349]	the robot is not ready
+[9:53:33.380]	the robot is not ready
+[9:53:33.411]	the robot is not ready
+[9:53:33.441]	the robot is not ready
+[9:53:33.472]	the robot is not ready
+[9:53:33.503]	the robot is not ready
+[9:53:33.534]	the robot is not ready
+[9:53:33.565]	the robot is not ready
+[9:53:33.596]	the robot is not ready
+[9:53:33.627]	the robot is not ready
+[9:53:33.657]	the robot is not ready
+[9:53:33.689]	the robot is not ready
+[9:53:33.720]	the robot is not ready
+[9:53:33.752]	the robot is not ready
+[9:53:33.784]	the robot is not ready
+[9:53:33.817]	the robot is not ready
+[9:53:33.847]	the robot is not ready
+[9:53:33.879]	the robot is not ready
+[9:53:33.910]	the robot is not ready
+[9:53:33.941]	the robot is not ready
+[9:53:33.973]	the robot is not ready
+[9:53:34.5]	the robot is not ready
+[9:53:34.37]	the robot is not ready
+[9:53:34.69]	the robot is not ready
+[9:53:34.100]	the robot is not ready
+[9:53:34.131]	the robot is not ready
+[9:53:34.162]	the robot is not ready
+[9:53:34.193]	the robot is not ready
+[9:53:34.224]	the robot is not ready
+[9:53:34.255]	the robot is not ready
+[9:53:34.286]	the robot is not ready
+[9:53:34.317]	the robot is not ready
+[9:53:34.348]	the robot is not ready
+[9:53:34.379]	the robot is not ready
+[9:53:34.410]	the robot is not ready
+[9:53:34.441]	the robot is not ready
+[9:53:34.472]	the robot is not ready
+[9:53:34.503]	the robot is not ready
+[9:53:34.535]	the robot is not ready
+[9:53:34.566]	the robot is not ready
+[9:53:34.597]	the robot is not ready
+[9:53:34.628]	the robot is not ready
+[9:53:34.659]	the robot is not ready
+[9:53:34.690]	the robot is not ready
+[9:53:34.721]	the robot is not ready
+[9:53:34.752]	the robot is not ready
+[9:53:34.783]	the robot is not ready
+[9:53:34.814]	the robot is not ready
+[9:53:34.845]	the robot is not ready
+[9:53:34.876]	the robot is not ready
+[9:53:34.907]	the robot is not ready
+[9:53:34.938]	the robot is not ready
+[9:53:34.968]	the robot is not ready
+[9:53:34.999]	the robot is not ready
+[9:53:35.30]	the robot is not ready
+[9:53:35.61]	the robot is not ready
+[9:53:35.92]	the robot is not ready
+[9:53:35.123]	the robot is not ready
+[9:53:35.154]	the robot is not ready
+[9:53:35.185]	the robot is not ready
+[9:53:35.216]	the robot is not ready
+[9:53:35.247]	the robot is not ready
+[9:53:35.278]	the robot is not ready
+[9:53:35.308]	the robot is not ready
+[9:53:35.339]	the robot is not ready
+[9:53:35.370]	the robot is not ready
+[9:53:35.401]	the robot is not ready
+[9:53:35.432]	the robot is not ready
+[9:53:35.463]	the robot is not ready
+[9:53:35.494]	the robot is not ready
+[9:53:35.525]	the robot is not ready
+[9:53:35.556]	the robot is not ready
+[9:53:35.587]	the robot is not ready
+[9:53:35.618]	the robot is not ready
+[9:53:35.649]	the robot is not ready
+[9:53:35.679]	the robot is not ready
+[9:53:35.710]	the robot is not ready
+[9:53:35.741]	the robot is not ready
+[9:53:35.772]	the robot is not ready
+[9:53:35.803]	the robot is not ready
+[9:53:35.834]	the robot is not ready
+[9:53:35.865]	the robot is not ready
+[9:53:35.896]	the robot is not ready
+[9:53:35.927]	the robot is not ready
+[9:53:35.958]	the robot is not ready
+[9:53:35.989]	the robot is not ready
+[9:53:36.20]	the robot is not ready
+[9:53:36.51]	the robot is not ready
+[9:53:36.81]	the robot is not ready
+[9:53:36.112]	the robot is not ready
+[9:53:36.143]	the robot is not ready
+[9:53:36.174]	the robot is not ready
+[9:53:36.205]	the robot is not ready
+[9:53:36.236]	the robot is not ready
+[9:53:36.267]	the robot is not ready
+[9:53:36.298]	the robot is not ready
+[9:53:36.329]	the robot is not ready
+[9:53:36.360]	the robot is not ready
+[9:53:36.391]	the robot is not ready
+[9:53:36.422]	the robot is not ready
+[9:53:36.452]	the robot is not ready
+[9:53:36.483]	the robot is not ready
+[9:53:36.514]	the robot is not ready
+[9:53:36.545]	the robot is not ready
+[9:53:36.576]	the robot is not ready
+[9:53:36.607]	the robot is not ready
+[9:53:36.638]	the robot is not ready
+[9:53:36.669]	the robot is not ready
+[9:53:36.700]	the robot is not ready
+[9:53:36.731]	the robot is not ready
+[9:53:36.762]	the robot is not ready
+[9:53:36.793]	the robot is not ready
+[9:53:36.823]	the robot is not ready
+[9:53:36.854]	the robot is not ready
+[9:53:36.885]	the robot is not ready
+[9:53:36.916]	the robot is not ready
+[9:53:36.947]	the robot is not ready
+[9:53:36.978]	the robot is not ready
+[9:53:37.9]	the robot is not ready
+[9:53:37.40]	the robot is not ready
+[9:53:37.71]	the robot is not ready
+[9:53:37.102]	the robot is not ready
+[9:53:37.133]	the robot is not ready
+[9:53:37.164]	the robot is not ready
+[9:53:37.194]	the robot is not ready
+[9:53:37.226]	the robot is not ready
+[9:53:37.257]	the robot is not ready
+[9:53:37.288]	the robot is not ready
+[9:53:37.319]	the robot is not ready
+[9:53:37.351]	the robot is not ready
+[9:53:37.382]	the robot is not ready
+[9:53:37.414]	the robot is not ready
+[9:53:37.445]	the robot is not ready
+[9:53:37.476]	the robot is not ready
+[9:53:37.507]	the robot is not ready
+[9:53:37.538]	the robot is not ready
+[9:53:37.570]	the robot is not ready
+[9:53:37.602]	the robot is not ready
+[9:53:37.634]	the robot is not ready
+[9:53:37.665]	the robot is not ready
+[9:53:37.696]	the robot is not ready
+[9:57:11.16]	initial timer start
+[9:57:11.193]	startMove!
+[9:57:11.194]	-2.979100 
+-2.172540 
+-1.314880 
+-1.257385 
+-4.708263 
+-2.326151 
+
+[9:57:11.195]	the robot is not ready
+[9:57:11.226]	the robot is not ready
+[9:57:11.257]	the robot is not ready
+[9:57:11.288]	the robot is not ready
+[9:57:11.318]	the robot is not ready
+[9:57:11.349]	the robot is not ready
+[9:57:11.380]	the robot is not ready
+[9:57:11.411]	the robot is not ready
+[9:57:11.442]	the robot is not ready
+[9:57:11.473]	the robot is not ready
+[9:57:11.504]	the robot is not ready
+[9:57:11.535]	the robot is not ready
+[9:57:11.566]	the robot is not ready
+[9:57:11.597]	the robot is not ready
+[9:57:11.628]	the robot is not ready
+[9:57:11.659]	the robot is not ready
+[9:57:11.690]	the robot is not ready
+[9:57:11.720]	the robot is not ready
+[9:57:11.751]	the robot is not ready
+[9:57:11.782]	the robot is not ready
+[9:57:11.813]	the robot is not ready
+[9:57:11.844]	the robot is not ready
+[9:57:11.875]	the robot is not ready
+[9:57:11.906]	the robot is not ready
+[9:57:11.937]	the robot is not ready
+[9:57:11.968]	the robot is not ready
+[9:57:11.999]	the robot is not ready
+[9:57:12.30]	the robot is not ready
+[9:57:12.61]	the robot is not ready
+[9:57:12.91]	the robot is not ready
+[9:57:12.122]	the robot is not ready
+[9:57:12.153]	the robot is not ready
+[9:57:12.184]	the robot is not ready
+[9:57:12.215]	the robot is not ready
+[9:57:12.246]	the robot is not ready
+[9:57:12.277]	the robot is not ready
+[9:57:12.308]	the robot is not ready
+[9:57:12.339]	the robot is not ready
+[9:57:12.370]	the robot is not ready
+[9:57:12.401]	the robot is not ready
+[9:57:12.432]	the robot is not ready
+[9:57:12.462]	the robot is not ready
+[9:57:12.493]	the robot is not ready
+[9:57:12.524]	the robot is not ready
+[9:57:12.555]	the robot is not ready
+[9:57:12.586]	the robot is not ready
+[9:57:12.617]	the robot is not ready
+[9:57:12.648]	the robot is not ready
+[9:57:12.679]	the robot is not ready
+[9:57:12.710]	the robot is not ready
+[9:57:12.741]	the robot is not ready
+[9:57:12.772]	the robot is not ready
+[9:57:12.803]	the robot is not ready
+[9:57:12.833]	the robot is not ready
+[9:57:12.864]	the robot is not ready
+[9:57:12.895]	the robot is not ready
+[9:57:12.926]	the robot is not ready
+[9:57:12.957]	the robot is not ready
+[9:57:12.988]	the robot is not ready
+[9:57:13.19]	the robot is not ready
+[9:57:13.50]	the robot is not ready
+[9:57:13.81]	the robot is not ready
+[9:57:13.112]	the robot is not ready
+[9:57:13.143]	the robot is not ready
+[9:57:13.174]	the robot is not ready
+[9:57:13.204]	the robot is not ready
+[9:57:13.235]	the robot is not ready
+[9:57:13.266]	the robot is not ready
+[9:57:13.297]	the robot is not ready
+[9:57:13.328]	the robot is not ready
+[9:57:13.359]	the robot is not ready
+[9:57:13.390]	the robot is not ready
+[9:57:13.421]	the robot is not ready
+[9:57:13.452]	the robot is not ready
+[9:57:13.483]	the robot is not ready
+[9:57:13.514]	the robot is not ready
+[9:57:13.545]	the robot is not ready
+[9:57:13.576]	the robot is not ready
+[9:57:13.608]	the robot is not ready
+[9:57:13.640]	the robot is not ready
+[9:57:13.672]	the robot is not ready
+[9:57:13.702]	the robot is not ready
+[9:57:13.733]	the robot is not ready
+[9:57:13.764]	the robot is not ready
+[9:57:13.795]	the robot is not ready
+[9:57:13.826]	the robot is not ready
+[9:57:13.857]	the robot is not ready
+[9:57:13.889]	the robot is not ready
+[9:57:13.921]	the robot is not ready
+[9:57:13.953]	the robot is not ready
+[9:57:13.984]	the robot is not ready
+[9:57:14.16]	the robot is not ready
+[9:57:14.47]	the robot is not ready
+[9:57:14.78]	the robot is not ready
+[9:57:14.109]	the robot is not ready
+[9:57:14.140]	the robot is not ready
+[9:57:14.171]	the robot is not ready
+[9:57:14.202]	the robot is not ready
+[9:57:14.233]	the robot is not ready
+[9:57:14.263]	the robot is not ready
+[9:57:14.294]	the robot is not ready
+[9:57:14.325]	the robot is not ready
+[9:57:14.356]	the robot is not ready
+[9:57:14.387]	the robot is not ready
+[9:57:14.418]	the robot is not ready
+[9:57:14.449]	the robot is not ready
+[9:57:14.480]	the robot is not ready
+[9:57:14.514]	the robot is not ready
+[9:57:14.545]	the robot is not ready
+[9:57:14.577]	the robot is not ready
+[10:0:22.827]	initial timer start
+[10:0:22.937]	startMove!
+[10:0:22.938]	-2.979100 
+-2.172576 
+-1.314855 
+-1.257445 
+-4.708263 
+-2.326151 
+
+[10:0:22.939]	the robot is not ready
+[10:0:22.939]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:22.971]	the robot is not ready
+[10:0:22.971]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.2]	the robot is not ready
+[10:0:23.2]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.34]	the robot is not ready
+[10:0:23.34]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.65]	the robot is not ready
+[10:0:23.65]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.97]	the robot is not ready
+[10:0:23.97]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.128]	the robot is not ready
+[10:0:23.128]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.160]	the robot is not ready
+[10:0:23.160]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.192]	the robot is not ready
+[10:0:23.192]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.224]	the robot is not ready
+[10:0:23.224]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.255]	the robot is not ready
+[10:0:23.255]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.287]	the robot is not ready
+[10:0:23.287]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.319]	the robot is not ready
+[10:0:23.319]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.351]	the robot is not ready
+[10:0:23.351]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.383]	the robot is not ready
+[10:0:23.383]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.415]	the robot is not ready
+[10:0:23.415]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.447]	the robot is not ready
+[10:0:23.447]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.478]	the robot is not ready
+[10:0:23.478]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.509]	the robot is not ready
+[10:0:23.509]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.541]	the robot is not ready
+[10:0:23.541]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.572]	the robot is not ready
+[10:0:23.572]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.604]	the robot is not ready
+[10:0:23.604]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.635]	the robot is not ready
+[10:0:23.635]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.667]	the robot is not ready
+[10:0:23.668]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.700]	the robot is not ready
+[10:0:23.700]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.731]	the robot is not ready
+[10:0:23.732]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.764]	the robot is not ready
+[10:0:23.766]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.798]	the robot is not ready
+[10:0:23.799]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.830]	the robot is not ready
+[10:0:23.831]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.863]	the robot is not ready
+[10:0:23.864]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.896]	the robot is not ready
+[10:0:23.896]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.928]	the robot is not ready
+[10:0:23.928]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.959]	the robot is not ready
+[10:0:23.959]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:23.991]	the robot is not ready
+[10:0:23.991]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.23]	the robot is not ready
+[10:0:24.23]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.54]	the robot is not ready
+[10:0:24.55]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.87]	the robot is not ready
+[10:0:24.88]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.120]	the robot is not ready
+[10:0:24.121]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.154]	the robot is not ready
+[10:0:24.155]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.187]	the robot is not ready
+[10:0:24.188]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.221]	the robot is not ready
+[10:0:24.222]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.254]	the robot is not ready
+[10:0:24.254]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.286]	the robot is not ready
+[10:0:24.286]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.318]	the robot is not ready
+[10:0:24.318]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.349]	the robot is not ready
+[10:0:24.349]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.381]	the robot is not ready
+[10:0:24.382]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.414]	the robot is not ready
+[10:0:24.416]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.448]	the robot is not ready
+[10:0:24.450]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.482]	the robot is not ready
+[10:0:24.482]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.514]	the robot is not ready
+[10:0:24.514]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.546]	the robot is not ready
+[10:0:24.546]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.577]	the robot is not ready
+[10:0:24.577]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.609]	the robot is not ready
+[10:0:24.609]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.641]	the robot is not ready
+[10:0:24.641]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.672]	the robot is not ready
+[10:0:24.672]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.704]	the robot is not ready
+[10:0:24.704]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.736]	the robot is not ready
+[10:0:24.736]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.768]	the robot is not ready
+[10:0:24.768]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.800]	the robot is not ready
+[10:0:24.800]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.832]	the robot is not ready
+[10:0:24.832]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.864]	the robot is not ready
+[10:0:24.864]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.896]	the robot is not ready
+[10:0:24.896]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.928]	the robot is not ready
+[10:0:24.928]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.960]	the robot is not ready
+[10:0:24.960]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:24.991]	the robot is not ready
+[10:0:24.991]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:25.22]	the robot is not ready
+[10:0:25.22]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:25.54]	the robot is not ready
+[10:0:25.54]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:25.86]	the robot is not ready
+[10:0:25.86]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:25.118]	the robot is not ready
+[10:0:25.118]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:25.150]	the robot is not ready
+[10:0:25.151]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:25.191]	the robot is not ready
+[10:0:25.194]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:25.226]	the robot is not ready
+[10:0:25.227]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:25.259]	the robot is not ready
+[10:0:25.260]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:0:25.292]	the robot is not ready
+[10:0:25.292]	the pose error is -0.010012 
+0.000012 
+0.000012 
+-0.000024 
+0.000000 
+-0.000012 
+
+[10:8:45.724]	initial timer start
+[10:8:45.828]	startMove!
+[10:8:45.829]	move successfully!
+[10:8:45.830]	-2.979112 
+-2.172552 
+-1.314880 
+-1.257421 
+-4.708275 
+-2.326115 
+
+[10:8:45.830]	the robot is not ready
+[10:8:45.861]	the robot is not ready
+[10:8:45.892]	the robot is not ready
+[10:8:45.923]	the robot is not ready
+[10:8:45.954]	the robot is not ready
+[10:8:45.985]	the robot is not ready
+[10:8:46.17]	the robot is not ready
+[10:8:46.49]	the robot is not ready
+[10:8:46.82]	the robot is not ready
+[10:8:46.114]	the robot is not ready
+[10:8:46.146]	the robot is not ready
+[10:8:46.177]	the robot is not ready
+[10:8:46.209]	the robot is not ready
+[10:8:46.240]	the robot is not ready
+[10:8:46.271]	the robot is not ready
+[10:8:46.302]	the robot is not ready
+[10:8:46.334]	the robot is not ready
+[10:8:46.364]	the robot is not ready
+[10:8:46.396]	the robot is not ready
+[10:8:46.427]	the robot is not ready
+[10:8:46.458]	the robot is not ready
+[10:8:46.488]	the robot is not ready
+[10:8:46.519]	the robot is not ready
+[10:8:46.550]	the robot is not ready
+[10:8:46.581]	the robot is not ready
+[10:8:46.612]	the robot is not ready
+[10:8:46.643]	the robot is not ready
+[10:8:46.674]	the robot is not ready
+[10:8:46.705]	the robot is not ready
+[10:8:46.736]	the robot is not ready
+[10:8:46.767]	the robot is not ready
+[10:8:46.798]	the robot is not ready
+[10:8:46.829]	the robot is not ready
+[10:8:46.859]	the robot is not ready
+[10:8:46.890]	the robot is not ready
+[10:8:46.921]	the robot is not ready
+[10:8:46.952]	the robot is not ready
+[10:8:46.983]	the robot is not ready
+[10:8:47.14]	the robot is not ready
+[10:8:47.45]	the robot is not ready
+[10:8:47.76]	the robot is not ready
+[10:8:47.107]	the robot is not ready
+[10:8:47.138]	the robot is not ready
+[10:8:47.169]	the robot is not ready
+[10:8:47.199]	the robot is not ready
+[10:8:47.230]	the robot is not ready
+[10:8:47.261]	the robot is not ready
+[10:8:47.292]	the robot is not ready
+[10:8:47.323]	the robot is not ready
+[10:8:47.354]	the robot is not ready
+[10:8:47.385]	the robot is not ready
+[10:8:47.416]	the robot is not ready
+[10:8:47.447]	the robot is not ready
+[10:8:47.478]	the robot is not ready
+[10:8:47.509]	the robot is not ready
+[10:8:47.548]	the robot is not ready
+[10:8:47.578]	the robot is not ready
+[10:8:47.609]	the robot is not ready
+[10:8:47.641]	the robot is not ready
+[10:12:54.681]	initial timer start
+[10:12:54.794]	startMove!
+[10:12:54.794]	move successfully!
+[10:12:54.795]	-2.979088 
+-2.172504 
+-1.314855 
+-1.257421 
+-4.708251 
+-2.326139 
+
+[10:12:54.796]	the robot is not ready
+[10:12:54.827]	the robot is not ready
+[10:12:54.858]	the robot is not ready
+[10:12:54.889]	the robot is not ready
+[10:12:54.919]	the robot is not ready
+[10:12:54.950]	the robot is not ready
+[10:12:54.981]	the robot is not ready
+[10:12:55.12]	the robot is not ready
+[10:12:55.43]	the robot is not ready
+[10:12:55.74]	the robot is not ready
+[10:12:55.105]	the robot is not ready
+[10:12:55.136]	the robot is not ready
+[10:12:55.167]	the robot is not ready
+[10:12:55.198]	the robot is not ready
+[10:12:55.229]	the robot is not ready
+[10:12:55.260]	the robot is not ready
+[10:12:55.291]	the robot is not ready
+[10:12:55.321]	the robot is not ready
+[10:12:55.353]	the robot is not ready
+[10:12:55.384]	the robot is not ready
+[10:12:55.415]	the robot is not ready
+[10:12:55.446]	the robot is not ready
+[10:12:55.477]	the robot is not ready
+[10:12:55.508]	the robot is not ready
+[10:12:55.539]	the robot is not ready
+[10:12:55.571]	the robot is not ready
+[10:12:55.602]	the robot is not ready
+[10:12:55.634]	the robot is not ready
+[10:12:55.667]	the robot is not ready
+[10:12:55.699]	the robot is not ready
+[10:12:55.730]	the robot is not ready
+[10:12:55.762]	the robot is not ready
+[10:12:55.794]	the robot is not ready
+[10:12:55.825]	the robot is not ready
+[10:12:55.856]	the robot is not ready
+[10:12:55.887]	the robot is not ready
+[10:12:55.918]	the robot is not ready
+[10:12:55.949]	the robot is not ready
+[10:12:55.980]	the robot is not ready
+[10:12:56.11]	the robot is not ready
+[10:12:56.41]	the robot is not ready
+[10:12:56.72]	the robot is not ready
+[10:12:56.103]	the robot is not ready
+[10:12:56.134]	the robot is not ready
+[10:12:56.165]	the robot is not ready
+[10:12:56.196]	the robot is not ready
+[10:12:56.227]	the robot is not ready
+[10:12:56.258]	the robot is not ready
+[10:12:56.289]	the robot is not ready
+[10:12:56.320]	the robot is not ready
+[10:12:56.351]	the robot is not ready
+[10:12:56.382]	the robot is not ready
+[10:12:56.412]	the robot is not ready
+[10:12:56.443]	the robot is not ready
+[10:12:56.474]	the robot is not ready
+[10:12:56.505]	the robot is not ready
+[10:12:56.536]	the robot is not ready
+[10:12:56.567]	the robot is not ready
+[10:12:56.598]	the robot is not ready
+[10:12:56.629]	the robot is not ready
+[10:12:56.660]	the robot is not ready
+[10:12:56.691]	the robot is not ready
+[10:12:56.722]	the robot is not ready
+[10:12:56.753]	the robot is not ready
+[10:12:56.783]	the robot is not ready
+[10:12:56.814]	the robot is not ready
+[10:12:56.845]	the robot is not ready
+[10:12:56.876]	the robot is not ready
+[10:12:56.907]	the robot is not ready
+[10:12:56.938]	the robot is not ready
+[10:12:56.969]	the robot is not ready
+[10:12:57.0]	the robot is not ready
+[10:12:57.31]	the robot is not ready
+[10:12:57.62]	the robot is not ready
+[10:12:57.93]	the robot is not ready
+[10:12:57.124]	the robot is not ready
+[10:12:57.154]	the robot is not ready
+[10:12:57.185]	the robot is not ready
+[10:12:57.216]	the robot is not ready
+[10:12:57.247]	the robot is not ready
+[10:12:57.278]	the robot is not ready
+[10:12:57.309]	the robot is not ready
+[10:12:57.340]	the robot is not ready
+[10:12:57.371]	the robot is not ready
+[10:12:57.402]	the robot is not ready
+[10:12:57.433]	the robot is not ready
+[10:12:57.464]	the robot is not ready
+[10:12:57.495]	the robot is not ready
+[10:12:57.526]	the robot is not ready
+[10:12:57.556]	the robot is not ready
+[10:12:57.587]	the robot is not ready
+[10:12:57.618]	the robot is not ready
+[10:12:57.649]	the robot is not ready
+[10:12:57.680]	the robot is not ready
+[10:12:57.711]	the robot is not ready
+[10:12:57.742]	the robot is not ready
+[10:12:57.773]	the robot is not ready
+[10:12:57.804]	the robot is not ready
+[10:12:57.835]	the robot is not ready
+[10:12:57.866]	the robot is not ready
+[10:12:57.897]	the robot is not ready
+[10:12:57.927]	the robot is not ready
+[10:12:57.958]	the robot is not ready
+[10:12:57.989]	the robot is not ready
+[10:12:58.20]	the robot is not ready
+[10:12:58.51]	the robot is not ready
+[10:12:58.82]	the robot is not ready
+[10:12:58.113]	the robot is not ready
+[10:12:58.144]	the robot is not ready
+[10:12:58.175]	the robot is not ready
+[10:12:58.206]	the robot is not ready
+[10:12:58.237]	the robot is not ready
+[10:12:58.268]	the robot is not ready
+[10:12:58.298]	the robot is not ready
+[10:12:58.329]	the robot is not ready
+[10:12:58.360]	the robot is not ready
+[10:12:58.391]	the robot is not ready
+[10:12:58.422]	the robot is not ready
+[10:12:58.453]	the robot is not ready
+[10:12:58.484]	the robot is not ready
+[10:12:58.515]	the robot is not ready
+[10:12:58.546]	the robot is not ready
+[10:12:58.577]	the robot is not ready
+[10:12:58.608]	the robot is not ready
+[10:12:58.639]	the robot is not ready
+[10:12:58.670]	the robot is not ready
+[10:12:58.701]	the robot is not ready
+[10:12:58.732]	the robot is not ready
+[10:12:58.763]	the robot is not ready
+[10:12:58.794]	the robot is not ready
+[10:12:58.826]	the robot is not ready
+[10:12:58.857]	the robot is not ready
+[10:12:58.889]	the robot is not ready
+[10:12:58.920]	the robot is not ready
+[10:12:58.951]	the robot is not ready
+[10:12:58.982]	the robot is not ready
+[10:12:59.13]	the robot is not ready
+[10:12:59.44]	the robot is not ready
+[10:12:59.76]	the robot is not ready
+[10:12:59.108]	the robot is not ready
+[10:12:59.140]	the robot is not ready
+[10:12:59.171]	the robot is not ready
+[10:12:59.202]	the robot is not ready
+[10:12:59.232]	the robot is not ready
+[10:12:59.263]	the robot is not ready
+[10:12:59.294]	the robot is not ready
+[10:12:59.325]	the robot is not ready
+[10:12:59.356]	the robot is not ready
+[10:12:59.387]	the robot is not ready
+[10:12:59.418]	the robot is not ready
+[10:12:59.449]	the robot is not ready
+[10:12:59.480]	the robot is not ready
+[10:12:59.511]	the robot is not ready
+[10:12:59.542]	the robot is not ready
+[10:12:59.573]	the robot is not ready
+[10:12:59.603]	the robot is not ready
+[10:12:59.634]	the robot is not ready
+[10:12:59.665]	the robot is not ready
+[10:12:59.696]	the robot is not ready
+[10:12:59.727]	the robot is not ready
+[10:12:59.758]	the robot is not ready
+[10:12:59.789]	the robot is not ready
+[10:12:59.820]	the robot is not ready
+[10:12:59.851]	the robot is not ready
+[10:12:59.882]	the robot is not ready
+[10:12:59.913]	the robot is not ready
+[10:12:59.944]	the robot is not ready
+[10:12:59.974]	the robot is not ready
+[10:13:0.5]	the robot is not ready
+[10:13:0.36]	the robot is not ready
+[10:13:0.67]	the robot is not ready
+[10:13:0.98]	the robot is not ready
+[10:13:0.129]	the robot is not ready
+[10:13:0.160]	the robot is not ready
+[10:13:0.191]	the robot is not ready
+[10:13:0.222]	the robot is not ready
+[10:13:0.253]	the robot is not ready
+[10:13:0.284]	the robot is not ready
+[10:13:0.315]	the robot is not ready
+[10:13:0.345]	the robot is not ready
+[10:13:0.376]	the robot is not ready
+[10:13:0.407]	the robot is not ready
+[10:13:0.438]	the robot is not ready
+[10:13:0.469]	the robot is not ready
+[10:13:0.500]	the robot is not ready
+[10:13:0.531]	the robot is not ready
+[10:13:0.562]	the robot is not ready
+[10:13:0.593]	the robot is not ready
+[10:13:0.624]	the robot is not ready
+[10:13:0.655]	the robot is not ready
+[10:13:0.686]	the robot is not ready
+[10:13:0.716]	the robot is not ready
+[10:13:0.747]	the robot is not ready
+[10:13:0.778]	the robot is not ready
+[10:13:0.809]	the robot is not ready
+[10:13:0.840]	the robot is not ready
+[10:13:0.871]	the robot is not ready
+[10:13:0.902]	the robot is not ready
+[10:13:0.933]	the robot is not ready
+[10:13:0.964]	the robot is not ready
+[10:13:0.995]	the robot is not ready
+[10:13:1.26]	the robot is not ready
+[10:13:1.57]	the robot is not ready
+[10:13:1.87]	the robot is not ready
+[10:13:1.118]	the robot is not ready
+[10:13:1.149]	the robot is not ready
+[10:13:1.180]	the robot is not ready
+[10:13:1.211]	the robot is not ready
+[10:13:1.242]	the robot is not ready
+[10:13:1.273]	the robot is not ready
+[10:13:1.304]	the robot is not ready
+[10:13:1.335]	the robot is not ready
+[10:13:1.366]	the robot is not ready
+[10:13:1.397]	the robot is not ready
+[10:13:1.428]	the robot is not ready
+[10:13:1.458]	the robot is not ready
+[10:13:1.489]	the robot is not ready
+[10:13:1.520]	the robot is not ready
+[10:13:1.551]	the robot is not ready
+[10:13:1.582]	the robot is not ready
+[10:13:1.613]	the robot is not ready
+[10:13:1.644]	the robot is not ready
+[10:13:1.675]	the robot is not ready
+[10:13:1.706]	the robot is not ready
+[10:13:1.737]	the robot is not ready
+[10:13:1.768]	the robot is not ready
+[10:13:1.799]	the robot is not ready
+[10:13:1.829]	the robot is not ready
+[10:13:1.860]	the robot is not ready
+[10:13:1.891]	the robot is not ready
+[10:13:1.922]	the robot is not ready
+[10:13:1.953]	the robot is not ready
+[10:13:1.985]	the robot is not ready
+[10:13:2.15]	the robot is not ready
+[10:13:2.47]	the robot is not ready
+[10:13:2.79]	the robot is not ready
+[10:13:2.111]	the robot is not ready
+[10:13:2.143]	the robot is not ready
+[10:13:2.174]	the robot is not ready
+[10:13:2.206]	the robot is not ready
+[10:13:2.237]	the robot is not ready
+[10:13:2.268]	the robot is not ready
+[10:13:2.300]	the robot is not ready
+[10:13:2.332]	the robot is not ready
+[10:13:2.364]	the robot is not ready
+[10:13:2.396]	the robot is not ready
+[10:13:2.427]	the robot is not ready
+[10:13:2.458]	the robot is not ready
+[10:13:2.489]	the robot is not ready
+[10:13:2.520]	the robot is not ready
+[10:13:2.551]	the robot is not ready
+[10:13:2.582]	the robot is not ready
+[10:13:2.613]	the robot is not ready
+[10:13:2.643]	the robot is not ready
+[10:13:2.674]	the robot is not ready
+[10:13:2.706]	the robot is not ready
+[10:13:2.737]	the robot is not ready
+[10:13:2.769]	the robot is not ready
+[10:13:2.800]	the robot is not ready
+[10:13:2.831]	the robot is not ready
+[10:13:2.863]	the robot is not ready
+[10:13:2.894]	the robot is not ready
+[10:13:2.924]	the robot is not ready
+[10:13:2.955]	the robot is not ready
+[10:13:2.986]	the robot is not ready
+[10:13:3.17]	the robot is not ready
+[10:13:3.48]	the robot is not ready
+[10:13:3.79]	the robot is not ready
+[10:13:3.110]	the robot is not ready
+[10:13:3.141]	the robot is not ready
+[10:13:3.172]	the robot is not ready
+[10:13:3.203]	the robot is not ready
+[10:13:3.234]	the robot is not ready
+[10:13:3.265]	the robot is not ready
+[10:13:3.295]	the robot is not ready
+[10:13:3.326]	the robot is not ready
+[10:13:3.357]	the robot is not ready
+[10:13:3.388]	the robot is not ready
+[10:13:3.419]	the robot is not ready
+[10:13:3.450]	the robot is not ready
+[10:13:3.481]	the robot is not ready
+[10:13:3.512]	the robot is not ready
+[10:13:3.543]	the robot is not ready
+[10:13:3.574]	the robot is not ready
+[10:13:3.605]	the robot is not ready
+[10:13:3.636]	the robot is not ready
+[10:13:3.666]	the robot is not ready
+[10:13:3.697]	the robot is not ready
+[10:13:3.728]	the robot is not ready
+[10:13:3.759]	the robot is not ready
+[10:13:3.790]	the robot is not ready
+[10:13:3.821]	the robot is not ready
+[10:13:3.852]	the robot is not ready
+[10:13:3.883]	the robot is not ready
+[10:13:3.914]	the robot is not ready
+[10:13:3.945]	the robot is not ready
+[10:13:3.976]	the robot is not ready
+[10:13:4.7]	the robot is not ready
+[10:13:4.37]	the robot is not ready
+[10:13:4.68]	the robot is not ready
+[10:13:4.99]	the robot is not ready
+[10:13:4.130]	the robot is not ready
+[10:13:4.161]	the robot is not ready
+[10:13:4.192]	the robot is not ready
+[10:13:4.223]	the robot is not ready
+[10:13:4.255]	the robot is not ready
+[10:13:4.286]	the robot is not ready
+[10:13:4.317]	the robot is not ready
+[10:13:4.348]	the robot is not ready
+[10:13:4.379]	the robot is not ready
+[10:13:4.409]	the robot is not ready
+[10:13:4.440]	the robot is not ready
+[10:13:4.471]	the robot is not ready
+[10:13:4.502]	the robot is not ready
+[10:13:4.533]	the robot is not ready
+[10:13:4.564]	the robot is not ready
+[10:13:4.595]	the robot is not ready
+[10:13:4.626]	the robot is not ready
+[10:13:4.657]	the robot is not ready
+[10:13:4.688]	the robot is not ready
+[10:13:4.719]	the robot is not ready
+[10:13:4.750]	the robot is not ready
+[10:13:4.780]	the robot is not ready
+[10:13:4.811]	the robot is not ready
+[10:13:4.842]	the robot is not ready
+[10:13:4.873]	the robot is not ready
+[10:13:4.904]	the robot is not ready
+[10:13:4.935]	the robot is not ready
+[10:13:4.966]	the robot is not ready
+[10:13:4.998]	the robot is not ready
+[10:13:5.29]	the robot is not ready
+[10:13:5.60]	the robot is not ready
+[10:13:5.91]	the robot is not ready
+[10:13:5.122]	the robot is not ready
+[10:13:5.152]	the robot is not ready
+[10:13:5.183]	the robot is not ready
+[10:13:5.214]	the robot is not ready
+[10:13:5.245]	the robot is not ready
+[10:13:5.276]	the robot is not ready
+[10:13:5.307]	the robot is not ready
+[10:13:5.338]	the robot is not ready
+[10:13:5.369]	the robot is not ready
+[10:13:5.400]	the robot is not ready
+[10:13:5.431]	the robot is not ready
+[10:13:5.462]	the robot is not ready
+[10:13:5.493]	the robot is not ready
+[10:13:5.523]	the robot is not ready
+[10:13:5.554]	the robot is not ready
+[10:13:5.585]	the robot is not ready
+[10:13:5.616]	the robot is not ready
+[10:13:5.647]	the robot is not ready
+[10:13:5.678]	the robot is not ready
+[10:13:5.709]	the robot is not ready
+[10:13:5.740]	the robot is not ready
+[10:13:5.771]	the robot is not ready
+[10:13:5.802]	the robot is not ready
+[10:13:5.833]	the robot is not ready
+[10:13:5.864]	the robot is not ready
+[10:13:5.894]	the robot is not ready
+[10:13:5.925]	the robot is not ready
+[10:13:5.956]	the robot is not ready
+[10:13:5.987]	the robot is not ready
+[10:13:6.18]	the robot is not ready
+[10:13:6.50]	the robot is not ready
+[10:13:6.80]	the robot is not ready
+[10:13:6.112]	the robot is not ready
+[10:13:6.143]	the robot is not ready
+[10:13:6.175]	the robot is not ready
+[10:13:6.207]	the robot is not ready
+[10:13:6.238]	the robot is not ready
+[10:13:6.269]	the robot is not ready
+[10:13:6.300]	the robot is not ready
+[10:13:6.331]	the robot is not ready
+[10:13:6.362]	the robot is not ready
+[10:13:6.393]	the robot is not ready
+[10:13:6.424]	the robot is not ready
+[10:13:6.455]	the robot is not ready
+[10:13:6.486]	the robot is not ready
+[10:13:6.516]	the robot is not ready
+[10:13:6.547]	the robot is not ready
+[10:13:6.578]	the robot is not ready
+[10:13:6.609]	the robot is not ready
+[10:13:6.640]	the robot is not ready
+[10:13:6.671]	the robot is not ready
+[10:13:6.702]	the robot is not ready
+[10:13:6.733]	the robot is not ready
+[10:13:6.764]	the robot is not ready
+[10:13:6.795]	the robot is not ready
+[10:13:6.826]	the robot is not ready
+[10:13:6.856]	the robot is not ready
+[10:13:6.887]	the robot is not ready
+[10:13:6.918]	the robot is not ready
+[10:13:6.949]	the robot is not ready
+[10:13:6.980]	the robot is not ready
+[10:13:7.11]	the robot is not ready
+[10:13:7.42]	the robot is not ready
+[10:13:7.73]	the robot is not ready
+[10:13:7.104]	the robot is not ready
+[10:13:7.135]	the robot is not ready
+[10:13:7.166]	the robot is not ready
+[10:13:7.197]	the robot is not ready
+[10:13:7.227]	the robot is not ready
+[10:13:7.258]	the robot is not ready
+[10:13:7.289]	the robot is not ready
+[10:13:7.320]	the robot is not ready
+[10:13:7.351]	the robot is not ready
+[10:13:7.382]	the robot is not ready
+[10:13:7.413]	the robot is not ready
+[10:13:7.444]	the robot is not ready
+[10:13:7.475]	the robot is not ready
+[10:13:7.506]	the robot is not ready
+[10:13:7.537]	the robot is not ready
+[10:13:7.568]	the robot is not ready
+[10:13:7.599]	the robot is not ready
+[10:13:7.629]	the robot is not ready
+[10:13:7.660]	the robot is not ready
+[10:13:7.691]	the robot is not ready
+[10:13:7.722]	the robot is not ready
+[10:13:7.753]	the robot is not ready
+[10:13:7.784]	the robot is not ready
+[10:13:7.815]	the robot is not ready
+[10:13:7.846]	the robot is not ready
+[10:13:7.877]	the robot is not ready
+[10:13:7.908]	the robot is not ready
+[10:13:7.939]	the robot is not ready
+[10:13:7.970]	the robot is not ready
+[10:13:8.0]	the robot is not ready
+[10:13:8.31]	the robot is not ready
+[10:13:8.62]	the robot is not ready
+[10:13:8.93]	the robot is not ready
+[10:13:8.124]	the robot is not ready
+[10:13:8.155]	the robot is not ready
+[10:13:8.186]	the robot is not ready
+[10:13:8.217]	the robot is not ready
+[10:13:8.248]	the robot is not ready
+[10:13:8.279]	the robot is not ready
+[10:13:8.310]	the robot is not ready
+[10:13:8.341]	the robot is not ready
+[10:13:8.371]	the robot is not ready
+[10:13:8.402]	the robot is not ready
+[10:13:8.433]	the robot is not ready
+[10:13:8.464]	the robot is not ready
+[10:13:8.495]	the robot is not ready
+[10:13:8.526]	the robot is not ready
+[10:13:8.557]	the robot is not ready
+[10:13:8.588]	the robot is not ready
+[10:13:8.619]	the robot is not ready
+[10:13:8.650]	the robot is not ready
+[10:13:8.681]	the robot is not ready
+[10:13:8.712]	the robot is not ready
+[10:13:8.742]	the robot is not ready
+[10:13:8.773]	the robot is not ready
+[10:13:8.804]	the robot is not ready
+[10:13:8.835]	the robot is not ready
+[10:13:8.866]	the robot is not ready
+[10:13:8.897]	the robot is not ready
+[10:13:8.928]	the robot is not ready
+[10:13:8.959]	the robot is not ready
+[10:13:8.990]	the robot is not ready
+[10:13:9.21]	the robot is not ready
+[10:13:9.52]	the robot is not ready
+[10:13:9.83]	the robot is not ready
+[10:13:9.115]	the robot is not ready
+[10:13:9.146]	the robot is not ready
+[10:13:9.177]	the robot is not ready
+[10:13:9.209]	the robot is not ready
+[10:13:9.241]	the robot is not ready
+[10:13:9.272]	the robot is not ready
+[10:13:9.303]	the robot is not ready
+[10:13:9.334]	the robot is not ready
+[10:13:9.366]	the robot is not ready
+[10:13:9.397]	the robot is not ready
+[10:13:9.429]	the robot is not ready
+[10:13:9.460]	the robot is not ready
+[10:13:9.492]	the robot is not ready
+[10:13:9.522]	the robot is not ready
+[10:13:9.553]	the robot is not ready
+[10:13:9.584]	the robot is not ready
+[10:13:9.615]	the robot is not ready
+[10:13:9.646]	the robot is not ready
+[10:13:9.677]	the robot is not ready
+[10:13:9.708]	the robot is not ready
+[10:13:9.739]	the robot is not ready
+[10:13:9.770]	the robot is not ready
+[10:13:9.801]	the robot is not ready
+[10:13:9.832]	the robot is not ready
+[10:13:9.863]	the robot is not ready
+[10:13:9.893]	the robot is not ready
+[10:13:9.924]	the robot is not ready
+[10:13:9.955]	the robot is not ready
+[10:13:9.986]	the robot is not ready
+[10:13:10.17]	the robot is not ready
+[10:13:10.48]	the robot is not ready
+[10:13:10.79]	the robot is not ready
+[10:13:10.110]	the robot is not ready
+[10:13:10.141]	the robot is not ready
+[10:13:10.172]	the robot is not ready
+[10:13:10.203]	the robot is not ready
+[10:13:10.234]	the robot is not ready
+[10:13:10.264]	the robot is not ready
+[10:13:10.295]	the robot is not ready
+[10:13:10.326]	the robot is not ready
+[10:13:10.357]	the robot is not ready
+[10:13:10.388]	the robot is not ready
+[10:13:10.419]	the robot is not ready
+[10:13:10.450]	the robot is not ready
+[10:13:10.481]	the robot is not ready
+[10:13:10.512]	the robot is not ready
+[10:13:10.543]	the robot is not ready
+[10:13:10.574]	the robot is not ready
+[10:13:10.605]	the robot is not ready
+[10:13:10.635]	the robot is not ready
+[10:13:10.666]	the robot is not ready
+[10:13:10.697]	the robot is not ready
+[10:13:10.728]	the robot is not ready
+[10:13:10.759]	the robot is not ready
+[10:13:10.790]	the robot is not ready
+[10:13:10.821]	the robot is not ready
+[10:13:10.852]	the robot is not ready
+[10:13:10.883]	the robot is not ready
+[10:13:10.914]	the robot is not ready
+[10:13:10.945]	the robot is not ready
+[10:13:10.976]	the robot is not ready
+[10:13:11.6]	the robot is not ready
+[10:13:11.37]	the robot is not ready
+[10:13:11.68]	the robot is not ready
+[10:13:11.99]	the robot is not ready
+[10:13:11.130]	the robot is not ready
+[10:13:11.161]	the robot is not ready
+[10:13:11.192]	the robot is not ready
+[10:13:11.223]	the robot is not ready
+[10:13:11.254]	the robot is not ready
+[10:13:11.285]	the robot is not ready
+[10:13:11.316]	the robot is not ready
+[10:13:11.347]	the robot is not ready
+[10:13:11.377]	the robot is not ready
+[10:13:11.408]	the robot is not ready
+[10:13:11.439]	the robot is not ready
+[10:13:11.470]	the robot is not ready
+[10:13:11.501]	the robot is not ready
+[10:13:11.532]	the robot is not ready
+[10:13:11.563]	the robot is not ready
+[10:13:11.594]	the robot is not ready
+[10:13:11.625]	the robot is not ready
+[10:13:11.656]	the robot is not ready
+[10:13:11.687]	the robot is not ready
+[10:13:11.718]	the robot is not ready
+[10:13:11.749]	the robot is not ready
+[10:13:11.779]	the robot is not ready
+[10:13:11.810]	the robot is not ready
+[10:13:11.841]	the robot is not ready
+[10:13:11.872]	the robot is not ready
+[10:13:11.903]	the robot is not ready
+[10:13:11.934]	the robot is not ready
+[10:13:11.965]	the robot is not ready
+[10:13:11.996]	the robot is not ready
+[10:13:12.27]	the robot is not ready
+[10:13:12.58]	the robot is not ready
+[10:13:12.89]	the robot is not ready
+[10:13:12.120]	the robot is not ready
+[10:13:12.150]	the robot is not ready
+[10:13:12.182]	the robot is not ready
+[10:13:12.212]	the robot is not ready
+[10:13:12.243]	the robot is not ready
+[10:13:12.274]	the robot is not ready
+[10:13:12.305]	the robot is not ready
+[10:13:12.338]	the robot is not ready
+[10:13:12.369]	the robot is not ready
+[10:13:12.412]	the robot is not ready
+[10:13:12.444]	the robot is not ready
+[10:13:12.476]	the robot is not ready
+[10:13:12.508]	the robot is not ready
+[10:16:30.0]	listen failed!
+[10:16:33.178]	initial timer start
+[10:16:33.279]	startMove!
+[10:16:33.280]	move successfully!
+[10:16:33.281]	-2.979064 
+-2.172552 
+-1.314880 
+-1.257433 
+-4.708239 
+-2.326151 
+
+[10:16:33.281]	the robot is not ready
+[10:16:33.313]	the robot is not ready
+[10:16:33.344]	the robot is not ready
+[10:16:33.375]	the robot is not ready
+[10:16:33.406]	the robot is not ready
+[10:16:33.437]	the robot is not ready
+[10:16:33.468]	the robot is not ready
+[10:16:33.499]	the robot is not ready
+[10:16:33.530]	the robot is not ready
+[10:16:33.561]	the robot is not ready
+[10:16:33.592]	the robot is not ready
+[10:16:33.623]	the robot is not ready
+[10:16:33.653]	the robot is not ready
+[10:16:33.684]	the robot is not ready
+[10:16:33.715]	the robot is not ready
+[10:16:33.746]	the robot is not ready
+[10:16:33.777]	the robot is not ready
+[10:16:33.808]	the robot is not ready
+[10:16:33.839]	the robot is not ready
+[10:16:33.870]	the robot is not ready
+[10:16:33.901]	the robot is not ready
+[10:16:33.932]	the robot is not ready
+[10:16:33.963]	the robot is not ready
+[10:16:33.994]	the robot is not ready
+[10:16:34.24]	the robot is not ready
+[10:16:34.55]	the robot is not ready
+[10:16:34.86]	the robot is not ready
+[10:16:34.117]	the robot is not ready
+[10:16:34.148]	the robot is not ready
+[10:16:34.179]	the robot is not ready
+[10:16:34.210]	the robot is not ready
+[10:16:34.241]	the robot is not ready
+[10:16:34.272]	the robot is not ready
+[10:16:34.303]	the robot is not ready
+[10:16:34.334]	the robot is not ready
+[10:16:34.365]	the robot is not ready
+[10:16:34.395]	the robot is not ready
+[10:16:34.426]	the robot is not ready
+[10:16:34.457]	the robot is not ready
+[10:16:34.488]	the robot is not ready
+[10:16:34.519]	the robot is not ready
+[10:16:34.550]	the robot is not ready
+[10:16:34.581]	the robot is not ready
+[10:16:34.612]	the robot is not ready
+[10:16:34.643]	the robot is not ready
+[10:16:34.674]	the robot is not ready
+[10:16:34.705]	the robot is not ready
+[10:16:34.736]	the robot is not ready
+[10:16:34.766]	the robot is not ready
+[10:16:34.797]	the robot is not ready
+[10:16:34.828]	the robot is not ready
+[10:16:34.859]	the robot is not ready
+[10:16:34.896]	the robot is not ready
+[10:16:34.928]	the robot is not ready
+[10:16:34.960]	the robot is not ready
+[10:16:34.991]	the robot is not ready
+[10:16:35.22]	the robot is not ready
+[10:18:1.91]	listen failed!
+[10:18:3.755]	initial timer start
+[10:18:3.941]	startMove!
+[10:18:3.942]	move successfully!
+[10:18:3.942]	-2.979064 
+-2.172552 
+-1.314855 
+-1.257397 
+-4.708227 
+-2.326151 
+
+[10:18:3.943]	the robot is not ready
+[10:18:3.975]	the robot is not ready
+[10:18:4.6]	the robot is not ready
+[10:18:4.37]	the robot is not ready
+[10:18:4.67]	the robot is not ready
+[10:18:4.98]	the robot is not ready
+[10:18:4.129]	the robot is not ready
+[10:18:4.160]	the robot is not ready
+[10:18:4.191]	the robot is not ready
+[10:18:4.222]	the robot is not ready
+[10:18:4.253]	the robot is not ready
+[10:18:4.284]	the robot is not ready
+[10:18:4.315]	the robot is not ready
+[10:18:4.346]	the robot is not ready
+[10:18:4.377]	the robot is not ready
+[10:18:4.408]	the robot is not ready
+[10:18:4.438]	the robot is not ready
+[10:18:4.469]	the robot is not ready
+[10:18:4.500]	the robot is not ready
+[10:18:4.531]	the robot is not ready
+[10:18:4.562]	the robot is not ready
+[10:18:4.593]	the robot is not ready
+[10:18:4.625]	the robot is not ready
+[10:18:4.656]	the robot is not ready
+[10:18:4.687]	the robot is not ready
+[10:18:4.719]	the robot is not ready
+[10:18:4.751]	the robot is not ready
+[10:18:4.783]	the robot is not ready
+[10:18:4.815]	the robot is not ready
+[10:18:4.847]	the robot is not ready
+[10:18:4.878]	the robot is not ready
+[10:18:4.908]	the robot is not ready
+[10:18:4.939]	the robot is not ready
+[10:18:4.970]	the robot is not ready
+[10:18:5.1]	the robot is not ready
+[10:18:5.32]	the robot is not ready
+[10:18:5.63]	the robot is not ready
+[10:18:5.94]	the robot is not ready
+[10:18:5.125]	the robot is not ready
+[10:18:5.156]	the robot is not ready
+[10:18:5.187]	the robot is not ready
+[10:18:5.218]	the robot is not ready
+[10:18:5.249]	the robot is not ready
+[10:18:5.280]	the robot is not ready
+[10:18:5.310]	the robot is not ready
+[10:18:5.341]	the robot is not ready
+[10:18:5.372]	the robot is not ready
+[10:18:5.403]	the robot is not ready
+[10:18:5.434]	the robot is not ready
+[10:18:5.465]	the robot is not ready
+[10:18:5.496]	the robot is not ready
+[10:18:5.527]	the robot is not ready
+[10:18:5.558]	the robot is not ready
+[10:18:5.589]	the robot is not ready
+[10:18:5.620]	the robot is not ready
+[10:18:5.651]	the robot is not ready
+[10:18:5.681]	the robot is not ready
+[10:18:5.712]	the robot is not ready
+[10:18:5.743]	the robot is not ready
+[10:18:5.774]	the robot is not ready
+[10:18:5.805]	the robot is not ready
+[10:18:5.836]	the robot is not ready
+[10:18:5.867]	the robot is not ready
+[10:18:5.898]	the robot is not ready
+[10:18:5.929]	the robot is not ready
+[10:18:5.960]	the robot is not ready
+[10:18:5.991]	the robot is not ready
+[10:18:6.22]	the robot is not ready
+[10:18:6.52]	the robot is not ready
+[10:18:6.83]	the robot is not ready
+[10:18:6.114]	the robot is not ready
+[10:18:6.145]	the robot is not ready
+[10:18:6.176]	the robot is not ready
+[10:18:6.207]	the robot is not ready
+[10:18:6.238]	the robot is not ready
+[10:18:6.269]	the robot is not ready
+[10:18:6.300]	the robot is not ready
+[10:18:6.331]	the robot is not ready
+[10:18:6.362]	the robot is not ready
+[10:18:6.393]	the robot is not ready
+[10:18:6.423]	the robot is not ready
+[10:18:6.457]	the robot is not ready
+[10:18:6.494]	the robot is not ready
+[10:18:6.525]	the robot is not ready
+[10:18:6.556]	the robot is not ready
+[10:18:6.587]	the robot is not ready
+[10:18:6.618]	the robot is not ready
+[10:19:28.990]	listen failed!
+[10:19:33.775]	initial timer start
+[10:19:33.940]	startMove!
+[10:19:33.940]	move successfully!
+[10:19:33.941]	-2.979088 
+-2.172528 
+-1.314855 
+-1.257421 
+-4.708239 
+-2.326163 
+
+[10:19:33.942]	the robot is not ready
+[10:19:33.974]	the robot is not ready
+[10:19:34.6]	the robot is not ready
+[10:19:34.37]	the robot is not ready
+[10:19:34.69]	the robot is not ready
+[10:19:34.101]	the robot is not ready
+[10:19:34.133]	the robot is not ready
+[10:19:34.164]	the robot is not ready
+[10:19:34.196]	the robot is not ready
+[10:19:34.227]	the robot is not ready
+[10:19:34.258]	the robot is not ready
+[10:19:34.290]	the robot is not ready
+[10:19:34.322]	the robot is not ready
+[10:19:34.353]	the robot is not ready
+[10:19:34.384]	the robot is not ready
+[10:19:34.415]	the robot is not ready
+[10:19:34.446]	the robot is not ready
+[10:19:34.478]	the robot is not ready
+[10:19:34.510]	the robot is not ready
+[10:19:34.541]	the robot is not ready
+[10:19:34.573]	the robot is not ready
+[10:19:34.604]	the robot is not ready
+[10:19:34.635]	the robot is not ready
+[10:19:34.667]	the robot is not ready
+[10:19:34.699]	the robot is not ready
+[10:19:34.730]	the robot is not ready
+[10:19:34.761]	the robot is not ready
+[10:19:34.792]	the robot is not ready
+[10:19:34.823]	the robot is not ready
+[10:19:34.854]	the robot is not ready
+[10:19:34.885]	the robot is not ready
+[10:19:34.917]	the robot is not ready
+[10:19:34.947]	the robot is not ready
+[10:19:34.979]	the robot is not ready
+[10:19:35.9]	the robot is not ready
+[10:19:35.40]	the robot is not ready
+[10:19:35.71]	the robot is not ready
+[10:19:35.102]	the robot is not ready
+[10:19:35.133]	the robot is not ready
+[10:19:35.164]	the robot is not ready
+[10:19:35.195]	the robot is not ready
+[10:19:35.226]	the robot is not ready
+[10:19:35.257]	the robot is not ready
+[10:19:35.288]	the robot is not ready
+[10:19:35.319]	the robot is not ready
+[10:19:35.350]	the robot is not ready
+[10:19:35.380]	the robot is not ready
+[10:19:35.411]	the robot is not ready
+[10:19:35.442]	the robot is not ready
+[10:19:35.473]	the robot is not ready
+[10:19:35.504]	the robot is not ready
+[10:19:35.535]	the robot is not ready
+[10:19:35.566]	the robot is not ready
+[10:19:35.597]	the robot is not ready
+[10:19:35.628]	the robot is not ready
+[10:19:35.659]	the robot is not ready
+[10:19:35.690]	the robot is not ready
+[10:19:35.721]	the robot is not ready
+[10:19:35.751]	the robot is not ready
+[10:19:35.782]	the robot is not ready
+[10:19:35.813]	the robot is not ready
+[10:19:35.844]	the robot is not ready
+[10:19:35.875]	the robot is not ready
+[10:19:35.906]	the robot is not ready
+[10:19:35.937]	the robot is not ready
+[10:19:35.968]	the robot is not ready
+[10:19:35.999]	the robot is not ready
+[10:19:36.30]	the robot is not ready
+[10:19:36.61]	the robot is not ready
+[10:19:36.92]	the robot is not ready
+[10:19:36.122]	the robot is not ready
+[10:19:36.153]	the robot is not ready
+[10:19:36.184]	the robot is not ready
+[10:19:36.215]	the robot is not ready
+[10:19:36.246]	the robot is not ready
+[10:19:36.277]	the robot is not ready
+[10:19:36.308]	the robot is not ready
+[10:19:36.339]	the robot is not ready
+[10:19:36.370]	the robot is not ready
+[10:19:36.401]	the robot is not ready
+[10:19:36.432]	the robot is not ready
+[10:19:36.463]	the robot is not ready
+[10:19:36.494]	the robot is not ready
+[10:19:36.524]	the robot is not ready
+[10:19:36.555]	the robot is not ready
+[10:19:36.586]	the robot is not ready
+[10:19:36.617]	the robot is not ready
+[10:19:36.648]	the robot is not ready
+[10:19:36.679]	the robot is not ready
+[10:19:36.710]	the robot is not ready
+[10:19:36.741]	the robot is not ready
+[10:19:36.772]	the robot is not ready
+[10:19:36.803]	the robot is not ready
+[10:19:36.834]	the robot is not ready
+[10:19:36.864]	the robot is not ready
+[10:19:36.895]	the robot is not ready
+[10:19:36.926]	the robot is not ready
+[10:19:36.957]	the robot is not ready
+[10:19:36.988]	the robot is not ready
+[10:19:37.19]	the robot is not ready
+[10:19:37.50]	the robot is not ready
+[10:19:37.81]	the robot is not ready
+[10:19:37.112]	the robot is not ready
+[10:19:37.143]	the robot is not ready
+[10:19:37.174]	the robot is not ready
+[10:19:37.205]	the robot is not ready
+[10:19:37.235]	the robot is not ready
+[10:19:37.266]	the robot is not ready
+[10:19:37.297]	the robot is not ready
+[10:19:37.328]	the robot is not ready
+[10:19:37.359]	the robot is not ready
+[10:19:37.390]	the robot is not ready
+[10:19:37.421]	the robot is not ready
+[10:19:37.452]	the robot is not ready
+[10:19:37.483]	the robot is not ready
+[10:19:37.514]	the robot is not ready
+[10:19:37.545]	the robot is not ready
+[10:19:37.576]	the robot is not ready
+[10:19:37.607]	the robot is not ready
+[10:19:37.637]	the robot is not ready
+[10:19:37.669]	the robot is not ready
+[10:19:37.701]	the robot is not ready
+[10:19:37.732]	the robot is not ready
+[10:19:37.763]	the robot is not ready
+[10:19:37.794]	the robot is not ready
+[10:19:37.825]	the robot is not ready
+[10:19:37.856]	the robot is not ready
+[10:19:37.888]	the robot is not ready
+[10:19:37.919]	the robot is not ready
+[10:19:37.951]	the robot is not ready
+[10:19:37.982]	the robot is not ready
+[10:19:38.13]	the robot is not ready
+[10:19:38.43]	the robot is not ready
+[10:19:38.75]	the robot is not ready
+[10:19:38.107]	the robot is not ready
+[10:19:38.138]	the robot is not ready
+[10:19:38.168]	the robot is not ready
+[10:19:38.199]	the robot is not ready
+[10:19:38.230]	the robot is not ready
+[10:19:38.261]	the robot is not ready
+[10:19:38.292]	the robot is not ready
+[10:19:38.323]	the robot is not ready
+[10:19:38.354]	the robot is not ready
+[10:19:38.385]	the robot is not ready
+[10:19:38.416]	the robot is not ready
+[10:19:38.447]	the robot is not ready
+[10:19:38.478]	the robot is not ready
+[10:19:38.509]	the robot is not ready
+[10:19:38.539]	the robot is not ready
+[10:19:38.570]	the robot is not ready
+[10:19:38.601]	the robot is not ready
+[10:19:38.632]	the robot is not ready
+[10:19:38.663]	the robot is not ready
+[10:19:38.694]	the robot is not ready
+[10:19:38.725]	the robot is not ready
+[10:19:38.756]	the robot is not ready
+[10:19:38.787]	the robot is not ready
+[10:19:38.818]	the robot is not ready
+[10:19:38.849]	the robot is not ready
+[10:19:38.880]	the robot is not ready
+[10:19:38.910]	the robot is not ready
+[10:19:38.941]	the robot is not ready
+[10:19:38.972]	the robot is not ready
+[10:19:39.3]	the robot is not ready
+[10:19:39.34]	the robot is not ready
+[10:19:39.65]	the robot is not ready
+[10:19:39.96]	the robot is not ready
+[10:19:39.127]	the robot is not ready
+[10:19:39.158]	the robot is not ready
+[10:19:39.189]	the robot is not ready
+[10:19:39.220]	the robot is not ready
+[10:19:39.251]	the robot is not ready
+[10:19:39.282]	the robot is not ready
+[10:19:39.312]	the robot is not ready
+[10:19:39.343]	the robot is not ready
+[10:19:39.374]	the robot is not ready
+[10:19:39.405]	the robot is not ready
+[10:19:39.436]	the robot is not ready
+[10:19:39.467]	the robot is not ready
+[10:19:39.498]	the robot is not ready
+[10:19:39.529]	the robot is not ready
+[10:19:39.560]	the robot is not ready
+[10:19:39.591]	the robot is not ready
+[10:19:39.622]	the robot is not ready
+[10:19:39.652]	the robot is not ready
+[10:19:39.683]	the robot is not ready
+[10:19:39.714]	the robot is not ready
+[10:19:39.745]	the robot is not ready
+[10:19:39.776]	the robot is not ready
+[10:19:39.807]	the robot is not ready
+[10:19:39.838]	the robot is not ready
+[10:19:39.869]	the robot is not ready
+[10:19:39.900]	the robot is not ready
+[10:19:39.931]	the robot is not ready
+[10:19:39.962]	the robot is not ready
+[10:19:39.993]	the robot is not ready
+[10:19:40.23]	the robot is not ready
+[10:19:40.54]	the robot is not ready
+[10:19:40.85]	the robot is not ready
+[10:19:40.116]	the robot is not ready
+[10:19:40.147]	the robot is not ready
+[10:19:40.178]	the robot is not ready
+[10:19:40.209]	the robot is not ready
+[10:19:40.240]	the robot is not ready
+[10:19:40.271]	the robot is not ready
+[10:19:40.302]	the robot is not ready
+[10:19:40.333]	the robot is not ready
+[10:19:40.364]	the robot is not ready
+[10:19:40.395]	the robot is not ready
+[10:19:40.425]	the robot is not ready
+[10:19:40.494]	the robot is not ready
+[10:19:40.539]	the robot is not ready
+[10:19:40.571]	the robot is not ready
+[10:19:40.602]	the robot is not ready
+[10:31:49.918]	listen failed!
+[10:31:57.579]	initial timer start
+[10:31:57.688]	startMove!
+[10:31:57.688]	move successfully!
+[10:31:57.689]	-2.976415 
+-2.180062 
+-1.321878 
+-1.259100 
+-4.706347 
+-2.327300 
+
+[10:31:57.690]	the robot is not ready
+[10:31:57.721]	the robot is not ready
+[10:31:57.752]	the robot is not ready
+[10:31:57.783]	the robot is not ready
+[10:31:57.814]	the robot is not ready
+[10:31:57.845]	the robot is not ready
+[10:31:57.875]	the robot is not ready
+[10:31:57.906]	the robot is not ready
+[10:31:57.937]	the robot is not ready
+[10:31:57.968]	the robot is not ready
+[10:31:57.999]	the robot is not ready
+[10:31:58.30]	the robot is not ready
+[10:31:58.61]	the robot is not ready
+[10:31:58.93]	the robot is not ready
+[10:31:58.124]	the robot is not ready
+[10:31:58.155]	the robot is not ready
+[10:31:58.186]	the robot is not ready
+[10:31:58.217]	the robot is not ready
+[10:31:58.247]	the robot is not ready
+[10:31:58.278]	the robot is not ready
+[10:31:58.309]	the robot is not ready
+[10:31:58.340]	the robot is not ready
+[10:31:58.371]	the robot is not ready
+[10:31:58.402]	the robot is not ready
+[10:31:58.433]	the robot is not ready
+[10:31:58.464]	the robot is not ready
+[10:31:58.495]	the robot is not ready
+[10:31:58.526]	the robot is not ready
+[10:31:58.557]	the robot is not ready
+[10:31:58.588]	the robot is not ready
+[10:31:58.618]	the robot is not ready
+[10:31:58.649]	the robot is not ready
+[10:31:58.680]	the robot is not ready
+[10:31:58.711]	the robot is not ready
+[10:31:58.742]	the robot is not ready
+[10:31:58.773]	the robot is not ready
+[10:31:58.804]	the robot is not ready
+[10:31:58.835]	the robot is not ready
+[10:31:58.866]	the robot is not ready
+[10:31:58.897]	the robot is not ready
+[10:31:58.928]	the robot is not ready
+[10:31:58.959]	the robot is not ready
+[10:31:58.990]	the robot is not ready
+[10:31:59.20]	the robot is not ready
+[10:31:59.51]	the robot is not ready
+[10:31:59.82]	the robot is not ready
+[10:31:59.113]	the robot is not ready
+[10:31:59.144]	the robot is not ready
+[10:31:59.175]	the robot is not ready
+[10:31:59.206]	the robot is not ready
+[10:31:59.237]	the robot is not ready
+[10:31:59.268]	the robot is not ready
+[10:31:59.299]	the robot is not ready
+[10:31:59.330]	the robot is not ready
+[10:31:59.361]	the robot is not ready
+[10:31:59.391]	the robot is not ready
+[10:31:59.422]	the robot is not ready
+[10:31:59.453]	the robot is not ready
+[10:31:59.484]	the robot is not ready
+[10:31:59.515]	the robot is not ready
+[10:31:59.546]	the robot is not ready
+[10:31:59.577]	the robot is not ready
+[10:31:59.608]	the robot is not ready
+[10:31:59.639]	the robot is not ready
+[10:31:59.670]	the robot is not ready
+[10:31:59.701]	the robot is not ready
+[10:31:59.732]	the robot is not ready
+[10:31:59.762]	the robot is not ready
+[10:31:59.793]	the robot is not ready
+[10:31:59.824]	the robot is not ready
+[10:31:59.855]	the robot is not ready
+[10:31:59.886]	the robot is not ready
+[10:31:59.917]	the robot is not ready
+[10:31:59.948]	the robot is not ready
+[10:31:59.979]	the robot is not ready
+[10:32:0.10]	the robot is not ready
+[10:32:0.41]	the robot is not ready
+[10:32:0.72]	the robot is not ready
+[10:32:0.103]	the robot is not ready
+[10:32:0.135]	the robot is not ready
+[10:32:0.165]	the robot is not ready
+[10:32:0.197]	the robot is not ready
+[10:32:0.229]	the robot is not ready
+[10:32:0.262]	the robot is not ready
+[10:32:0.293]	the robot is not ready
+[10:32:0.324]	the robot is not ready
+[10:32:0.354]	the robot is not ready
+[10:32:0.386]	the robot is not ready
+[10:32:0.417]	the robot is not ready
+[10:32:0.449]	the robot is not ready
+[10:32:0.480]	the robot is not ready
+[10:32:0.513]	the robot is not ready
+[10:32:0.548]	the robot is not ready
+[10:32:0.579]	the robot is not ready
+[10:37:47.688]	listen failed!
+[10:39:2.732]	listen failed!
+[10:39:6.2]	initial timer start
+[10:39:6.162]	startMove!
+[10:39:6.162]	move successfully!
+[10:39:6.163]	-2.976415 
+-2.180050 
+-1.321854 
+-1.259076 
+-4.706359 
+-2.327264 
+
+[10:39:6.164]	the robot is not ready
+[10:39:6.195]	the robot is not ready
+[10:39:6.226]	the robot is not ready
+[10:39:6.257]	the robot is not ready
+[10:39:6.288]	the robot is not ready
+[10:39:6.320]	the robot is not ready
+[10:39:6.351]	the robot is not ready
+[10:39:6.383]	the robot is not ready
+[10:39:6.415]	the robot is not ready
+[10:39:6.447]	the robot is not ready
+[10:39:6.478]	the robot is not ready
+[10:39:6.510]	the robot is not ready
+[10:39:6.541]	the robot is not ready
+[10:39:6.573]	the robot is not ready
+[10:39:6.604]	the robot is not ready
+[10:39:6.636]	the robot is not ready
+[10:39:6.666]	the robot is not ready
+[10:39:6.697]	the robot is not ready
+[10:39:6.728]	the robot is not ready
+[10:39:6.760]	the robot is not ready
+[10:39:6.792]	the robot is not ready
+[10:39:6.824]	the robot is not ready
+[10:39:6.856]	the robot is not ready
+[10:39:6.888]	the robot is not ready
+[10:39:6.919]	the robot is not ready
+[10:39:6.949]	the robot is not ready
+[10:39:6.981]	the robot is not ready
+[10:39:7.12]	the robot is not ready
+[10:39:7.43]	the robot is not ready
+[10:39:7.74]	the robot is not ready
+[10:39:7.106]	the robot is not ready
+[10:39:7.138]	the robot is not ready
+[10:39:7.169]	the robot is not ready
+[10:39:7.199]	the robot is not ready
+[10:39:7.230]	the robot is not ready
+[10:39:7.261]	the robot is not ready
+[10:39:7.292]	the robot is not ready
+[10:39:7.323]	the robot is not ready
+[10:39:7.354]	the robot is not ready
+[10:39:7.385]	the robot is not ready
+[10:39:7.416]	the robot is not ready
+[10:39:7.447]	the robot is not ready
+[10:39:7.478]	the robot is not ready
+[10:39:7.509]	the robot is not ready
+[10:39:7.540]	the robot is not ready
+[10:39:7.570]	the robot is not ready
+[10:39:7.601]	the robot is not ready
+[10:39:7.632]	the robot is not ready
+[10:39:7.663]	the robot is not ready
+[10:39:7.694]	the robot is not ready
+[10:39:7.725]	the robot is not ready
+[10:39:7.756]	the robot is not ready
+[10:39:7.792]	the robot is not ready
+[10:39:7.828]	the robot is not ready
+[10:39:7.860]	the robot is not ready
+[10:39:7.891]	the robot is not ready
+[10:39:39.780]	listen failed!
+[10:39:50.979]	initial timer start
+[10:39:51.137]	startMove!
+[10:39:51.138]	move successfully!
+[10:39:51.138]	-2.976403 
+-2.180074 
+-1.321878 
+-1.259124 
+-4.706335 
+-2.327277 
+
+[10:39:51.139]	the robot is not ready
+[10:39:51.170]	the robot is not ready
+[10:39:51.201]	the robot is not ready
+[10:39:51.232]	the robot is not ready
+[10:39:51.262]	the robot is not ready
+[10:39:51.296]	the robot is not ready
+[10:39:51.327]	the robot is not ready
+[10:39:51.359]	the robot is not ready
+[10:39:51.391]	the robot is not ready
+[10:39:51.423]	the robot is not ready
+[10:39:51.455]	the robot is not ready
+[10:39:51.486]	the robot is not ready
+[10:39:51.518]	the robot is not ready
+[10:39:51.549]	the robot is not ready
+[10:39:51.581]	the robot is not ready
+[10:39:51.612]	the robot is not ready
+[10:39:51.643]	the robot is not ready
+[10:39:51.674]	the robot is not ready
+[10:39:51.705]	the robot is not ready
+[10:39:51.736]	the robot is not ready
+[10:39:51.767]	the robot is not ready
+[10:39:51.797]	the robot is not ready
+[10:39:51.828]	the robot is not ready
+[10:39:51.859]	the robot is not ready
+[10:39:51.890]	the robot is not ready
+[10:39:51.921]	the robot is not ready
+[10:39:51.952]	the robot is not ready
+[10:39:51.983]	the robot is not ready
+[10:39:52.14]	the robot is not ready
+[10:39:52.45]	the robot is not ready
+[10:39:52.76]	the robot is not ready
+[10:39:52.107]	the robot is not ready
+[10:39:52.138]	the robot is not ready
+[10:39:52.168]	the robot is not ready
+[10:39:52.199]	the robot is not ready
+[10:39:52.230]	the robot is not ready
+[10:39:52.261]	the robot is not ready
+[10:39:52.292]	the robot is not ready
+[10:39:52.323]	the robot is not ready
+[10:39:52.354]	the robot is not ready
+[10:39:52.385]	the robot is not ready
+[10:39:52.416]	the robot is not ready
+[10:39:52.447]	the robot is not ready
+[10:39:52.478]	the robot is not ready
+[10:39:52.509]	the robot is not ready
+[10:39:52.539]	the robot is not ready
+[10:39:52.570]	the robot is not ready
+[10:39:52.601]	the robot is not ready
+[10:39:52.632]	the robot is not ready
+[10:39:52.663]	the robot is not ready
+[10:39:52.694]	the robot is not ready
+[10:39:52.725]	the robot is not ready
+[10:39:52.756]	the robot is not ready
+[10:39:52.787]	the robot is not ready
+[10:39:52.818]	the robot is not ready
+[10:39:52.849]	the robot is not ready
+[10:39:52.880]	the robot is not ready
+[10:39:52.910]	the robot is not ready
+[10:39:52.941]	the robot is not ready
+[10:39:52.972]	the robot is not ready
+[10:39:53.3]	the robot is not ready
+[10:39:53.59]	the robot is not ready
+[10:39:53.108]	the robot is not ready
+[10:39:53.145]	the robot is not ready
+[10:41:39.315]	listen failed!
+[10:41:42.244]	initial timer start
+[10:41:42.357]	startMove!
+[10:41:42.357]	move successfully!
+[10:41:42.358]	-2.976415 
+-2.180074 
+-1.321842 
+-1.259100 
+-4.706347 
+-2.327252 
+
+[10:41:42.359]	the robot is not ready
+[10:41:42.390]	the robot is not ready
+[10:41:42.421]	the robot is not ready
+[10:41:42.452]	the robot is not ready
+[10:41:42.483]	the robot is not ready
+[10:41:42.514]	the robot is not ready
+[10:41:42.545]	the robot is not ready
+[10:41:42.576]	the robot is not ready
+[10:41:42.607]	the robot is not ready
+[10:41:42.638]	the robot is not ready
+[10:41:42.669]	the robot is not ready
+[10:41:42.699]	the robot is not ready
+[10:41:42.730]	the robot is not ready
+[10:41:42.761]	the robot is not ready
+[10:41:42.792]	the robot is not ready
+[10:41:42.823]	the robot is not ready
+[10:41:42.854]	the robot is not ready
+[10:41:42.885]	the robot is not ready
+[10:41:42.916]	the robot is not ready
+[10:41:42.947]	the robot is not ready
+[10:41:42.978]	the robot is not ready
+[10:41:43.9]	the robot is not ready
+[10:41:43.40]	the robot is not ready
+[10:41:43.71]	the robot is not ready
+[10:41:43.101]	the robot is not ready
+[10:41:43.132]	the robot is not ready
+[10:41:43.163]	the robot is not ready
+[10:41:43.194]	the robot is not ready
+[10:41:43.225]	the robot is not ready
+[10:41:43.256]	the robot is not ready
+[10:41:43.287]	the robot is not ready
+[10:41:43.318]	the robot is not ready
+[10:41:43.349]	the robot is not ready
+[10:41:43.380]	the robot is not ready
+[10:41:43.411]	the robot is not ready
+[10:41:43.441]	the robot is not ready
+[10:41:43.472]	the robot is not ready
+[10:41:43.503]	the robot is not ready
+[10:41:43.534]	the robot is not ready
+[10:41:43.565]	the robot is not ready
+[10:41:43.596]	the robot is not ready
+[10:41:43.627]	the robot is not ready
+[10:41:43.658]	the robot is not ready
+[10:41:43.689]	the robot is not ready
+[10:41:43.720]	the robot is not ready
+[10:41:43.751]	the robot is not ready
+[10:41:43.782]	the robot is not ready
+[10:41:43.813]	the robot is not ready
+[10:41:43.844]	the robot is not ready
+[10:41:43.875]	the robot is not ready
+[10:41:43.906]	the robot is not ready
+[10:41:43.937]	the robot is not ready
+[10:41:43.968]	the robot is not ready
+[10:41:43.999]	the robot is not ready
+[10:41:44.30]	the robot is not ready
+[10:41:44.61]	the robot is not ready
+[10:41:44.92]	the robot is not ready
+[10:41:44.123]	the robot is not ready
+[10:41:44.154]	the robot is not ready
+[10:41:44.187]	the robot is not ready
+[10:41:44.223]	the robot is not ready
+[10:41:44.257]	the robot is not ready
+[10:41:44.288]	the robot is not ready
+[10:43:18.345]	listen failed!
+[10:43:22.492]	initial timer start
+[10:43:22.610]	startMove!
+[10:43:22.611]	move successfully!
+[10:43:22.612]	-2.976415 
+-2.180086 
+-1.321890 
+-1.259124 
+-4.706359 
+-2.327277 
+
+[10:43:22.612]	the robot is not ready
+[10:43:22.644]	the robot is not ready
+[10:43:22.675]	the robot is not ready
+[10:43:22.706]	the robot is not ready
+[10:43:22.737]	the robot is not ready
+[10:43:22.768]	the robot is not ready
+[10:43:22.799]	the robot is not ready
+[10:43:22.830]	the robot is not ready
+[10:43:22.861]	the robot is not ready
+[10:43:22.892]	the robot is not ready
+[10:43:22.923]	the robot is not ready
+[10:43:22.953]	the robot is not ready
+[10:43:22.984]	the robot is not ready
+[10:43:23.15]	the robot is not ready
+[10:43:23.47]	the robot is not ready
+[10:43:23.78]	the robot is not ready
+[10:43:23.110]	the robot is not ready
+[10:43:23.141]	the robot is not ready
+[10:43:23.173]	the robot is not ready
+[10:43:23.205]	the robot is not ready
+[10:43:23.237]	the robot is not ready
+[10:43:23.269]	the robot is not ready
+[10:43:23.301]	the robot is not ready
+[10:43:23.332]	the robot is not ready
+[10:43:23.363]	the robot is not ready
+[10:43:23.395]	the robot is not ready
+[10:43:23.426]	the robot is not ready
+[10:43:23.457]	the robot is not ready
+[10:43:23.489]	the robot is not ready
+[10:43:23.520]	the robot is not ready
+[10:43:23.550]	the robot is not ready
+[10:43:23.581]	the robot is not ready
+[10:43:23.612]	the robot is not ready
+[10:43:23.643]	the robot is not ready
+[10:43:23.674]	the robot is not ready
+[10:43:23.705]	the robot is not ready
+[10:43:23.736]	the robot is not ready
+[10:43:23.767]	the robot is not ready
+[10:43:23.798]	the robot is not ready
+[10:43:23.829]	the robot is not ready
+[10:43:23.860]	the robot is not ready
+[10:43:23.891]	the robot is not ready
+[10:43:23.922]	the robot is not ready
+[10:43:23.952]	the robot is not ready
+[10:43:23.983]	the robot is not ready
+[10:43:24.14]	the robot is not ready
+[10:43:24.45]	the robot is not ready
+[10:43:24.76]	the robot is not ready
+[10:43:24.107]	the robot is not ready
+[10:43:24.138]	the robot is not ready
+[10:43:24.169]	the robot is not ready
+[10:43:24.221]	the robot is not ready
+[10:43:24.255]	the robot is not ready
+[10:43:24.285]	the robot is not ready
+[10:43:24.317]	the robot is not ready
