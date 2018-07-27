@@ -1,54 +1,110 @@
-[17:2:19.45]	uppercomputer initialization failed!
-[17:2:22.792]	initial timer start
-[17:2:22.888]	startMove!
-[17:2:22.889]	move successfully!
-[17:2:22.890]	3.276151 
--2.137232 
--1.283601 
--1.306906 
-1.547885 
-0.782724 
+[20:24:14.564]	robot control constructor start!
+[20:24:14.564]	robot control constructor start!
+[20:24:15.236]	robot send initialization succeeded!
+[20:24:15.236]	uppercomputer send initialization failed!
+[20:24:22.464]	initial timer start
+[20:24:22.589]	startMove!
+[20:24:22.589]	pose string is (3.29195, -2.14273, -1.29701, -1.30573, 1.54576, 0.78318)
 
-[17:2:22.890]	the robot is not ready
-[17:2:22.922]	the robot is not ready
-[17:2:22.952]	the robot is not ready
-[17:2:22.983]	the robot is not ready
-[17:2:23.15]	the robot is not ready
-[17:2:23.47]	the robot is not ready
-[17:2:23.79]	the robot is not ready
-[17:2:23.110]	the robot is not ready
-[17:2:23.141]	the robot is not ready
-[17:2:23.172]	the robot is not ready
-[17:2:23.203]	the robot is not ready
-[17:2:23.235]	the robot is not ready
-[17:2:23.266]	the robot is not ready
-[17:2:23.297]	the robot is not ready
-[17:2:23.328]	the robot is not ready
-[17:2:23.359]	the robot is not ready
-[17:2:23.390]	the robot is not ready
-[17:2:23.422]	the robot is not ready
-[17:2:23.453]	the robot is not ready
-[17:2:23.484]	the robot is not ready
-[17:2:23.515]	the robot is not ready
-[17:2:23.546]	the robot is not ready
-[17:2:23.576]	the robot is not ready
-[17:2:23.607]	the robot is not ready
-[17:2:23.638]	the robot is not ready
-[17:2:23.669]	the robot is not ready
-[17:2:23.700]	the robot is not ready
-[17:2:23.731]	the robot is not ready
-[17:2:23.762]	the robot is not ready
-[17:2:23.793]	the robot is not ready
-[17:2:23.824]	the robot is not ready
-[17:2:23.855]	the robot is not ready
-[17:2:23.886]	the robot is not ready
-[17:2:23.916]	the robot is not ready
-[17:2:23.947]	the robot is not ready
-[17:2:23.978]	the robot is not ready
-[17:2:24.9]	the robot is not ready
-[17:2:24.40]	the robot is not ready
-[17:2:24.71]	the robot is not ready
-[17:2:24.122]	the robot is not ready
-[17:2:24.161]	the robot is not ready
-[17:2:24.193]	the robot is not ready
-[17:2:24.224]	the robot is not ready
+[20:24:22.589]	Pose sent successfully!
+[20:24:22.589]	targetPose is 3.291954 -2.142727 -1.297011 -1.305730 1.545765 0.783180 
+
+[20:24:22.589]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:22.589]	the robot is not ready
+[20:24:22.636]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:22.636]	the robot is not ready
+[20:24:22.668]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:22.668]	the robot is not ready
+[20:24:22.714]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:22.714]	the robot is not ready
+[20:24:22.761]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:22.761]	the robot is not ready
+[20:24:22.792]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:22.792]	the robot is not ready
+[20:24:22.824]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:22.824]	the robot is not ready
+[20:24:22.871]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:22.871]	the robot is not ready
+[20:24:22.902]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:22.902]	the robot is not ready
+[20:24:22.949]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:22.949]	the robot is not ready
+[20:24:22.996]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:22.996]	the robot is not ready
+[20:24:23.42]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.42]	the robot is not ready
+[20:24:23.89]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.89]	the robot is not ready
+[20:24:23.136]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.136]	the robot is not ready
+[20:24:23.183]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.183]	the robot is not ready
+[20:24:23.230]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.230]	the robot is not ready
+[20:24:23.277]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.277]	the robot is not ready
+[20:24:23.324]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.324]	the robot is not ready
+[20:24:23.371]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.371]	the robot is not ready
+[20:24:23.417]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.417]	the robot is not ready
+[20:24:23.464]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.464]	the robot is not ready
+[20:24:23.511]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.511]	the robot is not ready
+[20:24:23.558]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.558]	the robot is not ready
+[20:24:23.605]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.605]	the robot is not ready
+[20:24:23.636]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.636]	the robot is not ready
+[20:24:23.683]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.683]	the robot is not ready
+[20:24:23.730]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.730]	the robot is not ready
+[20:24:23.777]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.777]	the robot is not ready
+[20:24:23.812]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.819]	the robot is not ready
+[20:24:23.866]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.866]	the robot is not ready
+[20:24:23.913]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.913]	the robot is not ready
+[20:24:23.960]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:23.960]	the robot is not ready
+[20:24:24.6]	current pose is 3.281954 -2.142691 -1.297035 -1.305766 1.545729 0.783216 
+
+[20:24:24.6]	the robot is not ready

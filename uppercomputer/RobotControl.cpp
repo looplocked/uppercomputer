@@ -32,11 +32,11 @@ void RobotControl::PoseSendInitialize(string log)
 {
 	int port = 8000;
 	if (!server->listen(QHostAddress::Any, port)) {
-		printLog(log);
+		printLog(log + " send initialization failed!");
 		return;
 	}
 	connect(server, SIGNAL(newConnection()), this, SLOT(serverNewConnect()));
-	// printLog("robot initialization listen succeeded!");
+	printLog(log + " send initialization succeeded!");
 }
 
 vector<double> RobotControl::readPose()
@@ -74,9 +74,12 @@ void RobotControl::serverNewConnect()
 void RobotControl::jointMove(vector<double> pose)
 {
 	stringstream posestream;
-	copy(pose.begin(), pose.end(), ostream_iterator<int>(posestream, ", "));
-	string posestr = "(" + posestream.str() + ")\n";
+	copy(pose.begin(), pose.end(), ostream_iterator<double>(posestream, ", "));
+	string posestr = posestream.str();
+	posestr = posestr.substr(0, posestr.size() - 2);
+	posestr = "(" + posestr + ")\n";
+	printLog("pose string is " + posestr);
 	QString data = QString::fromStdString(posestr);
 	movesocket->write(data.toLatin1());
-	printLog("move successfully!");
+	printLog("Pose sent successfully!");
 }

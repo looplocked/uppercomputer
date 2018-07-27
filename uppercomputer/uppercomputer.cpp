@@ -8,14 +8,13 @@ uppercomputer::uppercomputer(QWidget *parent)
 
 	timer = new QTimer(this);
 
+	deleteLog();
 	camera = new CameraDisplay();
 	robot = new RobotControl();
 	processThread = new ProcessThread();
 	init = new RobotInitialization();
 
 	fpstimer = new cvflann::StartStopTimer;
-
-	deleteLog();
 
 	try {
 		camera->initialize();
@@ -34,7 +33,7 @@ uppercomputer::uppercomputer(QWidget *parent)
 	}
 
 	try {
-		robot->PoseSendInitialize("uppercomputer initialization failed!");
+		robot->PoseSendInitialize("uppercomputer");
 	}
 	catch (RobotException& robotexc)
 	{

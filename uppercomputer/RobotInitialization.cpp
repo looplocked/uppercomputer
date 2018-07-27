@@ -23,7 +23,7 @@ RobotInitialization::RobotInitialization(QObject * parent) : QObject(parent)
 	}
 
 	try {
-		robot->PoseSendInitialize("robot initialization failed!");
+		robot->PoseSendInitialize("robot");
 	}
 	catch (RobotException& robotexc)
 	{
@@ -63,10 +63,11 @@ void RobotInitialization::moveAndRecord() {
 			targetPose.at<double>(1), targetPose.at<double>(2),
 			targetPose.at<double>(3), targetPose.at<double>(4),
 			targetPose.at<double>(5) });
+		printLog("targetPose is " + MatToStr(targetPose.t()));
 
 		Mat curPose;
 		vector<double> temp = robot->readPose();
-		printLog(MatToStr(Mat(temp)));
+		printLog("current pose is " + MatToStr(Mat(temp).t()));
 		// for (int i = 0; i < 6; i++) curPose.at<double>(i) = temp[i];
 		curPose = Mat(temp);
 		while (norm(curPose - targetPose) > 0.01 * 0.01) { //如果还未移动到位，则等待一会后再读取关节角
@@ -76,6 +77,7 @@ void RobotInitialization::moveAndRecord() {
 			temp = robot->readPose();
 			//for (int i = 0; i < 6; i++) curPose.at<double>(i) = temp[i];
 			curPose = Mat(temp);
+			printLog("current pose is " + MatToStr(Mat(temp).t()));
 		}
 		vector<Point> curPoints;
 		camera->getImageAndFeature(curPoints);
