@@ -13,6 +13,7 @@
 #include <QByteArray>
 #include <QObject>
 #include "helper.h"
+#include <string>
 
 #include <sstream>
 
@@ -26,7 +27,7 @@ public:
 	~RobotControl();
 	
 	void poseReadInitialize();
-	void PoseSendInitialize();
+	void PoseSendInitialize(string log);
 	vector<double> readPose();
 	void jointMove(vector<double> pose);
 

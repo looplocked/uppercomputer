@@ -25,6 +25,7 @@ using namespace cv;
 using namespace openni;
 
 void printLog(string log);
+void deleteLog();
 string MatToStr(Mat m);
 bool findPrimaryAngle(std::vector<cv::Vec4f>& lines);
 bool selectPoints(std::vector<cv::Point>& Points);

@@ -10,6 +10,12 @@ void printLog(string log) {
 	fout.close();
 }
 
+void deleteLog() {
+	ofstream fout;
+	fout.open("log.txt", ofstream::out | ofstream::trunc);
+	fout.close();
+}
+
 string MatToStr(Mat m) {
 	string res = "";
 	for (int i = 0; i < m.rows; i++) {

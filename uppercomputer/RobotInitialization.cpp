@@ -23,7 +23,7 @@ RobotInitialization::RobotInitialization(QObject * parent) : QObject(parent)
 	}
 
 	try {
-		robot->PoseSendInitialize();
+		robot->PoseSendInitialize("robot initialization failed!");
 	}
 	catch (RobotException& robotexc)
 	{

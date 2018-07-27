@@ -5,6 +5,7 @@ RobotControl::RobotControl(QObject * parent) : QObject(parent) {
 	server = new QTcpServer(this);
 	movesocket = new QTcpSocket(this);
 	pose = { 0,0,0,0,0,0 };
+	printLog("robot control constructor start!");
 }
 
 RobotControl::~RobotControl () {
@@ -27,14 +28,15 @@ void RobotControl::poseReadInitialize()
 	qDebug() << "Connect successfully!";
 }
 
-void RobotControl::PoseSendInitialize()
+void RobotControl::PoseSendInitialize(string log)
 {
 	int port = 8000;
 	if (!server->listen(QHostAddress::Any, port)) {
-		printLog("listen failed!");
-		//return;
+		printLog(log);
+		return;
 	}
 	connect(server, SIGNAL(newConnection()), this, SLOT(serverNewConnect()));
+	// printLog("robot initialization listen succeeded!");
 }
 
 vector<double> RobotControl::readPose()
