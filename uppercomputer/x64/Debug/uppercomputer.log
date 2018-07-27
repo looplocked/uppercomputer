@@ -1,3 +1,46 @@
-﻿  qrc_uppercomputer.cpp
-  uppercomputer.vcxproj -> E:\visualservoing\uppercomputer\x64\Debug\uppercomputer.exe
-  uppercomputer.vcxproj -> E:\visualservoing\uppercomputer\x64\Debug\uppercomputer.pdb (Full PDB)
+﻿Build started 2018/7/27 10:52:10.
+     1>Project "E:\visualservoing\uppercomputer\uppercomputer\uppercomputer.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\vs2015\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles /I. /ID:\qt\5.6.3\msvc2015_64\include /I.\GeneratedFiles\Debug /ID:\qt\5.6.3\msvc2015_64\include\QtCore /ID:\qt\5.6.3\msvc2015_64\include\QtGui /ID:\qt\5.6.3\msvc2015_64\include\QtWidgets /ID:\qt\5.6.3\msvc2015_64\include\QtNetwork /ID:\qt\5.6.3\msvc2015_64\include\QtConcurrent /Zi /nologo /W1 /WX- /Od /D UNICODE /D WIN32 /D WIN64 /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /D QT_NETWORK_LIB /D QT_CONCURRENT_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt /wd4430 cameradisplay.cpp GeneratedFiles\Debug\moc_uppercomputer.cpp helper.cpp main.cpp uppercomputer.cpp
+         cameradisplay.cpp
+     1>D:\opencv\build\include\opencv2/core/mat.hpp(2586): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/imgproc.hpp(592): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+         moc_uppercomputer.cpp
+     1>D:\opencv\build\include\opencv2/core/mat.hpp(2586): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/imgproc.hpp(592): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+         helper.cpp
+         main.cpp
+     1>D:\opencv\build\include\opencv2/core/mat.hpp(2586): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/imgproc.hpp(592): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+         uppercomputer.cpp
+     1>D:\opencv\build\include\opencv2/core/mat.hpp(2586): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/imgproc.hpp(592): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+         Generating Code...
+     1>e:\visualservoing\uppercomputer\uppercomputer\cameradisplay.cpp(54): warning C4715: 'CameraDisplay::getImage': not all control paths return a value
+         D:\vs2015\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles /I. /ID:\qt\5.6.3\msvc2015_64\include /I.\GeneratedFiles\Debug /ID:\qt\5.6.3\msvc2015_64\include\QtCore /ID:\qt\5.6.3\msvc2015_64\include\QtGui /ID:\qt\5.6.3\msvc2015_64\include\QtWidgets /ID:\qt\5.6.3\msvc2015_64\include\QtNetwork /ID:\qt\5.6.3\msvc2015_64\include\QtConcurrent /Zi /nologo /W1 /WX- /Od /D UNICODE /D WIN32 /D WIN64 /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /D QT_NETWORK_LIB /D QT_CONCURRENT_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt /wd4430 GeneratedFiles\qrc_uppercomputer.cpp
+         qrc_uppercomputer.cpp
+       Link:
+         D:\vs2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\visualservoing\uppercomputer\x64\Debug\\uppercomputer.exe" /NOLOGO /LIBPATH:D:\qt\5.6.3\msvc2015_64\lib OpenNI2.lib opencv_world320d.lib qtmaind.lib Qt5Cored.lib Qt5Guid.lib Qt5Widgetsd.lib Qt5Networkd.lib Qt5Concurrentd.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\visualservoing\uppercomputer\x64\Debug\uppercomputer.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\visualservoing\uppercomputer\x64\Debug\uppercomputer.lib" /MACHINE:X64 x64\Debug\cameradisplay.obj
+         x64\Debug\moc_uppercomputer.obj
+         x64\Debug\qrc_uppercomputer.obj
+         x64\Debug\helper.obj
+         x64\Debug\main.obj
+         x64\Debug\uppercomputer.obj
+         uppercomputer.vcxproj -> E:\visualservoing\uppercomputer\x64\Debug\uppercomputer.exe
+     1>Done Building Project "E:\visualservoing\uppercomputer\uppercomputer\uppercomputer.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.51
