@@ -1,8 +1,22 @@
-﻿Build started 2018/7/27 20:19:23.
+﻿Build started 2018/7/29 16:12:42.
      1>Project "E:\visualservoing\uppercomputer\uppercomputer\uppercomputer.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         D:\vs2015\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles /I. /ID:\qt\5.6.3\msvc2015_64\include /I.\GeneratedFiles\Debug /ID:\qt\5.6.3\msvc2015_64\include\QtCore /ID:\qt\5.6.3\msvc2015_64\include\QtGui /ID:\qt\5.6.3\msvc2015_64\include\QtWidgets /ID:\qt\5.6.3\msvc2015_64\include\QtNetwork /ID:\qt\5.6.3\msvc2015_64\include\QtConcurrent /Zi /nologo /W1 /WX- /Od /D UNICODE /D WIN32 /D WIN64 /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /D QT_NETWORK_LIB /D QT_CONCURRENT_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt /wd4430 RobotControl.cpp
-         RobotControl.cpp
+     1>CustomBuild:
+         Moc'ing uppercomputer.h...
+         Uic'ing uppercomputer.ui...
+     1>E:\visualservoing\uppercomputer\uppercomputer\uppercomputer.ui : warning : The name 'layoutWidget' (QWidget) is already in use, defaulting to 'layoutWidget1'.
+     1>E:\visualservoing\uppercomputer\uppercomputer\uppercomputer.ui : warning : The name 'layoutWidget' (QWidget) is already in use, defaulting to 'layoutWidget2'.
+         Moc'ing RobotControl.h...
+         Moc'ing RobotInitialization.h...
+         Moc'ing ProcessThread.h...
+       ClCompile:
+         D:\vs2015\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles /I. /ID:\qt\5.6.3\msvc2015_64\include /I.\GeneratedFiles\Debug /ID:\qt\5.6.3\msvc2015_64\include\QtCore /ID:\qt\5.6.3\msvc2015_64\include\QtGui /ID:\qt\5.6.3\msvc2015_64\include\QtWidgets /ID:\qt\5.6.3\msvc2015_64\include\QtNetwork /ID:\qt\5.6.3\msvc2015_64\include\QtConcurrent /Zi /nologo /W1 /WX- /Od /D UNICODE /D WIN32 /D WIN64 /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /D QT_NETWORK_LIB /D QT_CONCURRENT_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt /wd4430 GeneratedFiles\Debug\moc_ProcessThread.cpp GeneratedFiles\Debug\moc_RobotControl.cpp GeneratedFiles\Debug\moc_RobotInitialization.cpp GeneratedFiles\Debug\moc_uppercomputer.cpp main.cpp uppercomputer.cpp
+         moc_ProcessThread.cpp
+     1>D:\opencv\build\include\opencv2/core/mat.hpp(2586): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/imgproc.hpp(592): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+         moc_RobotControl.cpp
      1>D:\opencv\build\include\opencv2/core/mat.hpp(2586): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
      1>D:\opencv\build\include\opencv2/core/persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
      1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
@@ -12,6 +26,35 @@
      1>d:\opencv\build\include\opencv2\flann\result_set.h(428): warning C4003: not enough actual parameters for macro 'max'
      1>d:\opencv\build\include\opencv2\flann\lsh_index.h(203): warning C4003: not enough actual parameters for macro 'max'
      1>d:\opencv\build\include\opencv2\flann\lsh_index.h(269): warning C4003: not enough actual parameters for macro 'max'
+         moc_RobotInitialization.cpp
+     1>D:\opencv\build\include\opencv2/core/mat.hpp(2586): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/imgproc.hpp(592): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>d:\opencv\build\include\opencv2\flann\result_set.h(306): warning C4003: not enough actual parameters for macro 'max'
+     1>d:\opencv\build\include\opencv2\flann\result_set.h(428): warning C4003: not enough actual parameters for macro 'max'
+     1>d:\opencv\build\include\opencv2\flann\lsh_index.h(203): warning C4003: not enough actual parameters for macro 'max'
+     1>d:\opencv\build\include\opencv2\flann\lsh_index.h(269): warning C4003: not enough actual parameters for macro 'max'
+         moc_uppercomputer.cpp
+     1>D:\opencv\build\include\opencv2/core/mat.hpp(2586): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/imgproc.hpp(592): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+         main.cpp
+     1>D:\opencv\build\include\opencv2/core/mat.hpp(2586): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/imgproc.hpp(592): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+         uppercomputer.cpp
+     1>D:\opencv\build\include\opencv2/core/mat.hpp(2586): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>D:\opencv\build\include\opencv2/imgproc.hpp(592): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+         Generating Code...
        Link:
          D:\vs2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\visualservoing\uppercomputer\x64\Debug\\uppercomputer.exe" /NOLOGO /LIBPATH:D:\qt\5.6.3\msvc2015_64\lib OpenNI2.lib opencv_world320d.lib qtmaind.lib Qt5Cored.lib Qt5Guid.lib Qt5Widgetsd.lib Qt5Networkd.lib Qt5Concurrentd.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\visualservoing\uppercomputer\x64\Debug\uppercomputer.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\visualservoing\uppercomputer\x64\Debug\uppercomputer.lib" /MACHINE:X64 x64\Debug\cameradisplay.obj
          x64\Debug\error.obj
@@ -27,9 +70,10 @@
          x64\Debug\ProcessThread.obj
          x64\Debug\RobotInitialization.obj
          x64\Debug\uppercomputer.obj
+         LINK : E:\visualservoing\uppercomputer\x64\Debug\\uppercomputer.exe not found or not built by the last incremental link; performing full link
          uppercomputer.vcxproj -> E:\visualservoing\uppercomputer\x64\Debug\uppercomputer.exe
      1>Done Building Project "E:\visualservoing\uppercomputer\uppercomputer\uppercomputer.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.52
+Time Elapsed 00:00:13.94
