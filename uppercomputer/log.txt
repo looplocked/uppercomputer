@@ -1,14 +1,4 @@
-[16:9:28.265]	move button clicked!
-[16:9:33.534]	connection is ready, move timer start!
-[16:9:33.643]	send pose0
-[16:9:33.754]	send pose1
-[16:9:33.863]	send pose2
-[16:9:33.972]	send pose3
-[16:9:34.82]	send pose4
-[16:9:34.191]	send pose5
-[16:9:34.301]	send pose6
-[16:9:34.420]	send pose7
-[16:9:34.530]	send pose8
-[16:9:34.639]	send pose9
-[16:9:34.748]	send pose10
-[16:9:34.858]	send pose11
+[16:34:35.266]	move button clicked!
+[16:34:50.676]	connection is ready, move timer start!
+[16:34:50.787]	send pose (3.28195, -2.14271, -1.29701, -1.30572, 1.54575, 0.78328)
+

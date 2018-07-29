@@ -257,7 +257,7 @@ void uppercomputer::startCameraTimer()
 
  void uppercomputer::jointMove()
  {
-	 if (counter > 10) {
+	 if (counter > 0) {
 		 movetimer->stop();
 		 //return;
 	 }
@@ -268,8 +268,9 @@ void uppercomputer::startCameraTimer()
 	 //ui.TextEditDebug->clear();
 	 ui.TextEditDebug->appendPlainText("move to " + point);
 	 movesocket->write(point.toLatin1());
-	 printLog("send pose" + to_string(counter));
+	 printLog("send pose " + point.toStdString());
 	 counter++;
+	 movetimer->stop();
  }
 
  void uppercomputer::moveSocketDisconnected()

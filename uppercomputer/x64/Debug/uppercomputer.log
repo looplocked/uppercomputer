@@ -1,4 +1,4 @@
-﻿Build started 2018/7/29 16:09:11.
+﻿Build started 2018/7/29 16:33:58.
      1>Project "E:\visualservoing\uppercomputer\uppercomputer\uppercomputer.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          D:\vs2015\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles /I. /ID:\qt\5.6.3\msvc2015_64\include /I.\GeneratedFiles\Debug /ID:\qt\5.6.3\msvc2015_64\include\QtCore /ID:\qt\5.6.3\msvc2015_64\include\QtGui /ID:\qt\5.6.3\msvc2015_64\include\QtWidgets /ID:\qt\5.6.3\msvc2015_64\include\QtNetwork /ID:\qt\5.6.3\msvc2015_64\include\QtConcurrent /Zi /nologo /W1 /WX- /Od /D UNICODE /D WIN32 /D WIN64 /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /D QT_NETWORK_LIB /D QT_CONCURRENT_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt /wd4430 uppercomputer.cpp
@@ -20,4 +20,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.03
+Time Elapsed 00:00:03.19
