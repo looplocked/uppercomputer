@@ -22,6 +22,7 @@
 
 #include "ui_uppercomputer.h"
 #include "cameradisplay.h"
+#include "helper.h"
  
 
 using namespace std;
@@ -57,6 +58,8 @@ private:
 	vector<double> feature;
 
 	int counter;
+
+	vector<double> base_point;
 	
 public slots:
     void startCameraTimer();

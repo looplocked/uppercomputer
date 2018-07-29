@@ -1,11 +1,11 @@
 #include "uppercomputer.h"
 
-
-
 uppercomputer::uppercomputer(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+
+	deleteLog();
 
 	counter = 0;
 
@@ -19,6 +19,9 @@ uppercomputer::uppercomputer(QWidget *parent)
 
 	posevector = { 0, 0, 0, 0, 0, 0 };
 	feature = { 0, 0, 0, 0 };
+	base_point = { 3.28195, 3.29195, 3.31195, 3.34195, 3.38195, 3.43195, 3.49195, \
+		3.56195, 3.62195, 3.67195, 3.71195, 3.74195, 3.76195, 3.77195, 3.77195, \
+		3.77195, 3.77195, 3.77195, 3.77195, 3.77195, 3.77195, 3.77195, 3.77195 };
 
 	socket = new QTcpSocket(this);
 	server = new QTcpServer(this);
@@ -220,6 +223,7 @@ void uppercomputer::startCameraTimer()
 	 if (ui.ButtonMove->text() == tr("Move"))
 	 { 
 		 int port = 8000;
+		 printLog("move button clicked!");
 		 if (!server->listen(QHostAddress::Any, port))
 		 { 
 			 ui.TextEditDebug->appendPlainText(server->errorString());
@@ -246,21 +250,25 @@ void uppercomputer::startCameraTimer()
 	 QObject::connect(movesocket, SIGNAL(disconnected()), this, SLOT(moveSocketDisconnected()));
 	 movesocket = server->nextPendingConnection();
 	 movetimer->start(100);
+	 printLog("connection is ready, move timer start!");
 	 counter = 0;
 	 ui.TextEditDebug->appendPlainText("A client connected!");
  }
 
  void uppercomputer::jointMove()
  {
-	 if (counter > 10)
+	 if (counter > 10) {
 		 movetimer->stop();
-	 QString pointstr = "(0.30, -1.36, -1.84, -1.51, 1.57, -3.40)\n";
-	 int pointcounter = 30 + 5 * counter;
+		 //return;
+	 }
+	 QString pointstr = "(3.28195, -2.14271, -1.29701, -1.30572, 1.54575, 0.78328)\n";
+	 double pointcounter = base_point[counter];
 	 QString substr = QString("%1").arg(pointcounter);
-	 QString point = pointstr.replace(3, 2, substr);
+	 QString point = pointstr.replace(1, 7, substr);
 	 //ui.TextEditDebug->clear();
 	 ui.TextEditDebug->appendPlainText("move to " + point);
 	 movesocket->write(point.toLatin1());
+	 printLog("send pose" + to_string(counter));
 	 counter++;
  }
 
