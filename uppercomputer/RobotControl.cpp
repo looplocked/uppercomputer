@@ -78,8 +78,8 @@ void RobotControl::jointMove(vector<double> pose)
 	string posestr = posestream.str();
 	posestr = posestr.substr(0, posestr.size() - 2);
 	posestr = "(" + posestr + ")\n";
-	printLog("pose string is " + posestr);
 	QString data = QString::fromStdString(posestr);
+	printLog("pose string is " + data.toStdString());
 	movesocket->write(data.toLatin1());
 	printLog("Pose sent successfully!");
 }

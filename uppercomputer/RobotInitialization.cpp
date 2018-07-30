@@ -50,35 +50,29 @@ void RobotInitialization::startInitialize()
 	target.at<double>(6) = 520;
 	target.at<double>(7) = 440;
 
-	timer->start(100);
+	timer->start(500);
 	printLog("initial timer start");
 }
 
 void RobotInitialization::moveAndRecord() {
-	if (count < 7) {
+	if (count < 6) {
 		printLog("startMove!");
+		printLog("prePose is " + MatToStr(prePose.t()));
 		Mat targetPose(prePose);
-		targetPose.at<double>(count) += 0.01;
+		targetPose.at<double>(count) += 0.05;
+		printLog("targetPose is " + MatToStr(targetPose.t()));
+		vector<double> bepose = robot->readPose();
+		printLog("before movement, pose is " + MatToStr(Mat(bepose).t()));
 		robot->jointMove(vector<double>{ targetPose.at<double>(0),
 			targetPose.at<double>(1), targetPose.at<double>(2),
 			targetPose.at<double>(3), targetPose.at<double>(4),
 			targetPose.at<double>(5) });
-		printLog("targetPose is " + MatToStr(targetPose.t()));
+		_sleep(300);
 
 		Mat curPose;
 		vector<double> temp = robot->readPose();
-		printLog("current pose is " + MatToStr(Mat(temp).t()));
-		// for (int i = 0; i < 6; i++) curPose.at<double>(i) = temp[i];
 		curPose = Mat(temp);
-		while (norm(curPose - targetPose) > 0.01 * 0.01) { //如果还未移动到位，则等待一会后再读取关节角
-			printLog("the robot is not ready");
-			// printLog("the pose error is " + MatToStr(curPose - targetPose));
-			_sleep(30);
-			temp = robot->readPose();
-			//for (int i = 0; i < 6; i++) curPose.at<double>(i) = temp[i];
-			curPose = Mat(temp);
-			printLog("current pose is " + MatToStr(Mat(temp).t()));
-		}
+		printLog("after movement pose is " + MatToStr(curPose.t()));
 		vector<Point> curPoints;
 		camera->getImageAndFeature(curPoints);
 		Mat curFeature = flatPoints(curPoints);
