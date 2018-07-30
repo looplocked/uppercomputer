@@ -4,7 +4,6 @@
 
 #include <QtCore>
 #include <QDebug>
-#include <QTimer>
 #include "opencv2/core/core.hpp" 
 #include "RobotControl.h"
 #include "cameradisplay.h"
@@ -23,21 +22,27 @@ public:
 public slots:
 	void startInitialize();
 	void moveAndRecord();
+	void extractFeature();
 
 signals:
 	void initReady(Mat initjacob, Mat initpose, Mat feature, Mat giventarget);
 
+signals:
+	void getFeature();
+
+signals:
+	void moveNextStep();
+
 private:
 	RobotControl* robot;
 	CameraDisplay* camera;
-	QTimer *timer;
 	int count = 0;
-	Mat prePose = Mat(6, 1, CV_64FC1);
-	Mat preFeature = Mat(8, 1, CV_64FC1);
-	Mat jacobian = Mat(8, 6, CV_64FC1);
-	Mat DF = Mat(8, 6, CV_64FC1);
-	Mat theta = Mat(6, 6, CV_64FC1);
-	Mat target = Mat(8, 1, CV_64FC1);
+	Mat prePose;
+	Mat preFeature;
+	Mat jacobian;
+	Mat DF;
+	Mat theta;
+	Mat target;
 };
 
 

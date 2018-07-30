@@ -4,7 +4,15 @@ RobotInitialization::RobotInitialization(QObject * parent) : QObject(parent)
 {
 	robot = new RobotControl();
 	camera = new CameraDisplay();
-	timer = new QTimer();
+
+	count = 0;
+
+	prePose = Mat(6, 1, CV_64FC1);
+	preFeature = Mat(8, 1, CV_64FC1);
+	jacobian = Mat(8, 6, CV_64FC1);
+	DF = Mat(8, 6, CV_64FC1);
+	theta = Mat(6, 6, CV_64FC1);
+	target = Mat(8, 1, CV_64FC1);
 
 	try {
 		camera->initialize();
@@ -30,7 +38,8 @@ RobotInitialization::RobotInitialization(QObject * parent) : QObject(parent)
 		// QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(robotexc.what()));
 	}
 
-	connect(timer, SIGNAL(timeout()), this, SLOT(moveAndRecord()));
+	connect(this, SIGNAL(getFeature()), this, SLOT(extractFeature()));
+	connect(this, SIGNAL(moveNextStep()), this, SLOT(moveAndRecord()));
 }
 
 void RobotInitialization::startInitialize()
@@ -50,8 +59,9 @@ void RobotInitialization::startInitialize()
 	target.at<double>(6) = 520;
 	target.at<double>(7) = 440;
 
-	timer->start(500);
-	printLog("initial timer start");
+	emit moveNextStep();
+
+	printLog("start jacobian initialization");
 }
 
 void RobotInitialization::moveAndRecord() {
@@ -67,28 +77,35 @@ void RobotInitialization::moveAndRecord() {
 			targetPose.at<double>(1), targetPose.at<double>(2),
 			targetPose.at<double>(3), targetPose.at<double>(4),
 			targetPose.at<double>(5) });
+
 		_sleep(300);
 
-		Mat curPose;
-		vector<double> temp = robot->readPose();
-		curPose = Mat(temp);
-		printLog("after movement pose is " + MatToStr(curPose.t()));
-		vector<Point> curPoints;
-		camera->getImageAndFeature(curPoints);
-		Mat curFeature = flatPoints(curPoints);
-		theta.col(count) = curPose - prePose;
-		DF.col(count) = curFeature - preFeature;
-		count++;
-
-		prePose = curPose;
-		preFeature = curFeature;
+		emit getFeature();
 	}
 	else {
 		jacobian = DF * theta.inv();
 		printLog(MatToStr(jacobian));
-		timer->stop();
 		emit initReady(jacobian, prePose, preFeature, target);
 	}
+}
+
+void RobotInitialization::extractFeature()
+{
+	Mat curPose;
+	vector<double> temp = robot->readPose();
+	curPose = Mat(temp);
+	printLog("after movement pose is " + MatToStr(curPose.t()));
+	vector<Point> curPoints;
+	camera->getImageAndFeature(curPoints);
+	Mat curFeature = flatPoints(curPoints);
+	theta.col(count) = curPose - prePose;
+	DF.col(count) = curFeature - preFeature;
+	count++;
+
+	prePose = curPose;
+	preFeature = curFeature;
+
+	emit moveNextStep();
 }
 
 Mat RobotInitialization::getJacobian() {
@@ -99,5 +116,4 @@ RobotInitialization::~RobotInitialization()
 {
 	delete robot;
 	delete camera;
-	delete timer;
 }
