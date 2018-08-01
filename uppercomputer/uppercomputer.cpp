@@ -25,20 +25,13 @@ uppercomputer::uppercomputer(QWidget *parent)
 	}
 
 	try {
-		robot->poseReadInitialize();
+		//robot->initial();
 	}
 	catch (RobotException& robotexc)
 	{
 		QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(robotexc.what()));
 	}
 
-	try {
-		robot->PoseSendInitialize("uppercomputer");
-	}
-	catch (RobotException& robotexc)
-	{
-		QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(robotexc.what()));
-	}
 
 	connect(ui.ButtonOpenCam, SIGNAL(clicked()), this, SLOT(startTimer()));
 	connect(ui.ButtonTrack, SIGNAL(clicked()), init, SLOT(startInitialize()));
@@ -97,7 +90,7 @@ void uppercomputer::startTimer()
 	}
 
 
-	vector<double> posevector = robot->readPose();
+	vector<double> posevector = robot->getJointAngle();
 
 	emit sendPose(Mat(posevector).t());
 
@@ -144,7 +137,7 @@ void uppercomputer::startTimer()
 
  void uppercomputer::displayPose()
  {
-	 vector<double> posevector = robot->readPose();
+	 vector<double> posevector = robot->getJointAngle();
 
 	 ui.LineEditPoseR0->clear();
 	 ui.LineEditPoseR0->setText(QString("%1").arg(posevector[0]));
@@ -162,7 +155,7 @@ void uppercomputer::startTimer()
 
  void uppercomputer::receivePose(Mat pose)
  {
-	 robot->jointMove(vector<double>{pose.at<double>(0), pose.at<double>(1),
+	 robot->movej(vector<double>{pose.at<double>(0), pose.at<double>(1),
 	 pose.at<double>(2), pose.at<double>(3), pose.at<double>(4), pose.at<double>(5)});
 
 	 vector<Point> Points;

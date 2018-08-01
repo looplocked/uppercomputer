@@ -23,20 +23,13 @@ RobotInitialization::RobotInitialization(QObject * parent) : QObject(parent)
 	}
 
 	try {
-		robot->poseReadInitialize();
+		robot->initial();
 	}
 	catch (RobotException& robotexc)
 	{
 		// QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(robotexc.what()));
 	}
 
-	try {
-		robot->PoseSendInitialize("robot");
-	}
-	catch (RobotException& robotexc)
-	{
-		// QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(robotexc.what()));
-	}
 
 	connect(this, SIGNAL(getFeature()), this, SLOT(extractFeature()));
 	connect(this, SIGNAL(moveNextStep()), this, SLOT(moveAndRecord()));
@@ -44,11 +37,11 @@ RobotInitialization::RobotInitialization(QObject * parent) : QObject(parent)
 
 void RobotInitialization::startInitialize()
 {
-	vector<double> temp = robot->readPose();
+	vector<double> temp = robot->getJointAngle();
 	for (int i = 0; i < 6; i++) prePose.at<double>(i) = temp[i];
 	vector<Point> points0;
 	camera->getImageAndFeature(points0);
-	Matx<double, 8, 1> preFeature = flatPoints(points0);
+	Mat preFeature = flatPoints(points0);
 
 	target.at<double>(0) = 120;
 	target.at<double>(1) = 40;
@@ -71,14 +64,14 @@ void RobotInitialization::moveAndRecord() {
 		Mat targetPose(prePose);
 		targetPose.at<double>(count) += 0.05;
 		printLog("targetPose is " + MatToStr(targetPose.t()));
-		vector<double> bepose = robot->readPose();
+		vector<double> bepose = robot->getJointAngle();
 		printLog("before movement, pose is " + MatToStr(Mat(bepose).t()));
-		robot->jointMove(vector<double>{ targetPose.at<double>(0),
+		robot->movej(vector<double>{ targetPose.at<double>(0),
 			targetPose.at<double>(1), targetPose.at<double>(2),
 			targetPose.at<double>(3), targetPose.at<double>(4),
-			targetPose.at<double>(5) });
+			targetPose.at<double>(5) }, 0.5, 1.4);
 
-		_sleep(300);
+		Sleep(300);
 
 		emit getFeature();
 	}
@@ -92,7 +85,7 @@ void RobotInitialization::moveAndRecord() {
 void RobotInitialization::extractFeature()
 {
 	Mat curPose;
-	vector<double> temp = robot->readPose();
+	vector<double> temp = robot->getJointAngle();
 	curPose = Mat(temp);
 	printLog("after movement pose is " + MatToStr(curPose.t()));
 	vector<Point> curPoints;
