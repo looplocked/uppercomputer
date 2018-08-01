@@ -6,7 +6,7 @@
 #include <QDebug>
 #include "opencv2/core/core.hpp" 
 #include "RobotControl.h"
-#include "cameradisplay.h"
+#include "Camera.h"
 #include "helper.h"
 
 using namespace std;
@@ -35,7 +35,7 @@ signals:
 
 private:
 	RobotControl* robot;
-	CameraDisplay* camera;
+	Camera* camera;
 	int count = 0;
 	Mat prePose;
 	Mat preFeature;

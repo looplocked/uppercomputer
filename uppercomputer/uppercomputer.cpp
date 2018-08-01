@@ -9,7 +9,7 @@ uppercomputer::uppercomputer(QWidget *parent)
 	timer = new QTimer(this);
 
 	deleteLog();
-	camera = new CameraDisplay();
+	camera = new Camera();
 	robot = new RobotControl();
 	processThread = new ProcessThread();
 	init = new RobotInitialization();
@@ -17,7 +17,7 @@ uppercomputer::uppercomputer(QWidget *parent)
 	fpstimer = new cvflann::StartStopTimer;
 
 	try {
-		camera->initialize();
+		camera->initial();
 	}
 	catch (CameraException& camexc)
 	{
@@ -73,14 +73,16 @@ void uppercomputer::startTimer()
 {
 	double fps;
 
-	vector<Mat> images;
+	Mat originimg, featureimg;
 	QImage qoriginimg, qfeatureimg;
-	vector<Point> Points;
+	vector<double> Points;
 
 	fpstimer->start();
 	try
 	{
-		images = camera->getImageAndFeature(Points);
+		originimg = camera->getOriginImg();
+		featureimg = camera->getFeatureImg();
+		Points = camera->getFeaturePoints();
 	}
 	catch (CameraException& camexc)
 	{
@@ -105,8 +107,8 @@ void uppercomputer::startTimer()
 	ui.FPSLineEdit->setText(fpsstr);
 
 
-	qoriginimg = QImage((const uchar*)(images[0].data), images[0].cols, images[0].rows, images[0].cols*images[0].channels(), QImage::Format_RGB888);
-	qfeatureimg = QImage((const uchar*)(images[1].data), images[1].cols, images[1].rows, images[1].cols*images[1].channels(), QImage::Format_RGB888);
+	qoriginimg = QImage((const uchar*)(originimg.data), originimg.cols, originimg.rows, originimg.cols*originimg.channels(), QImage::Format_RGB888);
+	qfeatureimg = QImage((const uchar*)(featureimg.data), featureimg.cols, featureimg.rows, featureimg.cols*featureimg.channels(), QImage::Format_RGB888);
 
 	ui.LabelCamera->clear();
 	ui.LabelFeature->clear();
@@ -115,13 +117,10 @@ void uppercomputer::startTimer()
 	ui.LabelCamera->show();
 	ui.LabelFeature->show();
 
-
-
-
-	QString point1 = Points.size()  < 1 ? "" : QString("%1, %2").arg(Points[0].x).arg(Points[0].y);
-	QString point2 = Points.size()  < 2 ? "" : QString("%1, %2").arg(Points[1].x).arg(Points[1].y);
-	QString point3 = Points.size()  < 3 ? "" : QString("%1, %2").arg(Points[2].x).arg(Points[2].y);
-	QString point4 = Points.size()  < 4 ? "" : QString("%1, %2").arg(Points[3].x).arg(Points[3].y);
+	QString point1 = Points.size()  < 1 ? "" : QString("%1, %2").arg(Points[0]).arg(Points[1]);
+	QString point2 = Points.size()  < 2 ? "" : QString("%1, %2").arg(Points[2]).arg(Points[3]);
+	QString point3 = Points.size()  < 3 ? "" : QString("%1, %2").arg(Points[4]).arg(Points[5]);
+	QString point4 = Points.size()  < 4 ? "" : QString("%1, %2").arg(Points[6]).arg(Points[7]);
 
 	//ÏÔÊ¾ÌØÕ÷Öµ
 	ui.LineEditFeatureX->clear();
@@ -158,9 +157,8 @@ void uppercomputer::startTimer()
 	 robot->movej(vector<double>{pose.at<double>(0), pose.at<double>(1),
 	 pose.at<double>(2), pose.at<double>(3), pose.at<double>(4), pose.at<double>(5)});
 
-	 vector<Point> Points;
-	 camera->getImageAndFeature(Points);
-	 emit sendFeature(flatPoints(Points));
+	 vector<double> Points = camera->getFeaturePoints();
+	 emit sendFeature(Mat(Points));
  }
 
  uppercomputer::~uppercomputer()

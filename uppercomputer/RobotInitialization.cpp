@@ -3,8 +3,7 @@
 RobotInitialization::RobotInitialization(QObject * parent) : QObject(parent)
 {
 	robot = new RobotControl();
-	camera = new CameraDisplay();
-
+	camera = new Camera();
 	count = 0;
 
 	prePose = Mat(6, 1, CV_64FC1);
@@ -14,22 +13,9 @@ RobotInitialization::RobotInitialization(QObject * parent) : QObject(parent)
 	theta = Mat(6, 6, CV_64FC1);
 	target = Mat(8, 1, CV_64FC1);
 
-	try {
-		camera->initialize();
-	}
-	catch (CameraException& camexc)
-	{
-		// QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(camexc.what()));
-	}
-
-	try {
-		robot->initial();
-	}
-	catch (RobotException& robotexc)
-	{
-		// QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(robotexc.what()));
-	}
-
+	camera->initial();
+	robot->initial();
+	Sleep(3000);
 
 	connect(this, SIGNAL(getFeature()), this, SLOT(extractFeature()));
 	connect(this, SIGNAL(moveNextStep()), this, SLOT(moveAndRecord()));
@@ -39,9 +25,8 @@ void RobotInitialization::startInitialize()
 {
 	vector<double> temp = robot->getJointAngle();
 	for (int i = 0; i < 6; i++) prePose.at<double>(i) = temp[i];
-	vector<Point> points0;
-	camera->getImageAndFeature(points0);
-	Mat preFeature = flatPoints(points0);
+	vector<double> points0 = camera->getFeaturePoints();
+	Mat preFeature = Mat(points0);
 
 	target.at<double>(0) = 120;
 	target.at<double>(1) = 40;
@@ -88,9 +73,8 @@ void RobotInitialization::extractFeature()
 	vector<double> temp = robot->getJointAngle();
 	curPose = Mat(temp);
 	printLog("after movement pose is " + MatToStr(curPose.t()));
-	vector<Point> curPoints;
-	camera->getImageAndFeature(curPoints);
-	Mat curFeature = flatPoints(curPoints);
+	vector<double> curPoints = camera->getFeaturePoints();
+	Mat curFeature = Mat(curPoints);
 	theta.col(count) = curPose - prePose;
 	DF.col(count) = curFeature - preFeature;
 	count++;

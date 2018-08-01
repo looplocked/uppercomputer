@@ -23,7 +23,7 @@
 #include "opencv2/flann.hpp"
 
 #include "ui_uppercomputer.h"
-#include "cameradisplay.h"
+#include "Camera.h"
 #include "helper.h"
 #include "error.h"
 #include "RobotControl.h"
@@ -47,7 +47,7 @@ public:
 private:
 	Ui::uppercomputerClass ui;
 
-	CameraDisplay *camera;
+	Camera *camera;
 	RobotControl *robot;
 	RobotInitialization *init;
 	ProcessThread *processThread;

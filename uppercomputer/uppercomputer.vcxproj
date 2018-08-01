@@ -73,7 +73,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cameradisplay.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="error.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_ProcessThread.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -138,7 +138,7 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cameradisplay.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="error.h" />
     <ClInclude Include="GeneratedFiles\ui_uppercomputer.h" />
     <ClInclude Include="helper.h" />
