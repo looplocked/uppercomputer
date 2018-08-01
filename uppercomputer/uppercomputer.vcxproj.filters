@@ -55,9 +55,6 @@
     <ClCompile Include="GeneratedFiles\qrc_uppercomputer.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="cameradisplay.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="LineSegmentDetector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -94,6 +91,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_RobotInitialization.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="cameradisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="uppercomputer.h">
@@ -119,9 +119,6 @@
     <ClInclude Include="GeneratedFiles\ui_uppercomputer.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="cameradisplay.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LineSegmentDetector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -129,6 +126,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="error.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cameradisplay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
