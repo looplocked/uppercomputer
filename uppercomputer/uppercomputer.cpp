@@ -78,23 +78,17 @@ void uppercomputer::startTimer()
 	vector<double> Points;
 
 	fpstimer->start();
-	try
-	{
-		originimg = camera->getOriginImg();
-		featureimg = camera->getFeatureImg();
-		Points = camera->getFeaturePoints();
-	}
-	catch (CameraException& camexc)
-	{
-		//QMessageBox::information(this, QString::fromLocal8Bit("Warning!"), QString::fromLocal8Bit(camexc.what()));
-		//exit(-1);
-		return;
-	}
 
+	originimg = camera->getOriginImg();
+	featureimg = camera->getFeatureImg();
+	Points = camera->getFeaturePoints();
+
+	cvtColor(originimg, originimg, CV_BGR2RGB);
+	cvtColor(featureimg, featureimg, CV_BGR2RGB);
 
 	vector<double> posevector = robot->getJointAngle();
 
-	emit sendPose(Mat(posevector).t());
+	//emit sendPose(Mat(posevector).t());
 
 
 	fpstimer->stop();
@@ -117,10 +111,10 @@ void uppercomputer::startTimer()
 	ui.LabelCamera->show();
 	ui.LabelFeature->show();
 
-	QString point1 = Points.size()  < 1 ? "" : QString("%1, %2").arg(Points[0]).arg(Points[1]);
-	QString point2 = Points.size()  < 2 ? "" : QString("%1, %2").arg(Points[2]).arg(Points[3]);
-	QString point3 = Points.size()  < 3 ? "" : QString("%1, %2").arg(Points[4]).arg(Points[5]);
-	QString point4 = Points.size()  < 4 ? "" : QString("%1, %2").arg(Points[6]).arg(Points[7]);
+	QString point1 = Points.size()  < 2 ? "" : QString("%1, %2").arg(Points[0]).arg(Points[1]);
+	QString point2 = Points.size()  < 4 ? "" : QString("%1, %2").arg(Points[2]).arg(Points[3]);
+	QString point3 = Points.size()  < 6 ? "" : QString("%1, %2").arg(Points[4]).arg(Points[5]);
+	QString point4 = Points.size()  < 8 ? "" : QString("%1, %2").arg(Points[6]).arg(Points[7]);
 
 	//ÏÔÊ¾ÌØÕ÷Öµ
 	ui.LineEditFeatureX->clear();
