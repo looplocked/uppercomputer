@@ -34,13 +34,14 @@ void  RobotControl::initial()
 	bind(socketClient, (SOCKADDR*)&addrSrv, sizeof(SOCKADDR));
 	int fail = connect(socketClient, (SOCKADDR*)&addrSrv, sizeof(SOCKADDR));//开始连接
 	if (fail) {
-		cout << "与服务端连接失败！程序将退出..." << endl;
+		printLog("failed to connect to server!");
 		_getch();
 		return;
 	}
 
 	thread pt(&RobotControl::poseReadThread, this);
 	pt.detach();
+	printLog("pose read thread detach succeeded!");
 }
 
 vector<double> RobotControl::getJointAngle()
@@ -63,8 +64,6 @@ void  RobotControl::movej(vector<double>& pose, double speed, double a)
 	sendBuf = command.c_str();
 	int state = sendto(socketClient, sendBuf, strlen(sendBuf), 0, (SOCKADDR *)&addrSrv, len);
 	//int state = send(socketClient, sendBuf, strlen(sendBuf) + 1, 0);
-	printLog("move to " + command);
-	printLog("the sent state is " + to_string(state) + ", " + "the sent data length is" + to_string(strlen(sendBuf)));
 }
 
 void RobotControl::Stop()

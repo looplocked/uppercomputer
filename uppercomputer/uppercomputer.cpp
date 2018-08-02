@@ -25,7 +25,7 @@ uppercomputer::uppercomputer(QWidget *parent)
 	}
 
 	try {
-		//robot->initial();
+		robot->initial();
 	}
 	catch (RobotException& robotexc)
 	{

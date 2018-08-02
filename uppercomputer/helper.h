@@ -27,13 +27,5 @@ using namespace openni;
 void printLog(string log);
 void deleteLog();
 string MatToStr(Mat m);
-bool findPrimaryAngle(std::vector<cv::Vec4f>& lines);
-bool selectPoints(std::vector<cv::Point>& Points);
-Mat flatPoints(vector<Point>& points);
-bool  needReverse(cv::Vec4f line1, cv::Vec4f line2);
-bool SortFaster(sortType& dists, int Top_num);
-void CheckOpenNIError(Status result, string status);
-Mat processAndGetFeature(Mat originimg, vector<Point>& Points, Point& prePoint);
-Mat mirrorMap(Mat srcimg);
 
 #endif

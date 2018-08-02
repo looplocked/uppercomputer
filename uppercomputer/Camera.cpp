@@ -61,7 +61,6 @@ void Camera::imageProcessThread() {
 					ori_mutex.unlock();
 					break;
 				}
-			printLog("original image stored successfully!");
 
 			timer.start();
 			roitimer.start();
@@ -269,8 +268,6 @@ void Camera::imageProcessThread() {
 					break;
 				}
 
-			printLog("feature image " + to_string(count) + "stored successfully!");
-
 			frame.release();
 		}
 	}
@@ -347,9 +344,9 @@ void Camera::transPoints(std::vector<cv::Point>& Points, int k)
 vector<double> Camera::flatPoints(vector<cv::Point>& points) {
 	vector<double> feature;
 	feature.resize(points.size() * 2);
-	for (int i = 0; i < points.size(); i += 2) {
-		feature[i] = static_cast<double>(points[i].x);
-		feature[i+1] = static_cast<double>(points[i].y);
+	for (int i = 0; i < points.size(); i++) {
+		feature[i * 2] = static_cast<double>(points[i].x);
+		feature[i * 2 + 1] = static_cast<double>(points[i].y);
 	}
 	return feature;
 }
