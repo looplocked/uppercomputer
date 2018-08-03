@@ -30,6 +30,8 @@ public:
 	cv::Mat getFeatureImg();
 	vector<double> getFeaturePoints();
 
+	bool isReachedI(Mat target, double threshold);
+
 private:
 	cv::Point init_point;
 	mutex ori_mutex;
@@ -39,6 +41,7 @@ private:
 	cv::Mat origin_img;
 	cv::Mat feature_img;
 	vector<double> feature_point;
+	cv::Mat target;
 
 	cv::VideoCapture m_capture;
 	void imageProcessThread();

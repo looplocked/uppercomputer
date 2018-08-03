@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_uppercomputer_t {
     QByteArrayData data[11];
-    char stringdata0[102];
+    char stringdata0[101];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,12 +39,12 @@ QT_MOC_LITERAL(6, 45, 7), // "feature"
 QT_MOC_LITERAL(7, 53, 10), // "startTimer"
 QT_MOC_LITERAL(8, 64, 13), // "displayCamera"
 QT_MOC_LITERAL(9, 78, 11), // "displayPose"
-QT_MOC_LITERAL(10, 90, 11) // "receivePose"
+QT_MOC_LITERAL(10, 90, 10) // "startServo"
 
     },
     "uppercomputer\0sendPose\0\0Mat\0pose\0"
     "sendFeature\0feature\0startTimer\0"
-    "displayCamera\0displayPose\0receivePose"
+    "displayCamera\0displayPose\0startServo"
 };
 #undef QT_MOC_LITERAL
 
@@ -69,7 +69,7 @@ static const uint qt_meta_data_uppercomputer[] = {
        7,    0,   50,    2, 0x0a /* Public */,
        8,    0,   51,    2, 0x0a /* Public */,
        9,    0,   52,    2, 0x0a /* Public */,
-      10,    1,   53,    2, 0x0a /* Public */,
+      10,    0,   53,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -79,7 +79,7 @@ static const uint qt_meta_data_uppercomputer[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -95,7 +95,7 @@ void uppercomputer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 2: _t->startTimer(); break;
         case 3: _t->displayCamera(); break;
         case 4: _t->displayPose(); break;
-        case 5: _t->receivePose((*reinterpret_cast< Mat(*)>(_a[1]))); break;
+        case 5: _t->startServo(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

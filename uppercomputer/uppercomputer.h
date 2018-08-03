@@ -27,8 +27,7 @@
 #include "helper.h"
 #include "error.h"
 #include "RobotControl.h"
-#include "ProcessThread.h"
-#include "RobotInitialization.h"
+#include "VisualServo.h"
  
 
 using namespace std;
@@ -49,11 +48,12 @@ private:
 
 	Camera *camera;
 	RobotControl *robot;
-	RobotInitialization *init;
-	ProcessThread *processThread;
+	VisualServo *servo;
 
 	QTimer *timer;
 	cvflann::StartStopTimer *fpstimer;
+
+	void deleteLog();
 
 signals:
 	void sendPose(Mat pose);
@@ -63,7 +63,7 @@ public slots:
 	void startTimer();
 	void displayCamera();
 	void displayPose();
-	void receivePose(Mat pose);
+	void startServo();
 };
 
 

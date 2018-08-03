@@ -313,6 +313,12 @@ vector<double> Camera::getFeaturePoints()
 		}
 }
 
+bool Camera::isReachedI(Mat target, double threshold)
+{
+	Mat curFea = Mat(getFeaturePoints());
+	return norm(curFea - target) < threshold;
+}
+
 bool Camera::needReverse(cv::Vec4f line1, cv::Vec4f line2)
 {
 	cv::Point2f ptr1(line1[2] - line1[0], line1[3] - line1[1]);

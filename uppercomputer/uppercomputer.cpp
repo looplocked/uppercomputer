@@ -11,8 +11,7 @@ uppercomputer::uppercomputer(QWidget *parent)
 	deleteLog();
 	camera = new Camera();
 	robot = new RobotControl();
-	processThread = new ProcessThread();
-	init = new RobotInitialization();
+	servo = new VisualServo();
 
 	fpstimer = new cvflann::StartStopTimer;
 
@@ -34,18 +33,10 @@ uppercomputer::uppercomputer(QWidget *parent)
 
 
 	connect(ui.ButtonOpenCam, SIGNAL(clicked()), this, SLOT(startTimer()));
-	connect(ui.ButtonTrack, SIGNAL(clicked()), init, SLOT(startInitialize()));
+	connect(ui.ButtonTrack, SIGNAL(clicked()), this, SLOT(startServo()));
 
 	connect(timer, SIGNAL(timeout()), this, SLOT(displayCamera()));
 	connect(timer, SIGNAL(timeout()), this, SLOT(displayPose()));
-	connect(init, SIGNAL(initReady(Mat, Mat, Mat, Mat)),\
-		processThread, SLOT(initThread(Mat, Mat, Mat, Mat)), Qt::QueuedConnection);
-
-	//connect(ui.ButtonDisplayPose, SIGNAL(clicked()), this, SLOT())
-
-	connect(this, SIGNAL(sendPose(Mat)), processThread, SLOT(receivePose(Mat)), Qt::QueuedConnection);
-	connect(this, SIGNAL(sendFeature(Mat)), processThread, SLOT(receiveFeature(Mat)), Qt::QueuedConnection);
-	connect(processThread, SIGNAL(sendPose(Mat)), this, SLOT(receivePose(Mat)), Qt::QueuedConnection);
 }
 
 void uppercomputer::startTimer()
@@ -87,9 +78,6 @@ void uppercomputer::startTimer()
 	cvtColor(featureimg, featureimg, CV_BGR2RGB);
 
 	vector<double> posevector = robot->getJointAngle();
-
-	//emit sendPose(Mat(posevector).t());
-
 
 	fpstimer->stop();
 	fps = 1.0 / fpstimer->value;
@@ -146,13 +134,9 @@ void uppercomputer::startTimer()
 	 ui.LineEditPoseR5->setText(QString("%1").arg(posevector[5]));
  }
 
- void uppercomputer::receivePose(Mat pose)
+ void uppercomputer::startServo()
  {
-	 robot->movej(vector<double>{pose.at<double>(0), pose.at<double>(1),
-	 pose.at<double>(2), pose.at<double>(3), pose.at<double>(4), pose.at<double>(5)});
-
-	 vector<double> Points = camera->getFeaturePoints();
-	 emit sendFeature(Mat(Points));
+	 servo->initial();
  }
 
  uppercomputer::~uppercomputer()
@@ -162,4 +146,10 @@ void uppercomputer::startTimer()
 	 delete fpstimer;
 	 delete camera;
 	 delete robot;
+ }
+
+ void uppercomputer::deleteLog() {
+	 ofstream fout;
+	 fout.open("log.txt", ofstream::out | ofstream::trunc);
+	 fout.close();
  }
