@@ -13,17 +13,18 @@ VisualServo::VisualServo()
 	DF = Mat(8, 6, CV_64FC1);
 	theta = Mat(6, 6, CV_64FC1);
 	target = Mat(8, 1, CV_64FC1);
-	prerls = rls = Mat::eye(6, 6, CV_64FC1);
+	rls = Mat::eye(6, 6, CV_64FC1);
+	prerls = Mat::eye(6, 6, CV_64FC1);
 
 
-	target.at<double>(0) = 120;
-	target.at<double>(1) = 40;
-	target.at<double>(2) = 520;
-	target.at<double>(3) = 40;
-	target.at<double>(4) = 120;
-	target.at<double>(5) = 40;
-	target.at<double>(6) = 520;
-	target.at<double>(7) = 440;
+	target.at<double>(0) = 189;
+	target.at<double>(1) = 108;
+	target.at<double>(2) = 427;
+	target.at<double>(3) = 106;
+	target.at<double>(4) = 434;
+	target.at<double>(5) = 348;
+	target.at<double>(6) = 194;
+	target.at<double>(7) = 351;
 
 	camera->initial();
 	Sleep(3000);
@@ -40,9 +41,9 @@ VisualServo::~VisualServo()
 void VisualServo::initial()
 {
 	vector<double> temp = robot->getJointAngle();
-	prePose = Mat(temp);
+	prePose = Mat(temp).clone();
 	vector<double> points0 = camera->getFeaturePoints();
-	preFeature = Mat(points0);
+	preFeature = Mat(points0).clone();
 
 	printLog("start jacobian initialization");
 	thread robotInitialThread(&VisualServo::RobotInitial, this);
@@ -69,28 +70,29 @@ void VisualServo::RobotInitial()
 
 			Sleep(3000);
 
-			Mat curPose;
 			vector<double> temp = robot->getJointAngle();
-			curPose = Mat(temp);
-			printLog("after movement pose is " + matToStr(curPose.t()));
+			pose = Mat(temp).clone();
+			printLog("after movement pose is " + matToStr(pose.t()));
 			vector<double> curPoints = camera->getFeaturePoints();
 
 			while (curPoints.size() != 8) curPoints = camera->getFeaturePoints();
-			Mat curFeature = Mat(curPoints);
-			printLog("after movement feature is " + matToStr(curFeature.t()));
-			theta.col(count) = curPose - prePose;
-			printLog("delta pose is " + matToStr((curPose - prePose).t()));
-			DF.col(count) = curFeature - preFeature;
-			printLog("delta feature is " + matToStr((curFeature - preFeature).t()));
+			feature = Mat(curPoints).clone();
+			printLog("after movement feature is " + matToStr(feature.t()));
+			theta.col(count) = pose - prePose;
+			printLog("initial delta pose is " + matToStr((pose - prePose).t()));
+			DF.col(count) = feature - preFeature;
+			printLog("initial delta feature is " + matToStr((feature - preFeature).t()));
 
-			pose = prePose = curPose;
-			feature = preFeature = curFeature;
+			prePose = pose.clone();
+			preFeature = feature.clone();
 
 			lock_guard<mutex> lk(count_mtx);
 			count++;
 		}
 		else {
-			preJacob = jacob = DF * theta.inv();
+			jacob = Mat(DF * theta.inv()).clone();
+			preJacob = jacob.clone();
+			printLog("after initial, prePose is " + matToStr(prePose.t()));
 			printLog("DF matrix is " + matToStr(DF));
 			printLog("theta matrix is " + matToStr(theta));
 			printLog("jacobian is " + matToStr(jacob));
@@ -102,37 +104,50 @@ void VisualServo::RobotInitial()
 
 void VisualServo::servo()
 {
-	while (true) {
-		unique_lock<mutex> lk(count_mtx);
-		init_ready.wait(lk, [&] { return count == 6; });
+	unique_lock<mutex> lk(count_mtx);
+	init_ready.wait(lk, [&] { return count == 6; });
+	printLog("robot initialization ready, start visual servo!");
 
+	while (true) {
 		Mat e = feature - target;
-		Mat v = -preJacob.inv() * e;
+		Mat inv_jacob;
+		invert(preJacob, inv_jacob, DECOMP_SVD);
+		Mat v = -inv_jacob * e;
+		printLog("the move delta is " + matToStr( LAMBDA * v.t()));
 
 		pose = prePose + LAMBDA * v;
+		printLog("current pose is " + matToStr(Mat(prePose.t())));
+		printLog("target pose is " + matToStr(Mat(pose.t())));
 
 		robot->movej(vector<double>{pose.at<double>(0), pose.at<double>(1), \
 			pose.at<double>(2), pose.at<double>(3), pose.at<double>(4), pose.at<double>(5)}, 0.1, 0.1);
-		while (robot->isReachedJ(vector<double>{pose.at<double>(0), pose.at<double>(1), \
+		Sleep(3000);
+
+		while (!robot->isReachedJ(vector<double>{pose.at<double>(0), pose.at<double>(1), \
 			pose.at<double>(2), pose.at<double>(3), pose.at<double>(4), pose.at<double>(5)}, 0.002))
 		{
-			Sleep(2000);
+			Mat curPose = Mat(robot->getJointAngle()).clone();
+			printLog("now the pose error is " + matToStr(Mat(curPose - pose).t()));
+			Sleep(3000);
 		}
 
-		feature = Mat(camera->getFeaturePoints());
+		Mat curPose = Mat(robot->getJointAngle()).clone();
+		printLog("after move, pose is " + matToStr(curPose.t()));
+		feature = Mat(camera->getFeaturePoints()).clone();
 		Mat deltafeature = feature - preFeature;
+		printLog("after delta feature is " + matToStr(deltafeature.t()));
 		Mat deltapose = pose - prePose;
-		jacob = preJacob + (deltafeature - preJacob * deltapose.t()) * deltapose * prerls \
-			/ (COMPENSATION * deltapose * prerls * deltapose.t());
-		rls = 1 / COMPENSATION * (prerls - prerls * (deltapose.t() * deltapose) * prerls)\
-			/ (COMPENSATION + deltapose * prerls * deltapose.t());
+		jacob = preJacob + (deltafeature - preJacob * deltapose) * deltapose.t() * prerls \
+			/ (COMPENSATION + deltapose.t() * prerls * deltapose);
+		rls = 1 / COMPENSATION * (prerls - prerls * (deltapose * deltapose.t()) * prerls)\
+			/ (COMPENSATION + deltapose.t() * prerls * deltapose);
 
-		prePose = pose;
-		preFeature = feature;
-		prerls = rls;
-		preJacob = jacob;
+		prePose = pose.clone();
+		preFeature = feature.clone();
+		prerls = rls.clone();
+		preJacob = jacob.clone();
 
-		if (camera->isReachedI(target, 10))
+		if (camera->isReachedI(target, 40))
 			return;
 	}
 }
@@ -140,6 +155,7 @@ void VisualServo::servo()
 string VisualServo::matToStr(Mat m) {
 	string res = "";
 	for (int i = 0; i < m.rows; i++) {
+		if (i != 0) res += "			";
 		res += "[";
 		for (int j = 0; j < m.cols; j++) {
 			res += to_string(m.at<double>(i, j)) + ", ";

@@ -41,7 +41,7 @@ private:
 	cv::Mat origin_img;
 	cv::Mat feature_img;
 	vector<double> feature_point;
-	cv::Mat target;
+	vector<cv::Point> target;
 
 	cv::VideoCapture m_capture;
 	void imageProcessThread();

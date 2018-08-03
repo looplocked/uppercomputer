@@ -2,7 +2,12 @@
 
 Camera::Camera()
 {
+	target.resize(4);
 	init_point = cv::Point(220, 140);
+	target[0] = cv::Point(189, 108);
+	target[1] = cv::Point(427, 106);
+	target[2] = cv::Point(434, 348);
+	target[3] = cv::Point(194, 351);
 }
 
 Camera::~Camera()
@@ -234,6 +239,7 @@ void Camera::imageProcessThread() {
 			for (int i = 0; i < Points.size(); i++)
 			{
 				circle(drawImg2, Points[i], 5, cv::Scalar(0, 0, 255), 2, 18);
+				circle(drawImg2, target[i], 5, cv::Scalar(255, 255, 0), 2, 18);
 				string text = "point" + to_string(i);
 				putText(drawImg2, text, Points[i], font_face, font_scale, cv::Scalar(0, 255, 255), thickness, 8, 0);
 				int j = i == Points.size() - 1 ? 0 : i + 1;
