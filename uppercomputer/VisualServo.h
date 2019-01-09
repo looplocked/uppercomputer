@@ -4,6 +4,7 @@
 
 #define COMPENSATION 0.1
 #define LAMBDA 0.1
+#define cube 1
 
 #include "opencv2/core/core.hpp" 
 #include "RobotControl.h"

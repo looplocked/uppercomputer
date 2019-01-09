@@ -11,6 +11,7 @@
 #include "opencv2/imgproc/imgproc.hpp"
 #include "LineSegmentDetector.h"
 #include "OpenNI.h" 
+#include <QPixmap>
 
 #define HAVE_OPENCV
 
@@ -27,5 +28,6 @@ using namespace openni;
 void printLog(string log);
 void deleteLog();
 string MatToStr(Mat m);
+QImage cvMat2QImage(const cv::Mat& mat);
 
 #endif

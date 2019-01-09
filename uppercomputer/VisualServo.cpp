@@ -16,15 +16,26 @@ VisualServo::VisualServo()
 	rls = Mat::eye(6, 6, CV_64FC1);
 	prerls = Mat::eye(6, 6, CV_64FC1);
 
+#if cube
+		target.at<double>(0) = 189;
+		target.at<double>(1) = 108;
+		target.at<double>(2) = 427;
+		target.at<double>(3) = 106;
+		target.at<double>(4) = 434;
+		target.at<double>(5) = 348;
+		target.at<double>(6) = 194;
+		target.at<double>(7) = 351;
 
-	target.at<double>(0) = 189;
-	target.at<double>(1) = 108;
-	target.at<double>(2) = 427;
-	target.at<double>(3) = 106;
-	target.at<double>(4) = 434;
-	target.at<double>(5) = 348;
-	target.at<double>(6) = 194;
-	target.at<double>(7) = 351;
+#else
+		target.at<double>(0) = 201;
+		target.at<double>(1) = 36;
+		target.at<double>(2) = 453;
+		target.at<double>(3) = 36;
+		target.at<double>(4) = 453;
+		target.at<double>(5) = 441;
+		target.at<double>(6) = 201;
+		target.at<double>(7) = 441;
+#endif
 
 	camera->initial();
 	Sleep(3000);
@@ -108,15 +119,19 @@ void VisualServo::servo()
 	init_ready.wait(lk, [&] { return count == 6; });
 	printLog("robot initialization ready, start visual servo!");
 
+	//thread deadServoThread(&RobotControl::deadServo, robot, 0.008, 0.1, 300);
+	//deadServoThread.detach();
+
 	while (true) {
 		Mat e = feature - target;
 		Mat inv_jacob;
 		invert(preJacob, inv_jacob, DECOMP_SVD);
 		Mat v = -inv_jacob * e;
-		printLog("the move delta is " + matToStr( LAMBDA * v.t()));
+		//printLog("the move delta is " + matToStr( LAMBDA * v.t()));
 
 		pose = prePose + LAMBDA * v;
-		printLog("current pose is " + matToStr(Mat(prePose.t())));
+		printLog("before move pose is " + matToStr(Mat(prePose.t())));
+		printLog("before move feature is " + matToStr(Mat(preFeature.t())));
 		printLog("target pose is " + matToStr(Mat(pose.t())));
 
 		robot->movej(vector<double>{pose.at<double>(0), pose.at<double>(1), \
@@ -127,15 +142,16 @@ void VisualServo::servo()
 			pose.at<double>(2), pose.at<double>(3), pose.at<double>(4), pose.at<double>(5)}, 0.002))
 		{
 			Mat curPose = Mat(robot->getJointAngle()).clone();
-			printLog("now the pose error is " + matToStr(Mat(curPose - pose).t()));
+			//printLog("now the pose error is " + matToStr(Mat(curPose - pose).t()));
 			Sleep(3000);
 		}
 
 		Mat curPose = Mat(robot->getJointAngle()).clone();
 		printLog("after move, pose is " + matToStr(curPose.t()));
 		feature = Mat(camera->getFeaturePoints()).clone();
+		printLog("after move, feature is " + matToStr(feature.t()));
 		Mat deltafeature = feature - preFeature;
-		printLog("after delta feature is " + matToStr(deltafeature.t()));
+		//printLog("after move delta feature is " + matToStr(deltafeature.t()));
 		Mat deltapose = pose - prePose;
 		jacob = preJacob + (deltafeature - preJacob * deltapose) * deltapose.t() * prerls \
 			/ (COMPENSATION + deltapose.t() * prerls * deltapose);

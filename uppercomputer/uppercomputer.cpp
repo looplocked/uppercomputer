@@ -89,8 +89,11 @@ void uppercomputer::startTimer()
 	ui.FPSLineEdit->setText(fpsstr);
 
 
-	qoriginimg = QImage((const uchar*)(originimg.data), originimg.cols, originimg.rows, originimg.cols*originimg.channels(), QImage::Format_RGB888);
-	qfeatureimg = QImage((const uchar*)(featureimg.data), featureimg.cols, featureimg.rows, featureimg.cols*featureimg.channels(), QImage::Format_RGB888);
+	//qoriginimg = QImage((const uchar*)(originimg.data), originimg.cols, originimg.rows, originimg.cols*originimg.channels(), QImage::Format_RGB888);
+	//qfeatureimg = QImage((const uchar*)(featureimg.data), featureimg.cols, featureimg.rows, featureimg.cols*featureimg.channels(), QImage::Format_RGB888);
+
+	qoriginimg = cvMat2QImage(originimg);
+	qfeatureimg = cvMat2QImage(featureimg);
 
 	ui.LabelCamera->clear();
 	ui.LabelFeature->clear();

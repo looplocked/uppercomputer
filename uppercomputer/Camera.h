@@ -18,6 +18,11 @@
 
 typedef std::vector<std::pair<double, int> > sortType;
 
+#define pi 3.1415926
+#define min_Thresh 50
+#define max_Thresh 200
+#define cube 1
+
 using namespace std;
 
 class Camera
@@ -46,6 +51,27 @@ private:
 	cv::VideoCapture m_capture;
 	void imageProcessThread();
 
+	Rect cubePreprocessor(Mat& frame);
+	int mousePreprocessor(Mat& src);
+
+	vector<Point> lineDetection(Rect& r);
+	vector<Point> pointDetection(Mat &mouse_Contourimg);
+
+	vector<Point> pointExtraction(vector<Point>& Points);
+
+private:
+	vector<vector<Point>> Contours;
+	vector<Vec4i> Hierarchy;
+	Mat mouse_Contour_Draw;
+
+	cv::Ptr<cv_::LineSegmentDetector> ls;
+	std::vector<cv::Vec4f> lines_std;
+	Mat gray;
+	Rect r;
+
+
+private:
+
 	bool needReverse(cv::Vec4f line1, cv::Vec4f line2);
 	void enableClockWise(std::vector<cv::Point>& Points);
 	void transPoints(std::vector<cv::Point>& Points, int index);
@@ -54,6 +80,8 @@ private:
 	bool selectPoints(std::vector<cv::Point>& Points);
 	bool SortFaster(sortType& dists, int Top_num);
 	cv::Mat mirrorMap(cv::Mat srcimg);
+	Point getPointAffinedPos(const Point &src, const Point center, double angle);
+	vector<Point> findkeypoint(Mat image);
 
 	void printLog(string log);
 	void deleteLog();

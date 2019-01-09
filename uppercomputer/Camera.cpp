@@ -2,12 +2,32 @@
 
 Camera::Camera()
 {
+
 	target.resize(4);
 	init_point = cv::Point(220, 140);
-	target[0] = cv::Point(189, 108);
-	target[1] = cv::Point(427, 106);
-	target[2] = cv::Point(434, 348);
-	target[3] = cv::Point(194, 351);
+
+#if cube
+		target[0] = cv::Point(189, 108);
+		target[1] = cv::Point(427, 106);
+		target[2] = cv::Point(434, 348);
+		target[3] = cv::Point(194, 351);
+	
+#else
+	
+		target[0] = cv::Point(201, 36);
+		target[1] = cv::Point(453, 36);
+		target[2] = cv::Point(453, 441);
+		target[3] = cv::Point(201, 441);
+#endif
+	
+
+
+#if 0
+	ls = cv_::createLineSegmentDetector(cv_::LSD_REFINE_STD);//或者两种LSD算法，这边用的是standard的
+#else
+	ls = cv_::createLineSegmentDetector(cv_::LSD_REFINE_NONE);
+#endif
+
 }
 
 Camera::~Camera()
@@ -18,13 +38,6 @@ Camera::~Camera()
 void Camera::imageProcessThread() {
 
 	m_capture.open(0);
-
-	cv::Ptr<cv_::LineSegmentDetector> ls;
-#if 0
-	ls = cv_::createLineSegmentDetector(cv_::LSD_REFINE_STD);//或者两种LSD算法，这边用的是standard的
-#else
-	ls = cv_::createLineSegmentDetector(cv_::LSD_REFINE_NONE);
-#endif
 
 	int count = 0;
 	cv::Mat frame, mask, gray;
@@ -37,15 +50,13 @@ void Camera::imageProcessThread() {
 	string text;
 
 	cvflann::StartStopTimer timer;
-	cvflann::StartStopTimer roitimer;
-	cvflann::StartStopTimer linedetectiontimer;
-	cvflann::StartStopTimer lineselectiontimer;
+	cvflann::StartStopTimer preprocessortimer;
+	cvflann::StartStopTimer lineroitimer;
 	cvflann::StartStopTimer pointtimer;
 
 	string whole_time;
-	string roi_process_time;
-	string line_detect_time;
-	string line_select_time;
+	string preprocess_time;
+	string line_roi_time;
 	string point_process_time;
 
 	while(true) {
@@ -68,118 +79,29 @@ void Camera::imageProcessThread() {
 				}
 
 			timer.start();
-			roitimer.start();
-			resize(frame, frame, cv::Size(640, 480));//输入视频调整为800*800大小
-			cvtColor(frame, gray, CV_RGB2GRAY);//图像灰度化
-
-												//二值化
-			cv::Mat img_binary = gray.clone();
-
-			//图像处理形态学计算
-			threshold(img_binary, img_binary, 235, 255, CV_THRESH_BINARY);
-			cv::Mat element = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(16, 16));
-			morphologyEx(img_binary, img_binary, cv::MORPH_OPEN, element);
+			preprocessortimer.start();
+#if cube
+				r = cubePreprocessor(frame);
+#else
+				int ix = mousePreprocessor(frame);
+#endif
 
 
-			cv::Mat showbinary = img_binary.clone();
-			cv::resize(showbinary, showbinary, cv::Size(640, 480));
-
-			//寻找合适的联通区域
-			std::vector<std::vector<cv::Point>> contours;
-			cv::findContours(img_binary, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
-
-			int maxArea = 0;
-			cv::Rect r1;
-			CvBox2D r2;
-
-			std::vector<cv::Rect> rects;
-			std::vector<cv::Rect> rects_all;
-			for (int i = 0; i < contours.size(); i++)
-			{
-				maxArea = contours[i].size();
-				r2 = cv::minAreaRect(contours[i]);
-				r1 = cv::boundingRect(contours[i]);
-				rects_all.push_back(r1);
-				if (r1.area() < 10000 || r1.area() > 50000)
-				{
-					continue;
-				}
-				std::cout << r1.area() << " ";
-
-				rects.push_back(r1);
-			}
-			std::cout << std::endl;
-			//***************************
+			preprocessortimer.stop();
+			preprocess_time = "ROI extract time is " + to_string(preprocessortimer.value * 1000) + "ms";
+			preprocessortimer.reset();
 
 
-			//
-			int max_dis = 999;
-			cv::Rect r(0, 0, 0, 0);
-			cv::Point P1, P2;
-			P1.x = frame.cols*0.5;
-			P1.y = frame.rows*0.5;
-
-			for (int i = 0; i < rects.size(); i++)
-			{
-				P2.x = rects[i].x + 0.5*rects[i].width;
-				P2.y = rects[i].y + 0.5*rects[i].height;
-
-				double distance;
-				distance = powf((P1.x - P2.x), 2) + powf((P1.y - P2.y), 2);
-				distance = sqrtf(distance);
-
-				if (distance < max_dis)
-				{
-					max_dis = distance;
-					r = rects[i];
-				}
-			}
-
-			int max_all = 0;
-			if (r.area() == 0)
-			{
-				for (int i = 0; i < rects_all.size(); i++)
-				{
-					if (rects_all[i].area() > max_all)
-					{
-						max_all = rects_all[i].area();
-						r = rects_all[i];
-					}
-				}
-			}
-
-			//感兴趣区域扩展
-			if (r.area() == 0)
-			{
-				r = cv::Rect(0, 0, 639, 479);
-			}
-			else
-			{
-				r.x = r.x >= 10 ? r.x - 10 : 0;
-				r.y = r.y >= 10 ? r.y - 10 : 0;
-				r.width = r.x + r.width <= 620 ? r.width + 20 : 640 - r.x;
-				r.height = r.y + r.height <= 460 ? r.height + 20 : 460 - r.y;
-			}
-			roitimer.stop();
-			roi_process_time = "ROI extract time is " + to_string(roitimer.value * 1000) + "ms";
-			roitimer.reset();
-
-			linedetectiontimer.start();
-			std::vector<cv::Vec4f> lines_std;
-			lines_std.reserve(1000);
-			ls->detect(gray(r), lines_std);//这里把检测到的直线线段都存入了lines_std中，4个float的值，分别为起止点的坐标
-			linedetectiontimer.stop();
-			line_detect_time = "line detection time is " + to_string(linedetectiontimer.value * 1000) + "ms";
-			linedetectiontimer.reset();
-
-			//去除干扰线段
-			lineselectiontimer.start();
-			findPrimaryAngle(lines_std);
-			lineselectiontimer.stop();
-			line_select_time = "line selection time is " + to_string(lineselectiontimer.value * 1000) + "ms";
-			lineselectiontimer.reset();
-
-			//*****************************
+			lineroitimer.start();
+			vector<Point> points;
+#if cube
+				points = lineDetection(r);
+#else
+				points = pointDetection(mouse_Contour_Draw);
+#endif
+			lineroitimer.stop();
+			line_roi_time = "line selection time is " + to_string(lineroitimer.value * 1000) + "ms";
+			lineroitimer.reset();
 
 			cv::Mat drawImg = frame.clone();
 			cv::Mat drawImg2 = frame.clone();
@@ -187,34 +109,8 @@ void Camera::imageProcessThread() {
 			//imshow("2", drawImg);
 
 			pointtimer.start();
-			std::vector<cv::Point> Points;
-			for (int i = 0; i < lines_std.size(); i++)
-			{
-				cv::Point p1, p2;
-				p1 = cv::Point(lines_std[i][0] + r.x, lines_std[i][1] + r.y);
-				p2 = cv::Point(lines_std[i][2] + r.x, lines_std[i][3] + r.y);
 
-				Points.push_back(p1);
-				Points.push_back(p2);
-			}
-
-			enableClockWise(Points);
-
-			if (Points.size() == 4) {
-				int index = 0;
-				double mindist = 1000;
-				for (int i = 0; i < 4; i++) {
-					double d = norm(init_point - Points[i]);
-					if (d < mindist) {
-						index = i;
-						mindist = d;
-					}
-				}
-
-				transPoints(Points, 4 - index);
-
-				init_point = Points[0];
-			}
+			points = pointExtraction(points);
 
 
 			pointtimer.stop();
@@ -223,7 +119,7 @@ void Camera::imageProcessThread() {
 
 			while (true)
 				if (point_mutex.try_lock()) {
-					feature_point = flatPoints(Points);
+					feature_point = flatPoints(points);
 					point_mutex.unlock();
 					break;
 				}
@@ -236,14 +132,14 @@ void Camera::imageProcessThread() {
 			int font_face = cv::FONT_HERSHEY_COMPLEX;
 			double font_scale = 0.5;
 			int thickness = 0.2;
-			for (int i = 0; i < Points.size(); i++)
+			for (int i = 0; i < points.size(); i++)
 			{
-				circle(drawImg2, Points[i], 5, cv::Scalar(0, 0, 255), 2, 18);
+				circle(drawImg2, points[i], 5, cv::Scalar(0, 0, 255), 2, 18);
 				circle(drawImg2, target[i], 5, cv::Scalar(255, 255, 0), 2, 18);
 				string text = "point" + to_string(i);
-				putText(drawImg2, text, Points[i], font_face, font_scale, cv::Scalar(0, 255, 255), thickness, 8, 0);
-				int j = i == Points.size() - 1 ? 0 : i + 1;
-				line(drawImg2, Points[i], Points[j], cv::Scalar(255, 0, 0), 2, 8);
+				putText(drawImg2, text, points[i], font_face, font_scale, cv::Scalar(0, 255, 255), thickness, 8, 0);
+				int j = i == points.size() - 1 ? 0 : i + 1;
+				line(drawImg2, points[i], points[j], cv::Scalar(255, 0, 0), 2, 8);
 			}
 
 			line(drawImg2, cv::Point(r.x, r.y), cv::Point(r.x + r.width, r.y), cv::Scalar(0, 166, 0), 2, 8);
@@ -262,9 +158,8 @@ void Camera::imageProcessThread() {
 			text = fpstext;
 			putText(drawImg2, text, cv::Point(20, 10), cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(0, 255, 255));
 			putText(drawImg2, whole_time, cv::Point(20, 25), cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(0, 255, 255));
-			putText(drawImg2, roi_process_time, cv::Point(20, 40), cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(0, 255, 255));
-			putText(drawImg2, line_detect_time, cv::Point(20, 55), cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(0, 255, 255));
-			putText(drawImg2, line_select_time, cv::Point(20, 70), cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(0, 255, 255));
+			putText(drawImg2, preprocess_time, cv::Point(20, 40), cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(0, 255, 255));
+			putText(drawImg2, line_roi_time, cv::Point(20, 55), cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(0, 255, 255));
 			putText(drawImg2, point_process_time, cv::Point(20, 85), cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(0, 255, 255));
 
 			while (true)
@@ -323,6 +218,348 @@ bool Camera::isReachedI(Mat target, double threshold)
 {
 	Mat curFea = Mat(getFeaturePoints());
 	return norm(curFea - target) < threshold;
+}
+
+Rect Camera::cubePreprocessor(Mat &frame)
+{
+	resize(frame, frame, cv::Size(640, 480));//输入视频调整为800*800大小
+	cvtColor(frame, gray, CV_RGB2GRAY);//图像灰度化
+
+									   //二值化
+	cv::Mat img_binary = gray.clone();
+
+	//图像处理形态学计算
+	threshold(img_binary, img_binary, 235, 255, CV_THRESH_BINARY);
+	cv::Mat element = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(16, 16));
+	morphologyEx(img_binary, img_binary, cv::MORPH_OPEN, element);
+
+
+	cv::Mat showbinary = img_binary.clone();
+	cv::resize(showbinary, showbinary, cv::Size(640, 480));
+
+	//寻找合适的联通区域
+	std::vector<std::vector<cv::Point>> contours;
+	cv::findContours(img_binary, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
+
+	int maxArea = 0;
+	cv::Rect r1;
+	CvBox2D r2;
+
+	std::vector<cv::Rect> rects;
+	std::vector<cv::Rect> rects_all;
+	for (int i = 0; i < contours.size(); i++)
+	{
+		maxArea = contours[i].size();
+		r2 = cv::minAreaRect(contours[i]);
+		r1 = cv::boundingRect(contours[i]);
+		rects_all.push_back(r1);
+		if (r1.area() < 10000 || r1.area() > 50000)
+		{
+			continue;
+		}
+		std::cout << r1.area() << " ";
+
+		rects.push_back(r1);
+	}
+	std::cout << std::endl;
+	//***************************
+	//
+	int max_dis = 999;
+	cv::Rect r(0, 0, 0, 0);
+	cv::Point P1, P2;
+	P1.x = frame.cols*0.5;
+	P1.y = frame.rows*0.5;
+
+	for (int i = 0; i < rects.size(); i++)
+	{
+		P2.x = rects[i].x + 0.5*rects[i].width;
+		P2.y = rects[i].y + 0.5*rects[i].height;
+
+		double distance;
+		distance = powf((P1.x - P2.x), 2) + powf((P1.y - P2.y), 2);
+		distance = sqrtf(distance);
+
+		if (distance < max_dis)
+		{
+			max_dis = distance;
+			r = rects[i];
+		}
+	}
+
+	int max_all = 0;
+	if (r.area() == 0)
+	{
+		for (int i = 0; i < rects_all.size(); i++)
+		{
+			if (rects_all[i].area() > max_all)
+			{
+				max_all = rects_all[i].area();
+				r = rects_all[i];
+			}
+		}
+	}
+	if (r.area() == 0)
+	{
+		r = cv::Rect(0, 0, 639, 479);
+	}
+	else
+	{
+		r.x = r.x >= 10 ? r.x - 10 : 0;
+		r.y = r.y >= 10 ? r.y - 10 : 0;
+		r.width = r.x + r.width <= 620 ? r.width + 20 : 640 - r.x;
+		r.height = r.y + r.height <= 460 ? r.height + 20 : 460 - r.y;
+	}
+	return r;
+}
+
+int Camera::mousePreprocessor(Mat& srcImage)
+{
+	vector<Mat> ch;
+	split(srcImage, ch);
+
+
+	Mat grayImage, out_Canny;
+	grayImage = ch[1];
+	//cvtColor(srcImage, grayImage, CV_BGR2GRAY);
+
+	//blur(grayImage, grayImage, Size(3, 3));
+	//boxFilter(grayImage, grayImage, -1, Size(3, 3));
+	GaussianBlur(grayImage, grayImage, Size(5, 5), 0, 0);
+
+	Mat element = getStructuringElement(MORPH_RECT, Size(3, 3));
+	dilate(grayImage, grayImage, element);
+	erode(grayImage, grayImage, element);
+
+
+	adaptiveThreshold(grayImage, grayImage, 120, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY, 3, 3);
+
+	Canny(grayImage, out_Canny, 70, 240, 3);
+
+	findContours(out_Canny, Contours, Hierarchy, CV_RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
+
+	/*画出所有轮廓*/
+	mouse_Contour_Draw = Mat::zeros(out_Canny.size(), CV_8UC1);
+
+
+	for (int i = 0; i < Contours.size(); i++)
+	{
+		drawContours(mouse_Contour_Draw, Contours, i, Scalar(255), 3, 8, Hierarchy, 0, Point());
+	}
+
+
+	if (Contours.size() > 40) return -1;
+
+
+
+	return 1;
+}
+
+vector<Point> Camera::lineDetection(Rect& r)
+{
+	lines_std.reserve(1000);
+	ls->detect(gray(r), lines_std);//这里把检测到的直线线段都存入了lines_std中，4个float的值，分别为起止点的坐标
+	findPrimaryAngle(lines_std);
+
+	std::vector<cv::Point> Points;
+	for (int i = 0; i < lines_std.size(); i++)
+	{
+		cv::Point p1, p2;
+		p1 = cv::Point(lines_std[i][0] + r.x, lines_std[i][1] + r.y);
+		p2 = cv::Point(lines_std[i][2] + r.x, lines_std[i][3] + r.y);
+
+		Points.push_back(p1);
+		Points.push_back(p2);
+	}
+
+	return Points;
+}
+
+vector<Point> Camera::pointDetection(Mat &mouse_Contourimg)
+{
+	vector<Point> key, tempkey;
+	RotatedRect box; //定义最小外接矩形
+	Rect boundRect;  //用于存储外接矩形
+	boundRect = boundingRect(mouse_Contourimg);
+
+	rectangle(mouse_Contourimg, boundRect, Scalar(255, 0, 0), 2, 8);
+
+	//最小外接矩形，是紧紧挨着轮廓的，可能有倾斜
+	vector<Point> contourPoint;
+	for (int i = 0; i < Contours.size(); i++)
+	{
+		contourPoint.insert(contourPoint.end(), Contours[i].begin(), Contours[i].end());
+	}
+
+	if (!contourPoint.empty())
+		box = minAreaRect(contourPoint);
+
+	Point2f* vertices = new cv::Point2f[4];
+	box.points(vertices);
+
+	//绘制box矩形
+	for (int j = 0; j < 4; j++)
+	{
+		line(mouse_Contourimg, vertices[j], vertices[(j + 1) % 4], cv::Scalar(0, 255, 0));
+		key.push_back(vertices[j]);
+	}
+
+	return key;
+}
+
+vector<Point> Camera::pointExtraction(vector<Point>& Points)
+{
+
+	enableClockWise(Points);
+
+	if (Points.size() == 4) {
+		int index = 0;
+		double mindist = 1000;
+		for (int i = 0; i < 4; i++) {
+			double d = norm(init_point - Points[i]);
+			if (d < mindist) {
+				index = i;
+				mindist = d;
+			}
+		}
+
+		transPoints(Points, 4 - index);
+
+		init_point = Points[0];
+	}
+	return Points;
+}
+
+
+Point Camera::getPointAffinedPos(const Point &src, const Point center, double angle)
+{
+	Point dst;
+	int x = src.x - center.x;
+	int y = src.y - center.y;
+
+	dst.x = cvRound(x * cos(angle) + y * sin(angle) + center.x);
+	dst.y = cvRound(-x * sin(angle) + y * cos(angle) + center.y);
+	return dst;
+}
+
+vector<Point> Camera::findkeypoint(Mat image)
+{
+	bool flag = 0;
+	vector<Point> tempkeypoint, keypoint;
+	int temp = 0;
+
+	//从右往左，从上往下 扫描
+	for (int i = 0; i < image.rows; i++)
+	{
+		uchar *data = image.ptr<uchar>(i);
+		for (int j = image.cols - 1; j>image.cols / 2; j--)      //这里55，可能不是最优值，好一点方法应该是按照入口参数image的尺寸比例来算
+		{
+			if (data[j] == 255 && j>image.cols / 2)
+			{
+				tempkeypoint.push_back(Point(j, i));
+				flag = 1;
+			}
+		}
+		if (flag) break;
+	}
+
+	if (tempkeypoint.size() == 0) return keypoint;
+	for (int i = 0; i < tempkeypoint.size(); i++) temp += tempkeypoint[i].x;//没有考虑upkeypoint没有元素的情况
+	keypoint.push_back(Point(temp / tempkeypoint.size(), tempkeypoint[0].y));
+	tempkeypoint.clear();
+	temp = 0;
+	flag = 0;
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	//从右往左，从下往上扫描
+	for (int i = image.rows - 1; i>0; i--)
+	{
+		uchar *data = image.ptr<uchar>(i);
+		for (int j = image.cols - 1; j>image.cols / 2; j--)
+		{
+			if (data[j] == 255 && j>image.cols / 2)                          //if (data[j] == 255 && j>55) 这里55，可能不是最优值，好一点方法应该是按照入口参数image的尺寸比例来算
+			{
+				tempkeypoint.push_back(Point(j, i));
+				flag = 1;
+			}
+		}
+		if (flag) break;
+	}
+
+	if (tempkeypoint.size() == 0) return keypoint;
+	for (int i = 0; i < tempkeypoint.size(); i++) temp += tempkeypoint[i].x;//没有考虑upkeypoint没有元素的情况
+	keypoint.push_back(Point(temp / tempkeypoint.size(), tempkeypoint[0].y));
+	tempkeypoint.clear();
+	temp = 0;
+	flag = 0;
+
+	//cout << keypoint << endl;
+	//////////////////////////////////////////////////////////////////////
+
+	//分割logitech这几个字的轮廓，如果扫描到这几个字轮廓的最左边一列，且这一列都为黑色的，则停止扫描
+	int j;
+	for (int i = keypoint[0].x; i>0; i--) //列
+	{
+		for (j = keypoint[0].y; j <image.rows; j++) // 行
+		{
+			uchar *data = image.ptr<uchar>(j);
+			if (data[i] == 255) break;;
+		}
+		if (j == image.rows)
+		{
+			tempkeypoint.push_back(Point(i, j - 1));
+			break;
+		}
+	}
+
+	if (tempkeypoint.size() == 0) return keypoint;
+	//cout << tempkeypoint << endl;
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	bool witheflag = false;                   //由下往上，由右往左扫描，依据鼠标滚轮处（有一个圈），由黑到白，再到白，再到黑的过程
+	bool blackflag = false;
+	int i = tempkeypoint[0].x;
+	tempkeypoint.clear();
+	for (; i > 0; i--) //列
+	{
+		for (int j = image.rows - 1; j >0; j--) // 行
+		{
+			uchar *data = image.ptr<uchar>(j);
+			if (data[i] == 255)
+				witheflag = true;
+			if (witheflag && (data[i] == 0) && (i<image.cols / 3))
+			{
+				tempkeypoint.push_back(Point(i, j));
+				blackflag = true;
+			}
+			if (blackflag && (data[i] == 255)) {
+				flag = true; break;
+			}
+		}
+		if (flag) break;
+		blackflag = false; witheflag = false;
+		tempkeypoint.clear();
+	}
+
+	if (tempkeypoint.size() == 0) return keypoint;
+	for (int i = 0; i < tempkeypoint.size(); i++) temp += tempkeypoint[i].y;//没有考虑upkeypoint没有元素的情况
+	keypoint.push_back(Point(tempkeypoint[0].x, temp / tempkeypoint.size()));
+	tempkeypoint.clear();
+	temp = 0;
+	flag = 0;
+	/////////////////////////////////////////////////////////////////////
+
+
+	for (int j = keypoint[2].x; j >0; j--) // 列
+	{
+		uchar *data = image.ptr<uchar>(keypoint[2].y);
+		if ((data[j] == 255) && (j<image.cols / 5)) {
+			keypoint.push_back(Point(j, keypoint[2].y));
+			break;
+		};
+	}
+
+	return keypoint;
 }
 
 bool Camera::needReverse(cv::Vec4f line1, cv::Vec4f line2)

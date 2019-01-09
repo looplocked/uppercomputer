@@ -4,6 +4,7 @@
 
 #include <exception>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ public:
 class RobotException : public exception
 {
 public:
-	RobotException() : exception("ERROR! Robot is not connected!")
+	RobotException(string str="") : exception(str.c_str())
 	{}
 };
 
